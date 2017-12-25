@@ -1,0 +1,57 @@
+.tip {
+	margin-left:10px;
+	color:green;
+}
+required {
+	color:red;
+	font-weight:bold;
+}
+.invalid {
+	border:1px solid red;	
+}
+.invalid_message {
+	color:white;
+	background-color:red;
+	padding:3px;
+}
+.grouplabel {
+	background-color:#605ca8;
+	color:white;
+	padding:3px;
+	font-size:18px;
+	text-align:center;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.toggle-yes {
+	color:green;
+	font-weight:bold;
+}
+
+.toggle-no {
+	color:red;
+	font-weight:bold;
+}
+
+.login-container {
+	width: 100%; 
+	height: 100%;
+	position: absolute; 
+	top: 0; 
+	left: 0;
+	/* background:url('https://css-tricks.com/examples/FullPageBackgroundImage/images/bg.jpg') no-repeat center center fixed; */
+	background-color:#ecf0f5;
+	-webkit-background-size: cover;
+    -moz-background-size: cover; 
+    -o-background-size: cover;  
+    background-size: cover;
+}

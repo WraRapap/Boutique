@@ -1,0 +1,86 @@
+[2017-12-25 11:20:36 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:36 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:36 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:36 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:36 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:36 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:36 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:36 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:36 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:37 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:37 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:37 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:37 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:37 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:37 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:37 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:37 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:37 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:39 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:39 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:39 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:39 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:39 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:39 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:39 - ::1] SELECT * FROM cs_sys_admin  ORDER BY sortTime ASC, sequence ASC, createTime DESC;
+[2017-12-25 11:20:40 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:40 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:40 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:40 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:40 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:40 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:40 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:40 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:40 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:40 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:40 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:40 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:40 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:40 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:20:40 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:20:40 - ::1] SELECT * FROM cs_sys_admin  ORDER BY sortTime ASC, sequence ASC, createTime DESC;
+[2017-12-25 11:31:23 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:31:23 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:31:23 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:31:23 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:31:23 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:31:23 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:31:23 - ::1] SELECT * FROM cs_sys_widget  ORDER BY sortTime ASC, sequence ASC, createTime DESC;
+[2017-12-25 11:31:49 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:31:49 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:31:49 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:31:49 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:31:49 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:31:49 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:31:49 - ::1] SELECT * FROM cs_sys_widget WHERE id='' ;
+[2017-12-25 11:31:49 - ::1] SELECT * FROM cs_sys_widget WHERE id='' ;
+[2017-12-25 11:31:49 - ::1] DESCRIBE cs_sys_widget;
+[2017-12-25 11:33:53 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:33:53 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:33:53 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:33:53 - ::1] DESCRIBE cs_sys_widget;
+[2017-12-25 11:33:53 - ::1] INSERT INTO cs_sys_widget (id,title,code,model,data_source,jsonContent,createTime,updateTime,sortTime,sequence) VALUES ('15a4071a1ba940','顏色','color','admin-data','color','{\"base_information\":\"\",\"class_information\":\"\",\"class_level\":\"0\",\"dynamic_level\":\"\",\"class_count\":\"10\",\"class_control\":\"ADD,FIX,DEL,SORT,PUBLISH\",\"class_fields\":\"[]\",\"special_class_information\":\"\",\"special_class_level\":\"0\",\"special_class_control\":\"ADD,FIX,DEL,SORT,PUBLISH\",\"special_class_fields\":\"[]\",\"item_information\":\"\",\"item_max_count\":\"0\",\"item_count\":\"10\",\"item_control\":\"ADD,FIX,DEL,SORT,PUBLISH\",\"item_fields\":\"[{\\\"name\\\":\\\"\\\\u984f\\\\u8272\\\",\\\"variable\\\":\\\"color\\\",\\\"type\\\":\\\"text\\\",\\\"properties\\\":\\\"\\\",\\\"default\\\":\\\"\\\",\\\"tip\\\":\\\"\\\",\\\"xss\\\":\\\"Y\\\",\\\"list\\\":\\\"Y\\\"},{\\\"name\\\":\\\"\\\\u984f\\\\u8272\\\\u4ee3\\\\u78bc\\\",\\\"variable\\\":\\\"code\\\",\\\"type\\\":\\\"text\\\",\\\"properties\\\":\\\"\\\",\\\"default\\\":\\\"\\\",\\\"tip\\\":\\\"\\\",\\\"xss\\\":\\\"Y\\\",\\\"list\\\":\\\"Y\\\"}]\"}','','','','');
+[2017-12-25 11:33:53 - ::1] SHOW TABLES LIKE 'cs_color';
+[2017-12-25 11:33:53 - ::1] CREATE TABLE cs_color (
+									id varchar(40) PRIMARY KEY NOT NULL COMMENT '識別碼', 
+									domainID varchar(40) NULL COMMENT '網域識別碼',
+									langID varchar(40) NULL COMMENT '語系識別碼',
+									parentID varchar(40) NULL COMMENT '父分類或父項目識別碼',
+									level int(11) NULL COMMENT '分類層數',
+									jsonContent TEXT NULL COMMENT '額外欄位資訊',
+									createTime DATETIME NULL COMMENT '建立時間',
+									updateTime DATETIME NULL COMMENT '更新時間',
+									sortTime DATETIME NULL COMMENT '排序時間',
+									sequence int(11) NULL COMMENT '排列順序',
+									topTime DATETIME NULL COMMENT '置頂時間'
+								) ENGINE=MyISAM; 
+[2017-12-25 11:33:53 - ::1] DESCRIBE cs_color;
+[2017-12-25 11:33:53 - ::1] ALTER TABLE cs_color ADD color TEXT  COMMENT '';
+[2017-12-25 11:33:53 - ::1] ALTER TABLE cs_color ADD code TEXT  COMMENT '';
+[2017-12-25 11:33:55 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:33:55 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:33:55 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:33:55 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:33:55 - ::1] SELECT * FROM cs_sys_information  ;
+[2017-12-25 11:33:55 - ::1] DESCRIBE cs_sys_information;
+[2017-12-25 11:33:55 - ::1] SELECT * FROM cs_sys_widget  ORDER BY sortTime ASC, sequence ASC, createTime DESC;
