@@ -220,3 +220,4 @@
 [2018-02-02 13:42:03 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
 [2018-02-02 13:42:29 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
 [2018-02-02 13:42:42 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
+[2018-02-02 13:45:46 - ::1] SELECT id, name, cheapest, img, price FROM cs_product WHERE publish='Y' ;
