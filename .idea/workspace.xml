@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="cf3c6fb4-f7e9-4ed3-97e3-e35ddffa8136" name="Default" comment="" />
+=======
+    <list default="true" id="cf3c6fb4-f7e9-4ed3-97e3-e35ddffa8136" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/website/view/index.html" afterPath="$PROJECT_DIR$/website/view/index.html" />
+    </list>
+>>>>>>> 9d7412a1a4b142de5630c04e696bed85de316369
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,13 +20,14 @@
       <file leaf-file-name="website.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/system/controllers/website.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3629">
-              <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+            <state relative-caret-position="304">
+              <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="product.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/view/product.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -31,11 +38,13 @@
           </provider>
         </entry>
       </file>
+=======
+>>>>>>> 9d7412a1a4b142de5630c04e696bed85de316369
       <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="418">
+              <caret line="22" column="37" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -64,6 +73,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/website/index.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1012">
               <caret line="80" column="27" lean-forward="true" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="27" />
               <folding />
@@ -76,6 +86,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
               <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+=======
+            <state relative-caret-position="277">
+              <caret line="122" column="15" lean-forward="true" selection-start-line="122" selection-start-column="15" selection-end-line="122" selection-end-column="15" />
+>>>>>>> 9d7412a1a4b142de5630c04e696bed85de316369
               <folding />
             </state>
           </provider>
@@ -138,6 +152,7 @@
       <find>like</find>
       <find>cheapest</find>
       <find>embedCommand</find>
+      <find>ngAn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,7 +183,6 @@
         <option value="$PROJECT_DIR$/system/configs/FilterPage.php" />
         <option value="$PROJECT_DIR$/system/configs/Filter.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/website/view/index.html" />
         <option value="$PROJECT_DIR$/website/controllers/product.js" />
         <option value="E:/design/85go-20180118/85go-20180118/boutiquefrontend/cart.html" />
         <option value="$PROJECT_DIR$/website/controllers/item.js" />
@@ -180,11 +194,15 @@
         <option value="$PROJECT_DIR$/website/view/cart.html" />
         <option value="$PROJECT_DIR$/system/controllers/api.php" />
         <option value="$PROJECT_DIR$/website/controllers/cart.js" />
-        <option value="$PROJECT_DIR$/system/controllers/website.php" />
         <option value="$PROJECT_DIR$/website/controllers/login.js" />
         <option value="$PROJECT_DIR$/website/controllers/signin.js" />
         <option value="$PROJECT_DIR$/website/view/login.html" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/website/index.html" />
+=======
+        <option value="$PROJECT_DIR$/system/controllers/website.php" />
+        <option value="$PROJECT_DIR$/website/view/index.html" />
+>>>>>>> 9d7412a1a4b142de5630c04e696bed85de316369
       </list>
     </option>
   </component>
@@ -240,6 +258,7 @@
             </path>
             <path>
               <item name="Boutique" type="b2602c69:ProjectViewProjectNode" />
+<<<<<<< HEAD
               <item name="Boutique" type="462c0819:PsiDirectoryNode" />
               <item name="website" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -254,6 +273,22 @@
               <item name="Boutique" type="462c0819:PsiDirectoryNode" />
               <item name="website" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="Boutique" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="system" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Boutique" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Boutique" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="website" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Boutique" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Boutique" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="website" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+>>>>>>> 9d7412a1a4b142de5630c04e696bed85de316369
             </path>
           </expand>
           <select />
@@ -317,13 +352,21 @@
       <workItem from="1514171922868" duration="2323000" />
       <workItem from="1515638933778" duration="6763000" />
       <workItem from="1516961197149" duration="6984000" />
+<<<<<<< HEAD
       <workItem from="1517187957464" duration="115685000" />
       <workItem from="1517542834518" duration="2619000" />
+=======
+      <workItem from="1517187957464" duration="120977000" />
+>>>>>>> 9d7412a1a4b142de5630c04e696bed85de316369
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="151319000" />
+=======
+    <option name="totallyTimeSpent" value="153992000" />
+>>>>>>> 9d7412a1a4b142de5630c04e696bed85de316369
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -343,7 +386,15 @@
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15245202" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> 9d7412a1a4b142de5630c04e696bed85de316369
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50555557" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -699,6 +750,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/view/cart.html">
+<<<<<<< HEAD
+=======
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1102">
           <caret line="58" column="185" lean-forward="false" selection-start-line="58" selection-start-column="185" selection-end-line="58" selection-end-column="185" />
@@ -708,32 +761,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/website/controllers/signin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
+        <state relative-caret-position="475">
           <caret line="31" column="47" lean-forward="false" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/view/product.html">
+>>>>>>> 9d7412a1a4b142de5630c04e696bed85de316369
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="173" column="14" lean-forward="false" selection-start-line="173" selection-start-column="14" selection-end-line="173" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/system/controllers/website.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3629">
-          <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/view/product.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3287">
-          <caret line="173" column="14" lean-forward="false" selection-start-line="173" selection-start-column="14" selection-end-line="173" selection-end-column="14" />
+<<<<<<< HEAD
+        <state relative-caret-position="589">
+          <caret line="31" column="47" lean-forward="false" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+=======
+        <state relative-caret-position="304">
+          <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+>>>>>>> 9d7412a1a4b142de5630c04e696bed85de316369
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="418">
+          <caret line="22" column="37" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/view/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="3287">
+          <caret line="173" column="14" lean-forward="false" selection-start-line="173" selection-start-column="14" selection-end-line="173" selection-end-column="14" />
+=======
+        <state relative-caret-position="361">
+          <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+>>>>>>> 9d7412a1a4b142de5630c04e696bed85de316369
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="122" column="15" lean-forward="true" selection-start-line="122" selection-start-column="15" selection-end-line="122" selection-end-column="15" />
           <folding />
         </state>
       </provider>
