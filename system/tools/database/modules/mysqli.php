@@ -68,7 +68,6 @@ class CS_MySQLi extends Chihsin{
 		
 
 		$sql = $this -> into_command();
-
 		// 是否分頁
 		if($count > 0){
 			$this -> tool_pagination -> set_count_per_page($count);
@@ -83,7 +82,6 @@ class CS_MySQLi extends Chihsin{
 				
 			}
 		}
-
 
 		$res = mysqli_query($this -> link, $sql);
 
@@ -175,6 +173,13 @@ class CS_MySQLi extends Chihsin{
 		}
 	}
 
+    /**
+     * 帶入like字串參數
+     */
+    public function embedLikeString($value) {
+        self::$params[] = "'" .$value[0]. mysqli_real_escape_string($this -> link, $value[1]) .$value[2] ."'";
+    }
+
 	/**
 	 * 帶入數值參數
 	 */
@@ -196,15 +201,18 @@ class CS_MySQLi extends Chihsin{
 	public function embedData($data) {
 
 		// 進資料庫資訊不可為陣列
-		if (is_array($data)) {
-			ob_start();
-			print_r($data);
-			$err_data = ob_get_contents();
-			ob_end_clean();
-			throw new Exception("Can't save array : " . $err_data);
-		}
+//		if (is_array($data)) {
+//			ob_start();
+//			print_r($data);
+//			$err_data = ob_get_contents();
+//			ob_end_clean();
+//			throw new Exception("Can't save array : " . $err_data);
+//		}
 
 		switch(true) {
+            case is_array($data);
+                $this -> embedLikeString($data);
+                break;
 			case is_null($data) :
 				self::$params[] = "NULL";
 				break;

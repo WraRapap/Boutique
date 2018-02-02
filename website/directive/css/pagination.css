@@ -1,0 +1,59 @@
+.page-list .pagination 
+{
+	float:right;
+}
+.page-list .pagination span 
+{
+	cursor: pointer;
+	color: rgb(150,150,150);
+}
+
+.page-list .pagination .separate span
+{
+	cursor: default; 
+	border-top:none;
+	border-bottom:none;
+}
+.page-list .pagination .separate span:hover 
+{
+	background: none;
+}
+
+.page-list .pagination .disabled span {
+	color: rgb(150,150,150);
+}
+
+.page-list .pagination .active span {
+	color: rgb(80,80,80);
+	background-color: #EEEEEE;
+	border-color:#ddd;
+}
+
+.page-list .pagination span:hover {
+	color: rgb(80,80,80);
+	background-color: #EEEEEE;
+}
+
+.page-list .page-total 
+{
+	display: none;
+	float:left; margin: 25px 20px;
+}
+.page-list .page-total input, .page-list .page-total select
+{
+	height: 26px; 
+	border: 1px solid #ddd;
+}
+.page-list .page-total input 
+{
+	width: 40px; 
+	padding-left:3px;
+}
+.page-list .page-total select 
+{
+	width: 50px;
+}
+
+.page-list .no-items {
+	display: none;
+}

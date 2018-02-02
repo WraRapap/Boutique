@@ -1,0 +1,59 @@
+<!--login-->
+<link rel="stylesheet" href="css/member.css">
+<section class="container-narrow-s" id="signin-cnt">
+  <div>
+    <div class="content">
+      <div class="inner-title">
+        <h1>建立新帳戶</h1>
+      </div>
+      <div class="content inner-table-wrap">
+        <div class="inner-table">
+          <div class="inner-table-img"></div>
+          <div class="inner-table-form">
+            <form name="snform" ng-controller="signinCtrl">
+              <div class="input-area">
+                <h3>我要註冊</h3>
+                <div>
+                  <label>電子信箱(帳號)</label>
+                  <input type="email" name="email" ng-model="email" required  placeholder="輸入Email">
+                  <span style="color:red" ng-show="clickFlag && snform.email.$invalid">
+                     <span ng-show="snform.email.$error.required">電子信箱必填。</span>
+                     <span ng-show="snform.email.$error.email">電子郵箱格式不對。</span>
+                  </span>
+                </div>
+                <div>
+                  <label>密碼</label>
+                  <input type="password" name="password" ng-model="password" required  placeholder="請輸入密碼">
+                  <span style="color:red" ng-show="clickFlag && snform.password.$invalid">
+                     <span ng-show="snform.password.$error.required">密碼必填。</span>
+                  </span>
+                </div>
+                <div>
+                  <label>確認密碼 </label>
+                  <input type="password" name="confirmpwd" ng-model="confirmpwd" required  placeholder="重新輸入密碼">
+                  <span style="color:red" ng-show="clickFlag && snform.confirmpwd.$invalid">
+                     <span ng-show="snform.confirmpwd.$error.required">確認密碼必填。</span>
+                  </span>
+                </div>
+                <div>
+                  <label>姓名</label>
+                  <input type="text" name="account" ng-model="account" required placeholder="請輸入姓名">
+                  <span style="color:red" ng-show="clickFlag && snform.account.$invalid">
+                     <span ng-show="snform.account.$error.required">姓名必填。</span>
+                  </span>
+                </div>
+                <div>
+                  <label>MT4帳號</label>
+                  <input type="text" name="mt4" ng-model="mt4" placeholder="請填寫MT4帳號、非必填">
+                </div>
+              </div>
+              <div class="btn-area">
+                <button name="register"  type="button" ng-click="register()">註冊</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

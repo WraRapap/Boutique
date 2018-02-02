@@ -1,0 +1,210 @@
+<link rel="stylesheet" href="css/product-items.css">
+<script src="js/priceSlider.js"></script>
+<section class="container-narrow clearfix" id="product-items" ng-controller="productCtrl">
+    <!--filter-->
+    <aside class="filter-wrap">
+        <div class="filter-box">
+            <ul>
+                <li class="filter-title"><a href="#"><span>prada</span></a></li>
+                <li class="filter-subtitle"><a href="#"><span>Show All</span></a></li>
+                <li><a href="#"><span>Clothing</span></a></li>
+                <li><a href="#"><span>Shoes</span></a></li>
+                <li><a href="#"><span>Bags</span></a></li>
+                <li><a href="#"><span>Accessories</span></a></li>
+                <li><a href="#"><span>Exclusives</span></a></li>
+            </ul>
+        </div>
+        <div class="filter-box">
+            <div class="filter-title">排序方式</div>
+            <a class="reset-btn">全部清除</a></div>
+
+        <!--品牌-->
+        <div class="filter-box" id="filter-brand">
+            <div class="filter-title has-arrow"><a href="#">品牌</a>
+                <div class="filter-submenu">
+                    <form>
+                        <div>
+                            <input type="checkbox"/>
+                            <label><span>PRADA</span></label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label><span>moschino</span></label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label><span>burberry</span></label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label><span>gucci</span></label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label><span>miu miu</span></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--尺寸-->
+        <div class="filter-box" id="filter-size">
+            <div class="filter-title has-arrow"><a href="#">尺寸</a>
+                <div class="filter-submenu">
+                    <form>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt">one size</span> </label>
+                        </div>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt">XXS</span> </label>
+                        </div>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt">xs</span> </label>
+                        </div>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt">S</span> </label>
+                        </div>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt">m</span> </label>
+                        </div>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt">l</span> </label>
+                        </div>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt">xl</span> </label>
+                        </div>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt">XXl</span> </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--價錢-->
+        <div class="filter-box" id="filter-price">
+            <div class="filter-title has-arrow" id="price_title"><a href="#">價錢</a>
+                <div class="filter-submenu" id="price_submenu" >
+                    <div class="price-range">
+                        <div class="price-line">
+
+                            <div class="sel-line"></div>
+                            <div class="begin-box">
+                                <span></span>
+                            </div>
+                            <div class="end-box"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--顏色-->
+        <div class="filter-box" id="filter-color">
+            <div class="filter-title has-arrow"><a href="#">顏色</a>
+                <div class="filter-submenu">
+                    <form>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt check-white"></span> </label>
+                        </div>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt check-red"></span> </label>
+                        </div>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt check-yellow"></span> </label>
+                        </div>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt check-green"></span> </label>
+                        </div>
+                        <div>
+                            <label class="checkbox-wrap">
+                                <input type="checkbox">
+                                <span class="checkbox-txt check-blue"></span> </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="items-wrap">
+        <div class="items-top">
+            <div class="item-classify"><a href="#"><span>首頁</span></a> / <a href="#"><span>DESIGNER</span></a> /
+                <a href="#"><span>PRADA</span></a></div>
+            <div class="sort-wrap">
+                <div class="item-sort">
+                    <form>
+                        <select>
+                            <option value="0">排列方式</option>
+                            <option value="1">價錢：由低到高</option>
+                            <option value="2">價錢：由高到低</option>
+                            <option value="3">上架時間：新到舊</option>
+                            <option value="4">上架時間：舊到新</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="item-filter"><a href="#" id="filter-toggle">filter</a></div>
+            </div>
+        </div>
+
+        <!--items-->
+        <div class="items-cnt clearfix">
+            <?php foreach((array)$this ->productlist as $product):?>
+            <article class="items-box">
+                <div class="items-box-side"><a href="#" class="items-cart"></a> <a href="#"
+                                                                                   class="items-like"></a></div>
+                <a href="item.html?i=<?php echo $product['id'];?>">
+                    <div class="items-box-main">
+                        <div class="items-img reveal"><img src="../system/files/<?php echo json_decode($product['img'])[0]->path;?>"/> <img
+                                class="hidden" src="../system/files/<?php echo json_decode($product['img'])[1]->path;?>"/>
+                        </div>
+                        <div>
+                            <h6><span><?php echo $product['name'];?></span></h6>
+                            <h5><span>TWD {{<?php echo $product['price'];?> | currency}}</span></h5>
+                        </div>
+                    </div>
+                </a></article>
+            <?php endforeach;?>
+        </div>
+
+        <!--pagigation-->
+        <div class="items-bottom">
+            <div class="items-pagination"><a href="#" class="pagination-pre"><span>上一頁</span></a><a
+                    href="#"><span>1</span></a><a href="#"><span>2</span></a><a href="#"><span>3</span></a><a
+                    href="#"><span>4</span></a><a href="#" class="pagination-next"><span>下一頁</span></a></div>
+            <div class="items-sum">
+                <div>共計<span>90</span>個商品</div>
+                <div>頁數<span>1</span>/<span>4</span></div>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>

@@ -1,0 +1,47 @@
+html {
+	font-size: 75%;/*16px*.75=12px*/
+	font-family: 'Microsoft JhengHei', 'Heiti TC', Calibri, serif!important;	
+	-webkit-font-smoothing: antialiased;/*防鋸齒*/
+	/*text-transform: uppercase;*/
+}
+h1 {
+	font-size: 25px;
+	font-size: 2.063rem;
+}
+h2 {
+	font-size: 20px;
+	font-size: 1.663rem;
+}
+h3 {
+	font-size: 16px;
+	font-size: 1.313rem;
+	font-weight: 400;
+}
+h4 {
+	font-size: 14px;
+	font-size: 1.163rem;
+}
+h5, .h5 {
+	font-size: 12px;
+	font-size: 1rem;
+}
+h6, .h6 {
+	font-size: 10px;
+	font-size: 0.83333rem;
+}
+.txt-center{
+	text-align: center!important;
+}
+.txt-left{
+	text-align: left!important;
+}
+.txt-right{
+	text-align: right!important;
+}
+.underline{
+	text-decoration: underline;
+}
+.underline:hover{
+	color: #b89a54;
+	transition: color .4s;
+}

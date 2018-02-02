@@ -1,0 +1,48 @@
+<!--login-->
+<link rel="stylesheet" href="css/member.css">
+<section class="container-narrow-s" id="login-cnt">
+  <div>
+    <div class="content">
+      <div class="inner-title">
+        <h1>會員登入</h1>
+      </div>
+      <div class="content inner-table-wrap">
+        <div class="inner-table">
+          <div class="inner-table-img"></div>
+          <div class="inner-table-form"  ng-controller="loginCtrl">
+            <form name="lgform"  ng-submit="login()" novalidate>
+              <div class="input-area">
+                <h3>我已登記</h3>
+                <div>
+                  <label>帳號</label>
+                  <input type="text" ng-model="email" name="email" required placeholder="請輸入帳號">
+                  <span style="color:red" ng-show="clickFlag && lgform.email.$invalid">
+                     <span ng-show="lgform.email.$error.required">帳號必填。</span>
+                  </span>
+                </div>
+                <div>
+                  <label>密碼</label>
+                  <input type="password" name="password" ng-model="password" required placeholder="請輸入密碼">
+                  <span style="color:red" ng-show="clickFlag && lgform.password.$invalid">
+                     <span ng-show="lgform.password.$error.required">密碼必填。</span>
+                  </span>
+                </div>
+                <div class="captcha-area">
+                  <label>驗證碼</label>
+                  <div>
+                    <div><input type="text" placeholder="AAAA"></div>
+                    <div class="captcha-cnt"><img src="http://fakeimg.pl/110x40/fff/000/?text=1234"></div>
+                  </div>
+                </div>
+                <div class="txt-area"> <a href="#">忘記密碼?</a> <a href="javascript:void(0);" onclick="regis();">我要註冊</a> </div>
+              </div>
+              <div class="btn-area">
+                <button  type="submit">登入</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

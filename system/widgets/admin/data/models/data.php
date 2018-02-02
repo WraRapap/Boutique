@@ -34,6 +34,11 @@ class Data_Model extends WidgetModel{
 			$wheres[] = "id=?";
 			$values[] = $id;
 
+
+
+
+
+
 			@session_start();
 			if(isset($_SESSION[$_SERVER["HTTP_HOST"] . "_domainID"])){
 				$wheres[] = "domainID=?";

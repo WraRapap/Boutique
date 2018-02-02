@@ -20,8 +20,6 @@ class WebsiteView extends CS_View{
 			}
 		}
 
-		
-
 		if(!file_exists($viewPath)){
 			throw new Exception("Not Found View '{$viewName}' !");
 		}
@@ -39,18 +37,18 @@ class WebsiteView extends CS_View{
 		
 		foreach($layouts as $layoutName => $layoutPath){
 
-			$layoutPath = "";
+            $lstlayoutPath = "";
 
 			foreach($viewTypes as $type){
 				if(file_exists($basePath . "/" . $layoutPath . "." . $type)){
-					$layoutPath = $basePath . "/" . $layoutPath . "." . $type;
+                    $lstlayoutPath = $basePath . "/" . $layoutPath . "." . $type;
 					break;
 				}
 			}
 			
-			if($layoutPath != ""){
+			if($lstlayoutPath != ""){
 				ob_start();
-				include($layoutPath);
+				include($lstlayoutPath);
 				$content = ob_get_contents();
 				ob_end_clean();
 				
@@ -84,13 +82,13 @@ class WebsiteView extends CS_View{
 		$basePath = $this -> config_env -> websitePath;
 
 
-		$this -> content = str_replace("<head>", "<head>\r\n<script src=\"" . $this -> config_env -> jsLibPath . "/angularjs/angular.min.js\"></script>", $this -> content);
+        $this -> content = str_replace("<head>", "<head>\r\n<script src=\"" . $this -> config_env -> jsLibPath . "/angularjs/angularjs1.4.0.js\"></script>", $this -> content);
 
 		$this -> content = str_replace("<head>", "<head>\r\n<script src=\"" . $this -> config_env -> jsLibPath . "/jquery/jquery.2.1.1.min.js\"></script>", $this -> content);
 
-		$this -> content = preg_replace("/<html(.*?)>/","<html$1 ng-app=\"PH\">", $this -> content);
+        $this -> content = preg_replace("/<html(.*?)>/","<html$1 ng-app=\"PH\">", $this -> content);
 
-		$this -> content = preg_replace("/<html(.*?)>/","<html$1 ng-controller=\"appController\">", $this -> content);
+//		$this -> content = preg_replace("/<html(.*?)>/","<html$1 ng-controller=\"appController\">", $this -> content);
 
 		$this -> content = str_replace("</body>", "</body>\r\n<script src=\"/index.php/website/script.js?t=" . uniqid(true) . "\"></script>", $this -> content);
 	}

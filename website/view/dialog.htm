@@ -1,0 +1,16 @@
+<div class="ngdialog-message">
+	<center>
+    <h3>{{ngDialogData.title}}</h3>
+    <p class="data-passed-through" ng-show="ngDialogData.content">{{ngDialogData.content}}</p>
+	</center>
+</div>
+<div class="ngdialog-buttons">
+	<div ng-show="ngDialogData.mode == '1'">
+		<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="ngDialogData.confirmCB();closeThisDialog();">確定</button>
+	</div>
+
+	<div ng-show="ngDialogData.mode == '2'">
+		<button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="ngDialogData.cancelCB();closeThisDialog();">取消</button>
+		<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="ngDialogData.confirmCB();closeThisDialog();">確定</button>
+	</div>
+</div>

@@ -1,0 +1,146 @@
+<link rel="stylesheet" href="css/single-item.css">
+<section class="container-narrow" id="member-order-list-page" ng-controller="itemCtrl">
+    <div class="content clearfix">
+
+        <!--single-item-->
+        <div class="single-item-wrap">
+            <div class="nav-top">
+                <a href="#">首頁</a>/<a href="#">DESIGNER</a>/<a href="#">PRADA</a>/<a href="#"><?php echo $this->product['name']; ?></a>
+            </div>
+            <div class="single-item-banner">
+                <div class="banner-indicators-img">
+                    <ul>
+                        <?php foreach((array)json_decode($this->product['img']) as $key => $pic):?>
+                        <li class="cursorP opacity_<?php if($key==0){echo '1';}else{ echo '06';}?>"><img src="../system/files/<?php echo $pic->path;?>" alt=""></img></li>
+                        <?php endforeach;?>
+                    </ul>
+                </div>
+                <div class="banner-wrap">
+                    <ul>
+                        <?php foreach((array)json_decode($this->product['img']) as $pic):?>
+                        <li><img src="../system/files/<?php echo $pic->path;?>" alt=""></li>
+                        <?php endforeach;?>
+                    </ul>
+                </div>
+                <div class="item-detail">
+                    <div class="brand-detail">
+                        <!--<p>PRADA</p>-->
+                        <div ><?php echo $this->product['brandname']; ?></div>
+                        <p id="name"><?php echo $this->product['name']; ?></p>
+                        <p>TWD {{<?php echo $this->product['price']; ?> | currency}}</p>
+                        <P>保證最低價 TWD {{<?php echo $this->product['cheapest']; ?> | currency}}</P>
+                        <p ><?php echo $this->product['item']; ?></p>
+                        <input type="hidden" id="price" value="<?php echo $this->product['price']; ?>"/>
+                    </div>
+                    <div class="goods-describe">
+                        <div>產品描述 <span class="cursorP">-</span></div>
+                        <div class="describe-text">
+                            <?php echo $this->product['description']; ?>
+                        </div>
+                    </div>
+                    <div class="size-describe">
+                        <div>尺寸說明 <span class="cursorP">+</span></div>
+                        <div class="select-box">
+                            <div class="color-box">
+                                <div>顏色</div>
+                                <select name="color" ng-model="color" id="color-collect">
+                                    <option value="">選擇</option>
+                                    <?php foreach((array)$this->colors as $color){
+                                           echo " <option value='".$color["id"]."'>".$color["title"]."</option>";
+                                           }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="size-box">
+                                <div>尺寸</div>
+                                <select ng-model="size" name="size" id="size-collect">
+                                    <option value="">選擇</option>
+                                    <?php foreach((array)$this->sizes as $size){
+                                    echo " <option value='".$size["id"]."'>".$size["title"]."</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-column-reverse">
+                        <div class="add-to-cart clearfix">
+                            <button class="col-md-12" type="button" ng-click="cart()">加入購物車</button>
+                        </div>
+                        <div class="add-to-collect">
+                            <img src="./img/like.png" alt="" class="cursorP"><span>加入收藏清單</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="viewed">
+                <div class="viewed-title">
+                    最近瀏覽
+                </div>
+                <ul>
+                    <li>
+                        <img src="./img/items/1_747487-013613730304_1.jpg" alt="" class="img-responsive">
+                        <div class="items-title">
+                            <p>2017秋冬新款氣質黑色大衣</p>
+                            <p>TWD $30,500</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="./img/items/1_712417-PRADA-Black-virgin-wool-blend-coat.jpg" alt="" class="img-responsive">
+                        <div class="items-title">
+                            <p>2017秋冬新款氣質黑色大衣</p>
+                            <p>TWD $30,500</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="./img/items/1_747487-013613730304_1.jpg" alt="" class="img-responsive">
+                        <div class="items-title">
+                            <p>2017秋冬新款氣質黑色大衣</p>
+                            <p>TWD $30,500</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="./img/items/1_712417-PRADA-Black-virgin-wool-blend-coat.jpg" alt="" class="img-responsive">
+                        <div class="items-title">
+                            <p>2017秋冬新款氣質黑色大衣</p>
+                            <p>TWD $30,500</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="./img/items/1_747487-013613730304_1.jpg" alt="" class="img-responsive">
+                        <div class="items-title">
+                            <p>2017秋冬新款氣質黑色大衣</p>
+                            <p>TWD $30,500</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+    $(function () {
+
+        // 右側輪播圖
+        $('.banner-indicators-img>ul>li').click(function () {
+            $(this).addClass('opacity_1').removeClass('opacity_06').siblings().addClass('opacity_06').removeClass('opacity_1')
+            var imgH = $('.banner-wrap>ul>li').height();
+            var indicatorIndex = $(this).index();
+            if (indicatorIndex == $(".banner-indicators-img").find("li").length){
+                $('.banner-wrap>ul').animate({bottom: "0px"},'slow');
+            }else{
+                $('.banner-wrap>ul').animate({top: -(indicatorIndex)* imgH},'slow');
+            }
+
+            // console.log("li的高度為"+ imgH);
+
+        });
+        //最近瀏覽
+        $('.viewed>ul>li').mouseenter(function () {
+            $(this).find('div').addClass('visible-panel');
+            $(this).siblings().find('div').removeClass('visible-panel');
+        });
+    })
+</script>

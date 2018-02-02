@@ -1,0 +1,299 @@
+/*-------------
+main-navigation
+---------------*/
+
+.nav-menu {
+	background: rgba(255,255,255,1);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	width: 100%;
+	position: relative;
+	font-size: 14px;
+	font-size: 1.163rem;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+}
+/*成一列*/
+.nav-menu li {
+	position: relative;
+	display: inline-block; /* 1 */
+	white-space: nowrap;
+	border: 0;
+	vertical-align: top;
+}
+.nav-menu > li {
+	margin: 0 14px;
+	padding: 20px 0;
+}
+.nav-menu > li:first-child {
+	margin: 0 14px 0 0;
+}
+.nav-menu a {
+	display: block; /* 1 */
+	color: #000;
+	padding: 0 10px;
+	transition: all linear .15s;
+	text-align: left;
+}
+.nav-menu ul a {
+	padding: 20px 10px;
+	min-width: 100px;
+	text-align: center;
+}
+.nav-dropdown {
+	position: absolute;
+}
+.nav-dropdown li {
+	display: block;
+}
+.has-dropdown {
+	position: relative;
+	cursor: pointer; /* 1 */
+}
+.has-dropdown > a {
+	display: inline-block;
+	padding: 0 20px 0 0;
+}
+/*arrow*/
+.has-dropdown:after {
+	position: absolute;
+	top: 50%;
+	right: 8px;
+	width: 0;
+	height: 0;
+	margin-top: -4px;
+	margin-left: 6px;
+	content: "";
+	border-width: 7px 4px 0 4px;
+	border-style: solid;
+	border-color: #000 transparent transparent transparent;
+	transition: all linear .15s;
+}
+/*滑過效果*/
+.nav-menu li:hover > a {
+	color: #b88d26;
+}
+.nav-menu li:hover.has-dropdown:after {
+	border-color: #b88d26 transparent transparent transparent;
+}
+/*隱藏的dropdown */
+.nav-dropdown {
+	display: none; /*1 */
+	background: rgba(255, 255, 255,.95);
+	position: absolute;
+	top: calc(100% + 1px);
+	left: -30px;
+	opacity: 0;
+	transition: opacity linear .15s;
+	padding: 0 20px;
+	box-shadow: 0px 2px 3px rgba(0,0,0,.3);
+	z-index: -1;
+}
+/*點擊後開啟*/
+.has-dropdown:hover .nav-dropdown {
+	display: block; /*1 */
+	opacity: 1;
+	z-index: 1;
+}
+/*-------------
+mobile-navigation
+---------------*/
+
+#menu-trigger {
+	/*position: absolute;
+	left: 0;
+	top: 0;*/
+	height: 22px;
+	width: 22px;
+	display: inline-block;
+}
+/*hamburger*/
+#menu-trigger .menu-icon {
+	display: inline-block;
+	/*position: absolute;
+	left: 0;
+	right: 1.25em;
+	top: 50%;
+	bottom: auto;*/
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	-ms-transform: translateX(0);
+	-o-transform: translateX(0);
+	transform: translateX(0);
+	width: 20px;
+	height: 3px;
+	background: #000;
+}
+#menu-trigger .menu-icon::before, #menu-trigger .menu-icon:after {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: inherit;
+	left: 0;
+}
+#menu-trigger .menu-icon::before {
+	bottom: 7px;
+}
+#menu-trigger .menu-icon::after {
+	top: 7px;
+}
+#menu-trigger.is-clicked .menu-icon {
+	background: rgba(0, 0, 0, 0);
+}
+#menu-trigger.is-clicked .menu-icon::before, #menu-trigger.is-clicked .menu-icon::after {
+	background: #000;
+}
+#menu-trigger.is-clicked .menu-icon::before {
+	bottom: 0;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+#menu-trigger.is-clicked .menu-icon::after {
+	top: 0;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+/*slide panel for navigation-left*/
+#mobile-nav {
+	position: fixed;
+	height: 100%;
+	left: 0;
+	top: 0;
+	visibility: hidden;
+	z-index: 1;
+	width: 260px;
+	background: #fff;
+	/*overflow-y: auto;*/
+	-webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: -webkit-transform .4s 0s, visibility 0s .4s;
+	-moz-transition: -moz-transform .4s 0s, visibility 0s .4s;
+	transition: transform .4s 0s, visibility 0s .4s;
+	-webkit-transform: translateX(-260px);
+	-moz-transform: translateX(-260px);
+	-ms-transform: translateX(-260px);
+	-o-transform: translateX(-260px);
+	transform: translateX(-260px);
+}
+/*hide scroll bar*/
+.m-nav-wrap, .m-nav-inner {
+	width: 260px;
+	height: 100vh;
+}
+/*.m-nav-inner{
+	padding: 0 20px 0 32px;
+}*/
+.m-nav-wrap {
+	position: relative;
+	overflow: hidden!important;
+}
+.m-nav-out {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow-x: hidden!important;
+	overflow-y: scroll;
+}
+.m-nav-info {
+	width: 100%;
+	padding: 23px 20px 23px 32px;
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #eee;
+	color: #6a6a6a;
+}
+.m-nav-info a {
+	cursor: pointer;
+	color: #6a6a6a!important;
+	font-size: 14px!important;
+	font-size: 1.163rem!important;
+	display: inline-block!important;
+}
+.m-nav-info > li {
+	display: inline-block;
+}
+/*解除之前header的設定*/
+.m-nav-info .header-langEx {
+	position: relative;
+	top: 0;
+	right: auto;
+}
+.m-nav-hr {
+	width: 92%;
+	border: none;
+	height: 1px;
+	background: #d9d9d9;
+	margin: 0 auto;
+}
+.nav-cnt {
+	padding: 16px 28px;
+	font-size: 16px;
+	font-size: 1.313rem;
+	text-transform: uppercase;
+}
+#mobile-nav .sub-menu {
+	padding: 0 10px 20px 15px;
+	display: none;
+}
+.nav-cnt a {
+	display: block;
+	line-height: 2em;
+	/*padding: 0 16px 0 32px;*/
+	color: rgba(40, 40, 40, 1);
+}
+#mobile-nav.menu-is-open {
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	-ms-transform: translateX(0);
+	-o-transform: translateX(0);
+	transform: translateX(0);
+	visibility: visible;
+	-webkit-transition: -webkit-transform .4s 0s, visibility 0s 0s;
+	-moz-transition: -moz-transform .4s 0s, visibility 0s 0s;
+	transition: transform .4s 0s, visibility 0s 0s;
+	-webkit-overflow-scrolling: touch;
+}
+#mobile-nav .item-has-children > a {
+	position: relative;/*font-weight: 700;*/
+}
+/*menu-arrow*/
+#mobile-nav .item-has-children > a::after {
+	content: '';
+	display: block;
+	height: 11px;
+	width: 8px;
+	position: absolute;
+	top: 50%;
+	bottom: auto;
+	right: 0px;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	background: url("../img/arrow.svg") no-repeat center center;
+	background-size: 8px 11px;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+#mobile-nav .item-has-children > a.submenu-open::after {
+	-webkit-transform: translateY(-50%) rotate(90deg);
+	-moz-transform: translateY(-50%) rotate(90deg);
+	-ms-transform: translateY(-50%) rotate(90deg);
+	-o-transform: translateY(-50%) rotate(90deg);
+	transform: translateY(-50%) rotate(90deg);
+}

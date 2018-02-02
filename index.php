@@ -8,10 +8,8 @@ require_once( dirname(__FILE__) . "/system/core/Tool.php" );
 require_once( dirname(__FILE__) . "/system/core/WidgetController.php" );
 require_once( dirname(__FILE__) . "/system/core/WidgetModel.php" );
 require_once( dirname(__FILE__) . "/system/core/WidgetView.php" );
-
 require_once( dirname(__FILE__) . "/system/core/WebsiteController.php" );
 require_once( dirname(__FILE__) . "/system/core/WebsiteView.php" );
-
 require_once( dirname(__FILE__) . "/system/core/Component.php" );
 
 class EntryPoint{
@@ -87,44 +85,60 @@ class EntryPoint{
 			exit("URI ERROR");
 		}
 
+        // 取得 index 之後的 MVC路徑
+        $mvc_path = isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:"/";
+        $controllerPath = Chihsin::$configs["env"]["basePath"] . Chihsin::$configs["env"]["controllerPath"];
+        $websiteorignPath = Chihsin::$configs["env"]["basePath"] . Chihsin::$configs["env"]["websitePath"];
+        $websitePath = $websiteorignPath . $mvc_path;
 
-		// 取得 index 之後的 MVC路徑
-		$mvc_path = str_replace($_SERVER['SCRIPT_NAME'], "", $url);
+        if(in_array($mvc_path,Chihsin::$configs["filter"]["banEnterBehind"])>0){//过滤不用进来的页面
+            return;
+        }
 
-		$controllerPath = Chihsin::$configs["env"]["basePath"] . Chihsin::$configs["env"]["controllerPath"];
+        if(file_exists($websitePath) || file_exists($websiteorignPath."/view". $mvc_path) || in_array($mvc_path,Chihsin::$configs["filter"]["noNeedPage"])){//前端有页面存在的或者只有前端方法的都走这里
 
-		$websitePath = Chihsin::$configs["env"]["basePath"] . Chihsin::$configs["env"]["websitePath"] . $mvc_path;
 
-		if(file_exists($websitePath)){
+            if( isset($_GET["lanType"])){
+                $lanType =$_GET["lanType"];
+                if($lanType=="2"){
+                    $lanType="cn";
+                }
+                else{
+                    $lanType="zh";
+                }
+                @session_start();
+                $_SESSION["LANG"]=$lanType;
+                session_write_close();
+            }
 
-			$scriptName = basename($websitePath);
+            $scriptName = basename($websitePath);
 
-			// 首頁
-			if(basename(Chihsin::$configs["env"]["websitePath"]) == $scriptName){
-				$action = "index";
-			}
-			else{
-				$fileNames = explode(".", $scriptName);	
-				$action = $fileNames[0];
-			}
-			
-			if(file_exists($controllerPath . "/website.php")){
-				require_once($controllerPath . "/website.php");
-				$controllerObject = new Website_Controller();
-			}
-			else{
-				$controllerObject = new WebsiteController();
-			}
-			
-			if(method_exists($controllerObject, $action)){
-				$controllerObject -> $action();
-			}
-			else{
-				$controllerObject -> main($action);
-			}
+            // 首頁
+            if(basename(Chihsin::$configs["env"]["websitePath"]) == $scriptName){
+                $action = "index";
+            }
+            else{
+                $fileNames = explode(".", $scriptName);
+                $action = $fileNames[0];
+            }
 
-			return;
-		}
+            if(file_exists($controllerPath . "/website.php")){
+                require_once($controllerPath . "/website.php");
+                $controllerObject = new Website_Controller();
+            }
+            else{
+                $controllerObject = new WebsiteController();
+            }
+
+            if(method_exists($controllerObject, $action)){
+                $controllerObject -> $action();
+            }
+            else{
+                $controllerObject -> main($action);
+            }
+
+            return;
+        }
 
 
 		$paths = preg_split("/[\/\?\.#]/", $mvc_path);

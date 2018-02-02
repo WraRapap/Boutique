@@ -19,7 +19,12 @@ class WebsiteController extends CS_Controller{
 		$this -> tool_alert -> render();
 
 	}
-	
+    public function  display($action,$datas=array())
+    {
+
+        $this -> loadLayout("content", "view/".$action);
+        $this -> loadView("index",$datas);
+    }
 }
 
 ?>

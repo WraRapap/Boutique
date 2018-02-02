@@ -227,7 +227,7 @@ class CS_Component extends Chihsin{
 	private function runRecursiveClasses($classes, &$datas){
 		foreach($classes as $classID => $class){
 			if(isset($class["sub_classes"]) && count($class["sub_classes"]) > 0){
-				$datas[$classID] = array($classID, $class["path"]);
+//				$datas[$classID] = array($classID, $class["path"]);
 				$this -> runRecursiveClasses($class["sub_classes"], $datas);
 			}
 			else{

@@ -64,6 +64,47 @@ class Database_Tool extends CS_Tool{
 		return $res;
 	}
 
+    public function moreTableFindAll($tableName, $fields = array(), $where = array(), $values = array(), $sort = array(), $count = -1){
+        $instance = $this -> getInstance();
+
+
+        // 指定顯示欄位(不指定，預設全載入)
+        $field_string = "";
+        if($fields == array()){
+            $field_string = "*";
+        }
+        else{
+            $field_string = implode(", ", $fields);
+        }
+
+        // 不曉得為什麼…但可以防止 params 參數被父類的 __get 呼叫(吸走)!!!!
+        $instance -> nani();
+
+        // 條件式
+        $where_string = "";
+
+        if (count($where) > 0) {
+
+            $where_string = "WHERE " . implode(" AND ", $where);
+            foreach ($values as $value) {
+                $instance -> embedData($value);
+            }
+
+        }
+
+
+        // 排序條件
+        $sort_string = "";
+        if (count($sort) > 0) {
+            $sort_string = "ORDER BY " . implode(", ", $sort);
+        }
+
+        $sql = "SELECT {$field_string} FROM {$tableName} {$where_string} {$sort_string};";
+
+        $instance -> embedCommand($sql);
+        return $instance -> execute_query($count);
+    }
+
 	public function find($tableName, $fields = array(), $where = array(), $values = array(), $sort = array()){
 		
 		$instance = $this -> getInstance();
@@ -76,6 +117,19 @@ class Database_Tool extends CS_Tool{
 			return $this -> emptyRecord($tableName);
 		}
 	}
+
+    public function moreTableFind($tableName, $fields = array(), $where = array(), $values = array(), $sort = array()){
+
+        $instance = $this -> getInstance();
+
+        $res = $this -> moreTableFindAll($tableName, $fields, $where, $values, $sort, 1);
+
+        if (count($res) > 0) {
+            return $res[0];
+        } else {
+            return $res;
+        }
+    }
 
 	public function emptyRecord($tableName){
 		$fields = $this -> getFields($tableName);

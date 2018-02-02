@@ -1,0 +1,144 @@
+<link rel="stylesheet" href="css/cart.css">
+<section class="container-narrow" id="member-order-list-page" ng-controller="cartCtrl">
+    <div class="content clearfix">
+
+
+        <!--PC-->
+        <div class="check-wrap">
+            <div class="check-inner-title">
+                確認訂單
+            </div>
+            <div class="check-list-warp">
+                <ul class="check-list-title">
+                    <li>商品資料</li>
+                    <li>單價</li>
+                    <li>數量</li>
+                    <li>小記</li>
+                </ul>
+                <ul class="check-list">
+                    <?php foreach((array)$this->cart as $cart):?>
+                    <li id="<?php echo $cart['uid'];?>">
+                        <div class="check-list-detail">
+                            <div class="list-img">
+                                <a href="item.html?i=<?php echo $cart['id']; ?>"><img src="../system/files/<?php echo $cart['img']; ?>" alt=""></a>
+                            </div>
+                            <div class="list-detail">
+                                <div class="list-detail-top">
+                                    <div class="list-detail-item">
+                                        <p><span><?php echo $cart['brandname']; ?></span></br><span><?php echo $cart['name']; ?></span></p>
+                                        <!--desktop show-->
+                                        <p><span><?php echo $cart['item']; ?></span></p>
+                                        <!--mobile show-->
+                                        <p><span><?php echo $cart['item']; ?></span></p>
+                                        <p><span>顏色:</span><span><?php echo $cart['color']; ?></span></br><span>尺寸:</span><span><?php echo $cart['size']; ?></span>
+                                        </P>
+                                    </div>
+                                    <!--mobile show list-count-->
+                                    <div id="<?php echo $cart['uid'];?>count"><?php echo $cart['count']; ?></div>
+                                    <div class="list-detail-unit-price">
+                                        <span>TWD</span><input type="hidden" id="<?php echo $cart['uid'];?>fee" value="<?php echo  $cart['price'];?> "/><span>{{<?php echo $cart['price'];?>|currency}}</span>
+                                    </div>
+                                </div>
+                                <div class="list-detail-bottom">
+                                    <button ng-disabled="banClick" ng-click="movCartProduct('<?php echo $cart['uid'];?>')">移到收藏清單</button>
+                                    <button ng-disabled="banClick" ng-click="delCartProduct('<?php echo $cart['uid'];?>')">刪除商品</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="check-list-count-price">
+                            <div class="list-count"><span ><?php echo $cart['count'];?></span></div>
+                            <!--<div class="mobile-list-price"><span>TWD</span><span>63.000,00</span></div>-->
+                            <div class="list-price"><span>TWD</span><span >{{<?php echo $cart['price'] * $cart['count'];?>|currency}}</span></div>
+                        </div>
+                    </li>
+                    <?php endforeach;?>
+                </ul>
+                <ul class="check-total-amount flex-row">
+                    <li>總結</li>
+                    <li id="totalcount"><?php echo $this->totalcount;?></li>
+                    <li><span>TWD </span><input type="hidden" id="totalfee" value="<?php echo  $this-> totalfee;?> "/><span  ng-bind="totalfee| currency"><?php echo  $this-> totalfee;?></span></li>
+                </ul>
+            </div>
+            <div class="address-wrap">
+                <div class="choose-delivery-address flex-column">
+                    <div class="address-title">
+                        選擇配送方式
+                    </div>
+                    <div class="address-input">
+                        <p>國家</p>
+                        <select name="country" id="country">
+                            <!--<option value="選擇">選擇</option>-->
+                            <option value="台灣">台灣</option>
+                            <option value="英國">英國</option>
+                            <option value="美國">美國</option>
+                            <option value="日本">日本</option>
+                        </select>
+                        <p>配送方式</p>
+                        <select name="shipping-method" id="shipping">
+                            <option value="1">義大利郵寄（7~14個工作天）</option>
+                            <option value="2">國內郵寄（3個工作天）</option>
+                        </select>
+                        <p>付款方式</p>
+                        <select name="payment" id="payment">
+                            <option value="1">選擇</option>
+                            <option value="2">ATM匯款</option>
+                            <option value="3">普惠世紀會員信用扣款</option>
+                        </select>
+                        <div class="bank-detail">
+                            <p><span>姓名：</span><span>官韋岑</span></p>
+                            <p><span>卡號：</span><span>2885 4024 7543</span></p>
+                            <p><span>銀行：</span><span>中國信託</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="complete-send-information">
+                    <div class="address-title">
+                        寄送資料填寫
+                    </div>
+                    <div class="information-input flex-row">
+                        <div class="customer-information">
+                            <p>顧客資料</p>
+                            <input type="text" placeholder="顧客名稱">
+                            <input type="text" placeholder="電子信箱">
+                            <input type="text" placeholder="電話號碼">
+                            <p>地址</p>
+                            <p>國家：<span>台灣</span></p>
+                            <input type="text" placeholder="城市/市鎮">
+                            <input type="text" placeholder="郵遞區號">
+                            <input type="text" placeholder="地址">
+                        </div>
+                        <div class="delivery-information">
+                            <p>送貨資料</p>
+                            <p>收貨方式：<span>意大利郵寄（7~14個工作天）</span></p>
+                            <div class="checkbox-input-wrap">
+                                <input type="checkbox">
+                                <span class="checked"></span>
+                                <lable>郵件人與顧客資料相同</lable>
+                            </div>
+
+                            <input type="text" placeholder="收件人名稱">
+                            <input type="text" placeholder="收件人電話號碼">
+                            <p>訂單備註</p>
+                            <textarea name="order-comment" id="order_comment" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-information-wrap">
+                <div class="check-inner-title margintop-50">
+                    付款資料
+                </div>
+                <div class="payment-information-content flex-column">
+                    <div>已選擇的付款方式：<span>ATM匯款</span></div>
+                    <div class="payment-checkbox-wrap">
+                        <input type="checkbox">
+                        <span class="pay-checked"></span>
+                        <lable>我同意<a href="#">服務條款</a>和<a href="#">退換貨政策</a></lable>
+                    </div>
+                    <button>訂單確認</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

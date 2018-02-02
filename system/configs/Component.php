@@ -51,7 +51,12 @@
 					array("title" => "日期時間元件"	, "variable" => "html5datetime"),
 				)
 			),
-
+            array(
+                "title" => "自訂元件",
+                "components" => array(
+                    array("title" => "購物車清單"		, "variable" => "cart")
+                )
+            ),
 			array(
 				"title" => "開發者元件",
 				"components" => array(
