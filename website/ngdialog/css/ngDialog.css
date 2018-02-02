@@ -94,7 +94,7 @@
   -webkit-animation: ngdialog-fadein 0.5s;
   animation: ngdialog-fadein 0.5s;
   pointer-events: all;
-  width: 500px !important;
+  width: 500px;
 }
 
 .ngdialog.ngdialog-closing .ngdialog-content {
@@ -115,16 +115,20 @@ body.ngdialog-open {
 }
 
 
-/*@media screen and(max-width: 375px) {*/
-  /*.ngdialog-content {*/
-    /*width: 200px !important;*/
-  /*}*/
-/*}*/
 
-/*@media screen and (max-width: 768px) and (min-width: 375px) {*/
-  /*.ngdialog-content {*/
-    /*width: 500px !important;*/
-  /*}*/
-/*}*/
+@media screen and (min-width: 376px){
+  .ngdialog-content {
+    width: 500px !important;
+  }
+}
+
+
+@media screen and(max-width: 375px) {
+  .ngdialog-content {
+    width: 300px;
+  }
+}
+
+
 
 
