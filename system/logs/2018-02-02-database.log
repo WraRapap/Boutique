@@ -221,3 +221,14 @@
 [2018-02-02 13:42:29 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
 [2018-02-02 13:42:42 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
 [2018-02-02 13:45:46 - ::1] SELECT id, name, cheapest, img, price FROM cs_product WHERE publish='Y' ;
+[2018-02-02 13:53:31 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
+[2018-02-02 13:53:34 - ::1] SELECT id, name, cheapest, img, price FROM cs_product WHERE publish='Y' ;
+[2018-02-02 13:54:43 - ::1] SELECT *, b.title brandname FROM cs_product c inner join cs_brand b on c.brand=b.id WHERE c.publish='Y' AND c.id='15a6b1b95831a8' ;
+[2018-02-02 13:54:43 - ::1] SELECT *, b.title brandname FROM cs_product c inner join cs_brand b on c.brand=b.id WHERE c.publish='Y' AND c.id='15a6b1b95831a8' ;
+[2018-02-02 13:54:43 - ::1] SELECT * FROM cs_color WHERE id in ('15a40742e9d868','15a40743ad3b98') ;
+[2018-02-02 13:54:43 - ::1] SELECT * FROM cs_size_class WHERE id in ('15a6b15968a2f0','15a6b15e3bbbe8','15a6b15e8343f0') ;
+[2018-02-02 13:56:34 - ::1] SELECT id, name, cheapest, img, price FROM cs_product WHERE publish='Y' ;
+[2018-02-02 14:00:40 - ::1] SELECT *, b.title brandname FROM cs_product c inner join cs_brand b on c.brand=b.id WHERE c.publish='Y' AND c.id='15a6b1b95831a8' ;
+[2018-02-02 14:00:40 - ::1] SELECT *, b.title brandname FROM cs_product c inner join cs_brand b on c.brand=b.id WHERE c.publish='Y' AND c.id='15a6b1b95831a8' ;
+[2018-02-02 14:00:40 - ::1] SELECT * FROM cs_color WHERE id in ('15a40742e9d868','15a40743ad3b98') ;
+[2018-02-02 14:00:40 - ::1] SELECT * FROM cs_size_class WHERE id in ('15a6b15968a2f0','15a6b15e3bbbe8','15a6b15e8343f0') ;
