@@ -7,7 +7,14 @@ class Website_Controller extends WebsiteController{
 
     public function index()
     {
-        $this ->display("index");
+        $brands = $this->tool_database->findAll(
+            "brand",
+            array(),
+            array(),
+            array(),
+            array("sequence")
+        );
+        $this ->display("index",array("brands"=>$brands));
     }
 
     public function signin()

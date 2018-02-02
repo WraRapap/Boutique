@@ -212,3 +212,11 @@
 [2018-02-02 09:20:04 - ::1] SELECT * FROM cs_sys_information  ;
 [2018-02-02 09:20:04 - ::1] SELECT * FROM cs_brand  ORDER BY topTime DESC, sortTime ASC, sequence ASC, createTime DESC;
 [2018-02-02 09:20:04 - ::1] SELECT * FROM cs_brand  ORDER BY topTime DESC, sortTime ASC, sequence ASC, createTime DESC;
+[2018-02-02 13:36:41 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
+[2018-02-02 13:38:12 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
+[2018-02-02 13:39:13 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
+[2018-02-02 13:39:37 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
+[2018-02-02 13:40:29 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
+[2018-02-02 13:42:03 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
+[2018-02-02 13:42:29 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;
+[2018-02-02 13:42:42 - ::1] SELECT * FROM cs_brand  ORDER BY sequence;

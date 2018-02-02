@@ -12,8 +12,14 @@
     <h3 class="subtitle-line">焦點品牌</h3>
     <div>
         <div class="brand-icon-wrap">
-            <p class="brand-icon"> <a href="product.html?b=15a7159fd318f8"><img src="img/home/home_07.png"></a> <a href=""><img src="img/home/home_09.png"></a> <a href=""><img src="img/home/home_11.png"></a> <a href=""><img src="img/home/home_13.png"></a> <a href=""><img src="img/home/home_15.png"></a> <a href=""><img src="img/home/home_17.png"></a> <a href=""><img src="img/home/home_19.png"></a> </p>
-            <p class="brand-icon"> <a href=""><img src="img/home/home_29.png"></a> <a href=""><img src="img/home/home_31.png"></a> <a href=""><img src="img/home/home_34.png"></a> <a href=""><img src="img/home/home_38.png"></a> <a href=""><img src="img/home/home_36.png"></a> </p>
+            <p class="brand-icon">
+            <?php foreach((array)$this->brands as $key=>$brand):?>
+            <?php if($key==7):?>
+            </p><p class="brand-icon">
+             <?php endif;?>
+            <a href="product.html?<?php echo $brand->id;?>"><img src="../system/files/<?php echo json_decode($brand->logo)[0]->path;?>"></a>
+            <?php endforeach;?>
+            </p>
         </div>
 
 
