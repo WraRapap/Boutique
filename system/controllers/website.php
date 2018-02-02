@@ -43,7 +43,7 @@ class Website_Controller extends WebsiteController{
         if(!empty($brandIds)){
             if($mod==1){
                 $totalparm["moreTabel"].=" ".$table." ";
-                $totalparm["condititon"][]="vc.categoryid=?";
+                $totalparm["condititon"][]="$condition";
                 $totalparm["condititonValue"][]=$brandIds;
             }else{
                 $brandArr = explode(",",$brandIds);
@@ -92,6 +92,7 @@ class Website_Controller extends WebsiteController{
         $totalparm["condititon"]=array("publish='Y'");
         $totalparm["condititonValue"]=array();
         $totalparm["sort"]=array();
+        $totalparm["group"]=array();
 
 	    $categoryId = $this->tool_io->get("c");//类别
         $totalparm = $this->collectparm(1,$categoryId,$totalparm,"INNER JOIN v_category vc on p.id=vc.id","vc.categoryid=?");//$mod,$brandIds,$totalparm,$table,$condition
@@ -101,7 +102,7 @@ class Website_Controller extends WebsiteController{
         $totalparm = $this->collectparm(3,$sizeIds,$totalparm,"","CONCAT(':',p.size,':') like ?");
         $sexId = $this->tool_io->get("se");
         $totalparm = $this->collectparm(1,$sexId,$totalparm,"","p.sex = ?");
-        $colorIds = $this->tool_io->get("c");
+        $colorIds = $this->tool_io->get("co");
         $totalparm = $this->collectparm(3,$colorIds,$totalparm,"","CONCAT(':',p.color,':') like ?");
         $mixPrice = $this->tool_io->get("p1");
         $totalparm = $this->collectparm(1,$mixPrice,$totalparm,"","p.price >=");
@@ -110,15 +111,16 @@ class Website_Controller extends WebsiteController{
 
         $keyword=$this->tool_io->get("k");//关键字
         if(!empty($keyword)){
-            $totalparm["moreTabel"].=" INNER JOIN cs_brand b on p.brand=b.id INNER JOIN cs_size_class s on CONCAT(':',p.size,':') like CONCAT('\'',s.id,'\'') ";
-            $totalparm["moreTabel"].=" INNER JOIN cs_sex se on se.id=p.sex INNER JOIN cs_color co on on CONCAT(':',p.size,':') like CONCAT('\'',co.id,'\'') ";
-            $totalparm["condititon"][]="p.description like ? or p.name like ? or  b.title like ? or s.title like ? or se.title like ? or co.title like ?";
+            $totalparm["moreTabel"].=" INNER JOIN cs_brand b on p.brand=b.id INNER JOIN cs_size_class s on CONCAT(':',p.size,':') like CONCAT('%',s.id,'%') ";
+            $totalparm["moreTabel"].=" INNER JOIN cs_sex se on se.id=p.sex INNER JOIN cs_color co on CONCAT(':',p.color,':') like CONCAT('%',co.id,'%') ";
+            $totalparm["condititon"][]="(p.description like ? or p.name like ? or  b.title like ? or s.title like ? or se.title like ? or co.title like ?)";
             $totalparm["condititonValue"][]=array('%',$keyword,'%');
             $totalparm["condititonValue"][]=array('%',$keyword,'%');
             $totalparm["condititonValue"][]=array('%',$keyword,'%');
             $totalparm["condititonValue"][]=array('%',$keyword,'%');
             $totalparm["condititonValue"][]=array('%',$keyword,'%');
             $totalparm["condititonValue"][]=array('%',$keyword,'%');
+            $totalparm["group"][]="id";
         }
 
         $sort=$this->tool_io->get("cs");
@@ -144,10 +146,18 @@ class Website_Controller extends WebsiteController{
             array("p.id","p.name","p.img","p.price"),
             $totalparm["condititon"],
             $totalparm["condititonValue"],
-            $totalparm["sort"]
-        );
+            $totalparm["sort"],
+            $totalparm["group"],
+            2,
+            true
+        );//参数里的true代表会返回总数，默认不返回
 
-        $datas=array("productlist"=>$productlist);
+        if(isset($_POST["rq"])){//ajax请求数据
+            echo array("data"=>$productlist[0]);
+            return;
+        }
+
+        $datas=array("productlist"=>$productlist[0],"totalItems"=>$productlist[1]);
         $this ->display("product",$datas);
     }
 

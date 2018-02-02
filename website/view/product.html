@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="css/product-items.css">
+<link rel="stylesheet" href="directive/css/pagination.css">
+<script src="directive/pagination/tm.pagination.js"></script>
 <script src="js/priceSlider.js"></script>
 <section class="container-narrow clearfix" id="product-items" ng-controller="productCtrl">
     <!--filter-->
@@ -192,16 +194,17 @@
                 </a></article>
             <?php endforeach;?>
         </div>
-
+        <input type="hidden" value="<?php echo $this->totalItems ;?>" id="totalItems"/>
         <!--pagigation-->
         <div class="items-bottom">
-            <div class="items-pagination"><a href="#" class="pagination-pre"><span>上一頁</span></a><a
-                    href="#"><span>1</span></a><a href="#"><span>2</span></a><a href="#"><span>3</span></a><a
-                    href="#"><span>4</span></a><a href="#" class="pagination-next"><span>下一頁</span></a></div>
-            <div class="items-sum">
-                <div>共計<span>90</span>個商品</div>
-                <div>頁數<span>1</span>/<span>4</span></div>
-            </div>
+            <tm-pagination conf="paginationConf"></tm-pagination>
+            <!--<div class="items-pagination"><a href="#" class="pagination-pre"><span>上一頁</span></a><a-->
+                    <!--href="#"><span>1</span></a><a href="#"><span>2</span></a><a href="#"><span>3</span></a><a-->
+                    <!--href="#"><span>4</span></a><a href="#" class="pagination-next"><span>下一頁</span></a></div>-->
+            <!--<div class="items-sum">-->
+                <!--<div>共計<span>90</span>個商品</div>-->
+                <!--<div>頁數<span>1</span>/<span>4</span></div>-->
+            <!--</div>-->
         </div>
     </div>
 
