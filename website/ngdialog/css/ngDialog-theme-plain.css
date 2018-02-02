@@ -4,10 +4,11 @@
 }
 
 .ngdialog.ngdialog-theme-plain .ngdialog-content {
+  font-size: 14px;
   background: #fff;
   color: #444;
   font-family: 'Helvetica Neue',sans-serif;
-  font-size: 1.1em;
+  /*font-size: 1.1em;*/
   line-height: 1.5em;
   margin: 0 auto;
   max-width: 100%;
