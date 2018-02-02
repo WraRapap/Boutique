@@ -5,8 +5,9 @@
 	padding: 14px 0;
 }
 .brand-icon{
-	display: inline-flex;
-	justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 	align-items: center;
 }
 .brand-icon a{
