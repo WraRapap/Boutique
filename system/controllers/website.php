@@ -87,6 +87,8 @@ class Website_Controller extends WebsiteController{
 //order by p.createTime ?,
 //order by p.price ?
 	public function  product(){
+        $perPageItems=empty($this->tool_io->get("count"))? 2:$this->tool_io->get("count");
+        $currentPage=empty($this->tool_io->get("page"))? 1:$this->tool_io->get("page");
 	    $totalparm=array();
         $totalparm["moreTabel"]="cs_product p";
         $totalparm["condititon"]=array("publish='Y'");
@@ -120,7 +122,7 @@ class Website_Controller extends WebsiteController{
             $totalparm["condititonValue"][]=array('%',$keyword,'%');
             $totalparm["condititonValue"][]=array('%',$keyword,'%');
             $totalparm["condititonValue"][]=array('%',$keyword,'%');
-            $totalparm["group"][]="id";
+            $totalparm["group"][]="p.id";
         }
 
         $sort=$this->tool_io->get("cs");
@@ -148,16 +150,39 @@ class Website_Controller extends WebsiteController{
             $totalparm["condititonValue"],
             $totalparm["sort"],
             $totalparm["group"],
-            2,
+            $perPageItems,
             true
         );//参数里的true代表会返回总数，默认不返回
 
         if(isset($_POST["rq"])){//ajax请求数据
-            echo array("data"=>$productlist[0]);
+            echo json_encode(array("data"=>$productlist[0]));
             return;
         }
 
-        $datas=array("productlist"=>$productlist[0],"totalItems"=>$productlist[1]);
+        $colors = $this->tool_database->findAll("color");
+        $brands = $this->tool_database->findAll("brand");
+
+        $sizeCondition=array("parentID!=''");
+        $sizeConditionValue = array();
+        if(isset($_GET["c"])){
+            $sizeCondition[]="parentID=?";
+            $sizeConditionValue = array($this->tool_io->get("c"));
+        }
+
+        $sizes = $this->tool_database->findAll(
+            "size_class",
+             array("id","title"),
+            $sizeCondition,
+            $sizeConditionValue
+        );
+
+        $datas = array("productlist"=>$productlist[0],
+                        "totalItems"=>$productlist[1],
+                        "perPageItems"=>$perPageItems ,
+                        "colors"=>$colors ,
+                        "brands"=>$brands ,
+                        "sizes"=>$sizes ,
+                        "currentPage"=>$currentPage);
         $this ->display("product",$datas);
     }
 

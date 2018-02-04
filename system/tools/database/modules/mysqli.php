@@ -63,7 +63,6 @@ class CS_MySQLi extends Chihsin{
 
 		if($count > 0){
 			$total = $this -> execute_query_num();
-			
 		}
 		
 
@@ -120,11 +119,9 @@ class CS_MySQLi extends Chihsin{
 
 		$sql = $this -> into_command(false);
 
-
 		// 取得此查詢總筆數
-		$count_sql = preg_replace(array('/SELECT.*?FROM /Asi', '/SELECT \*,/Asi', '/ORDER BY .*/'), array('SELECT COUNT(*) AS counter FROM ', 'SELECT COUNT(*) AS counter,', ''), $sql);
-
-
+//        $count_sql = preg_replace(array('/SELECT.*?FROM /Asi', '/SELECT \*,/Asi', '/ORDER BY .*/'), array('SELECT COUNT(*) AS counter FROM ', 'SELECT COUNT(*) AS counter,', ''), $sql);
+        $count_sql = "select count(*) counter from ( ". preg_replace("/;/i", "", $sql)." ) a";
 		if($sql == $count_sql){
 			return 0;
 		}
