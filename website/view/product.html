@@ -59,15 +59,16 @@
         <!--價錢-->
         <div class="filter-box" id="filter-price">
             <div class="filter-title has-arrow price_title"><a href="#">價錢</a>
-                <div class="filter-submenu price_submenu">
+                <div class="filter-submenu price_submenu" id="price_submenu">
                     <div class="price-range">
                         <div class="price-line">
 
                             <div class="sel-line"></div>
                             <div class="begin-box">
+                                <input type="hidden" value="<?php echo $this->tool_io->get('p1');?>" id="begin-box"/>
                                 <span></span>
                             </div>
-                            <div class="end-box"><span></span></div>
+                            <div class="end-box"> <input type="hidden" value="<?php echo $this->tool_io->get('p2');?>" id="end-box"/><span></span></div>
                         </div>
                     </div>
                 </div>

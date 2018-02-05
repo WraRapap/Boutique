@@ -87,6 +87,7 @@ jQuery(document).ready(function ($) {
             endBox.mousedown(function () {
                 flagEndDrag = true;
             });
+
             priceRange.mousemove(function (event) {
                 if (flagEndDrag) {
                     // end-box来到最左边
@@ -150,6 +151,14 @@ jQuery(document).ready(function ($) {
                 var endPer = max_left / $('.price-line').width();
                 $('.begin-box span').html(Math.round(beginPer * 100)*500);
                 $('.end-box span').html(Math.round(endPer * 100)*500 );
+                if($("#begin-box").val()>0){
+                    $('.begin-box span').html($("#begin-box").val());
+                    $("#begin-box").val("");
+                }
+                if($("#end-box").val()>0){
+                    $('.end-box span').html($("#end-box").val());
+                    $("#end-box").val("");
+                }
             }
         }
 

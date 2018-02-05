@@ -107,9 +107,9 @@ class Website_Controller extends WebsiteController{
         $colorIds = $this->tool_io->get("co");
         $totalparm = $this->collectparm(3,$colorIds,$totalparm,"","CONCAT(':',p.color,':') like ?");
         $mixPrice = $this->tool_io->get("p1");
-        $totalparm = $this->collectparm(1,$mixPrice,$totalparm,"","p.price >=");
+        $totalparm = $this->collectparm(1,$mixPrice,$totalparm,"","p.price >= ?");
         $maxPrice = $this->tool_io->get("p2");
-        $totalparm = $this->collectparm(1,$maxPrice,$totalparm,"","p.price <=");
+        $totalparm = $this->collectparm(1,$maxPrice,$totalparm,"","p.price <= ?");
 
         $keyword=$this->tool_io->get("k");//关键字
         if(!empty($keyword)){
