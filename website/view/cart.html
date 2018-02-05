@@ -59,6 +59,7 @@
                     <li><span>TWD </span><input type="hidden" id="totalfee" value="<?php echo  $this-> totalfee;?> "/><span  ng-bind="totalfee| currency"><?php echo  $this-> totalfee;?></span></li>
                 </ul>
             </div>
+            <form name="cform">
             <div class="address-wrap">
                 <div class="choose-delivery-address flex-column">
                     <div class="address-title">
@@ -66,23 +67,22 @@
                     </div>
                     <div class="address-input">
                         <p>國家</p>
-                        <select name="country" id="country">
-                            <!--<option value="選擇">選擇</option>-->
-                            <option value="台灣">台灣</option>
-                            <option value="英國">英國</option>
-                            <option value="美國">美國</option>
-                            <option value="日本">日本</option>
+                        <select  name="country" id="country">
+                            <?php foreach((array)$this->countrys as $country):?>
+                            <option value="<?php echo $country->id;?>"><?php echo $country->title;?></option>
+                            <?php endforeach;?>
                         </select>
                         <p>配送方式</p>
-                        <select name="shipping-method" id="shipping">
-                            <option value="1">義大利郵寄（7~14個工作天）</option>
-                            <option value="2">國內郵寄（3個工作天）</option>
+                        <select name="shipping-method"  id="shipping">
+                            <?php foreach((array)$this->deliverys as $delivery):?>
+                            <option value="<?php echo $delivery->id;?>"><?php echo $delivery->title;?></option>
+                            <?php endforeach;?>
                         </select>
                         <p>付款方式</p>
-                        <select name="payment" id="payment">
-                            <option value="1">選擇</option>
-                            <option value="2">ATM匯款</option>
-                            <option value="3">普惠世紀會員信用扣款</option>
+                        <select name="payment"  id="payment">
+                            <?php foreach((array)$this->payments as $payment):?>
+                            <option value="<?php echo $payment->id;?>"><?php echo $payment->title;?></option>
+                            <?php endforeach;?>
                         </select>
                         <div class="bank-detail">
                             <p><span>姓名：</span><span>官韋岑</span></p>
@@ -98,28 +98,34 @@
                     <div class="information-input flex-row">
                         <div class="customer-information">
                             <p>顧客資料</p>
-                            <input type="text" placeholder="顧客名稱">
-                            <input type="text" placeholder="電子信箱">
-                            <input type="text" placeholder="電話號碼">
+                            <input type="text" id="name" placeholder="顧客名稱">
+
+                            <input type="text" id="email" name="email" ng-model="email" placeholder="電子信箱">
+
+                            <input type="text" placeholder="電話號碼" id="phone">
+
                             <p>地址</p>
-                            <p>國家：<span>台灣</span></p>
-                            <input type="text" placeholder="城市/市鎮">
-                            <input type="text" placeholder="郵遞區號">
-                            <input type="text" placeholder="地址">
+                            <p>國家：<span id="countrySpan"></span></p>
+                            <input type="text" id="city" placeholder="城市/市鎮">
+
+                            <input type="text" id="areacode" placeholder="郵遞區號">
+
+                            <input type="text" id="address" placeholder="地址">
+
                         </div>
                         <div class="delivery-information">
                             <p>送貨資料</p>
-                            <p>收貨方式：<span>意大利郵寄（7~14個工作天）</span></p>
-                            <div class="checkbox-input-wrap">
-                                <input type="checkbox">
+                            <p>收貨方式：<span id="deliverySpan"></span></p>
+                            <div class="checkbox-input-wrap" id="same">
+                                <input type="checkbox" >
                                 <span class="checked"></span>
                                 <lable>郵件人與顧客資料相同</lable>
                             </div>
 
-                            <input type="text" placeholder="收件人名稱">
-                            <input type="text" placeholder="收件人電話號碼">
+                            <input type="text" id="recname" placeholder="收件人名稱">
+                            <input type="text" id="recphone" placeholder="收件人電話號碼">
                             <p>訂單備註</p>
-                            <textarea name="order-comment" id="order_comment" cols="30" rows="10"></textarea>
+                            <textarea name="order-comment" id="remark" id="order_comment" cols="30" rows="10"></textarea>
                         </div>
                     </div>
                 </div>
@@ -129,16 +135,16 @@
                     付款資料
                 </div>
                 <div class="payment-information-content flex-column">
-                    <div>已選擇的付款方式：<span>ATM匯款</span></div>
+                    <div>已選擇的付款方式：<span id="paymentSpan"></span></div>
                     <div class="payment-checkbox-wrap">
-                        <input type="checkbox">
+                        <input type="checkbox" id="agree">
                         <span class="pay-checked"></span>
                         <lable>我同意<a href="#">服務條款</a>和<a href="#">退換貨政策</a></lable>
                     </div>
-                    <button>訂單確認</button>
+                    <button type="button" id="confirmOrder">訂單確認</button>
                 </div>
             </div>
-
+            </form>
         </div>
     </div>
 </section>
