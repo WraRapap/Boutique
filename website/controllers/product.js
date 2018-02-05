@@ -4,7 +4,6 @@
     productCtrl.$inject = ['$scope','$filter', 'DialogService'];
     function productCtrl($scope,$filter,DialogService) {
         $scope.sort=GetQueryString("so")==null?"":GetQueryString("so");
-
         $scope.clearGo=function () {
             var index =location.href.indexOf("&");
             if(index>-1){
