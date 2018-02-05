@@ -78,7 +78,13 @@
     $("select[name=sort]").change(function(){
         var type=$(this).attr("remark");
         var typeValue=$(this).val();
-        confirmHref(type,typeValue);
+        confirmHref(type,typeValue,1);
+    });
+
+    $("div.price-range").mouseup(function(){
+        var minPrice = $(".begin-box").find("span").html();
+        var maxPrice =$(".end-box").find("span").html();
+        confirmHref("p1",minPrice+"&p2="+maxPrice,2);
     });
 
     $(".filter-submenu[id!=price_submenu]").click(function () {
@@ -94,10 +100,10 @@
         }
         console.log(typeValue);
 
-        confirmHref(type,typeValue);//把旧参数替换新收集的参数
+        confirmHref(type,typeValue,1);//把旧参数替换新收集的参数
     });
 
-    function confirmHref(type,typeValue){
+    function confirmHref(type,typeValue,num){
         var url=location.href;
         console.log(url);
         var index =url.indexOf("&"+type+"=");
@@ -105,6 +111,7 @@
             index =url.indexOf("?"+type+"=");
         }
         if(index>-1){//条件参数存在
+
             var start = url.substr(0,index+1);
             console.log(start);
             var end = url.substr(index+1);
@@ -115,6 +122,21 @@
                 end=end.substr(mindex);
             }else{
                 end="";
+            }
+            if(num==2){
+                url = start+end;
+                index =url.indexOf("&p2=");
+                if(index<0){
+                    index =url.indexOf("?p2=");
+                }
+                start = url.substr(0,index);
+                end = url.substr(index+1);
+                var mindex=end.indexOf("&");
+                if(mindex>-1){//条件参数后面还有参数，取得后面参数
+                    end=end.substr(mindex);
+                }else{
+                    end="";
+                }
             }
             console.log(end);
             var afterReplaceParm="";

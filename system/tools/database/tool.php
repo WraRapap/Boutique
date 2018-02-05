@@ -105,7 +105,6 @@ class Database_Tool extends CS_Tool{
         }
 
         $sql = "SELECT {$field_string} FROM {$tableName} {$where_string} {$group_string}{$sort_string};";
-
         $instance -> embedCommand($sql);
         return $instance -> execute_query($count,$returnTotal);
     }
