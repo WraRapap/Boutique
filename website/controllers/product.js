@@ -82,7 +82,7 @@
         confirmHref(type,typeValue);
     });
 
-    $(".filter-submenu").click(function () {
+    $(".filter-submenu[id!=price_submenu]").click(function () {
         var type=$(this).attr("remark");
         var typeValue="";
         $(this).find(":checkbox").each(function () {
