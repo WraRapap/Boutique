@@ -302,8 +302,12 @@ class Website_Controller extends WebsiteController{
         $cart->cart=json_encode($lateProducts,JSON_UNESCAPED_UNICODE);
         $cart->update();
 
+        $countrys = $this->tool_database->findAll("country");
+        $deliverys=$this->tool_database->findAll("delivery");
+        $payments=$this->tool_database->findAll("payment");
+
         $_SESSION["USER_CARTNUM"] =count($lstProducts) ;
-        $datas=array("cart"=>$lstProducts,"totalfee"=>$totalfee,"totalcount"=>$totalcount);
+        $datas=array("cart"=>$lstProducts,"totalfee"=>$totalfee,"totalcount"=>$totalcount,"countrys"=>$countrys,"deliverys"=>$deliverys,"payments"=>$payments);
         $this ->display("cart",$datas);
     }
 
@@ -333,7 +337,11 @@ class Website_Controller extends WebsiteController{
 	public function checkLogin($desti){
 		@session_start();
 		if(!isset($_SESSION["USER_ID"])){
-			$this -> tool_go -> page("/index.php/login.html?desti=".$desti."&".$_SERVER['QUERY_STRING']);
+		    $parms ="";
+		    if(!empty($_SERVER['QUERY_STRING'])){
+                $parms="&".$_SERVER['QUERY_STRING'];
+            }
+			$this -> tool_go -> page("/index.php/login.html?desti=".$desti.$parms);
 		}
 		@session_write_close();
 	}
