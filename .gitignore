@@ -12,3 +12,7 @@ system/logs/2018-02-02-database.log
 system/logs/2018-02-02-database.log
 .idea/workspace.xml
 system/configs/Db.php
+system/configs/Db.php
+.idea/workspace.xml
+.idea/workspace.xml
+*.log
