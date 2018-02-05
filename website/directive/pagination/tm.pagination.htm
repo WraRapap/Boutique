@@ -20,9 +20,14 @@
             <!--暫無數據  -->
       <!--</div>-->
 <!--</div>-->
-
+<style>
+      .disable-active{
+            background-color: #d7d7d7;
+            color: #6e6e6e !important;
+      }
+</style>
 <div class="items-pagination">
-      <a href="javascript:void(0);" ng-class="{disabled: conf.currentPage == 1}" ng-click="prevPage()" class="pagination-pre"><span>上一頁</span></a>
+      <a href="javascript:void(0);" ng-class="{disabled: conf.currentPage == 1}" ng-click="prevPage()" class="pagination-pre disable-active"><span>上一頁</span></a>
       <a href="javascript:void(0);" ng-repeat="item in pageList track by $index" ng-class="{active: item == conf.currentPage, separate: item == '..'}" ng-click="changeCurrentPage(item)">
             <span>{{ item }}</span>
       </a>

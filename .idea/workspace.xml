@@ -41,14 +41,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="product.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/view/product.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="632">
-              <caret line="146" column="25" lean-forward="true" selection-start-line="146" selection-start-column="25" selection-end-line="146" selection-end-column="25" />
+            <state relative-caret-position="651">
+              <caret line="147" column="14" lean-forward="true" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#5;n#aside#0;n#section#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tm.pagination.htm" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/website/directive/pagination/tm.pagination.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,7 +163,6 @@
         <option value="$PROJECT_DIR$/system/logs/2018-02-02-database.log" />
         <option value="$PROJECT_DIR$/system/tools/database/tool.php" />
         <option value="$PROJECT_DIR$/website/directive/pagination/tm.pagination.js" />
-        <option value="$PROJECT_DIR$/website/directive/pagination/tm.pagination.htm" />
         <option value="$PROJECT_DIR$/website/index.html" />
         <option value="$PROJECT_DIR$/system/tools/database/modules/mysqli.php" />
         <option value="$PROJECT_DIR$/system/logs/2018-02-04-database.log" />
@@ -164,6 +173,7 @@
         <option value="$PROJECT_DIR$/website/js/priceSlider.js" />
         <option value="$PROJECT_DIR$/website/css/product-items.css" />
         <option value="$PROJECT_DIR$/website/view/product.html" />
+        <option value="$PROJECT_DIR$/website/directive/pagination/tm.pagination.htm" />
       </list>
     </option>
   </component>
@@ -227,6 +237,19 @@
               <item name="Boutique" type="b2602c69:ProjectViewProjectNode" />
               <item name="Boutique" type="462c0819:PsiDirectoryNode" />
               <item name="website" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Boutique" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Boutique" type="462c0819:PsiDirectoryNode" />
+              <item name="website" type="462c0819:PsiDirectoryNode" />
+              <item name="directive" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Boutique" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Boutique" type="462c0819:PsiDirectoryNode" />
+              <item name="website" type="462c0819:PsiDirectoryNode" />
+              <item name="directive" type="462c0819:PsiDirectoryNode" />
+              <item name="pagination" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Boutique" type="b2602c69:ProjectViewProjectNode" />
@@ -305,12 +328,12 @@
       <workItem from="1517187957464" duration="141878000" />
       <workItem from="1517724574217" duration="28386000" />
       <workItem from="1517793061496" duration="510000" />
-      <workItem from="1517794773242" duration="1200000" />
+      <workItem from="1517794773242" duration="2302000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204989000" />
+    <option name="totallyTimeSpent" value="206091000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -644,13 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/directive/pagination/tm.pagination.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" column="98" lean-forward="false" selection-start-line="32" selection-start-column="98" selection-end-line="32" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system/logs/2018-02-04-database.log" />
     <entry file="file://$PROJECT_DIR$/system/tools/database/tool.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -740,11 +756,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/website/view/product.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="146" column="25" lean-forward="true" selection-start-line="146" selection-start-column="25" selection-end-line="146" selection-end-column="25" />
+        <state relative-caret-position="651">
+          <caret line="147" column="14" lean-forward="true" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
           <folding>
             <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#5;n#aside#0;n#section#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/directive/pagination/tm.pagination.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
