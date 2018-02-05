@@ -3,6 +3,8 @@
     PH.controller('productCtrl',productCtrl);
     productCtrl.$inject = ['$scope','$filter', 'DialogService'];
     function productCtrl($scope,$filter,DialogService) {
+        $scope.sort=GetQueryString("so")==null?"":GetQueryString("so");
+
         $scope.clearGo=function () {
             var index =location.href.indexOf("&");
             if(index>-1){
@@ -74,6 +76,12 @@
 
     };
 
+    $("select[name=sort]").change(function(){
+        var type=$(this).attr("remark");
+        var typeValue=$(this).val();
+        confirmHref(type,typeValue);
+    });
+
     $(".filter-submenu").click(function () {
         var type=$(this).attr("remark");
         var typeValue="";
@@ -86,6 +94,11 @@
             typeValue=typeValue.substr(0,typeValue.length-1);
         }
         console.log(typeValue);
+
+        confirmHref(type,typeValue);//把旧参数替换新收集的参数
+    });
+
+    function confirmHref(type,typeValue){
         var url=location.href;
         console.log(url);
         var index =url.indexOf("&"+type+"=");
@@ -105,7 +118,14 @@
                 end="";
             }
             console.log(end);
-            var search= start+type+"="+typeValue+end;//最后确定查询参数
+            var afterReplaceParm="";
+            if(typeValue!=""){
+                afterReplaceParm=type+"="+typeValue;
+            }else{
+                start=start.substr(0,start.length-1)
+            }
+
+            var search= start+afterReplaceParm+end;//最后确定查询参数
             console.log(search);
             window.location.href=search;
         }else{//条件参数之前不存在
@@ -115,6 +135,6 @@
                 location.href=location.href+"?"+type+"="+typeValue;
             }
         }
-    });
+    }
 
 })()

@@ -45,7 +45,7 @@
                         <?php foreach((array)$this->sizes as $size):?>
                         <div>
                             <label class="checkbox-wrap">
-                                <input type="checkbox" value="<?php echo $size->id;?>">
+                                <input type="checkbox" value="<?php echo $size->id;?>" <?php echo ($size->id===$this->tool_io->get('s')||strpos($this->tool_io->get('s'),$size->id)>-1)?'checked':'';?>>
                                 <span class="checkbox-txt"><?php echo $size->title;?></span> </label>
                         </div>
                         <?php endforeach;?>
@@ -81,7 +81,7 @@
                         <?php foreach((array)$this->colors as $color):?>
                         <div>
                             <label class="checkbox-wrap">
-                                <input type="checkbox" value="<?php echo $color->id;?>">
+                                <input type="checkbox" value="<?php echo $color->id;?>" <?php echo ($color->id===$this->tool_io->get('co')||strpos($this->tool_io->get('co'),$color->id)>-1)?'checked':'';?>>
                                 <span class="checkbox-txt" style="background:<?php echo $color->code;?>"></span> </label>
                         </div>
                         <?php endforeach;?>
@@ -98,8 +98,8 @@
             <div class="sort-wrap">
                 <div class="item-sort">
                     <form>
-                        <select>
-                            <option value="0">排列方式</option>
+                        <select name="sort" ng-model="sort" remark="so">
+                            <option value="">排列方式</option>
                             <option value="1">價錢：由低到高</option>
                             <option value="2">價錢：由高到低</option>
                             <option value="3">上架時間：新到舊</option>

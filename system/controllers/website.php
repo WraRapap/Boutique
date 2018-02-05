@@ -125,19 +125,19 @@ class Website_Controller extends WebsiteController{
             $totalparm["group"][]="p.id";
         }
 
-        $sort=$this->tool_io->get("cs");
+        $sort=$this->tool_io->get("so");
         if(isset($sort)){
             switch ($sort){
-                case "1":
+                case "4":
                     $totalparm["sort"][]="p.createTime";
                     break;
-                case "2":
+                case "3":
                     $totalparm["sort"][]="p.createTime desc";
                     break;
-                case "3":
+                case "1":
                     $totalparm["sort"][]="p.price";
                     break;
-                case "4":
+                case "2":
                     $totalparm["sort"][]="p.price desc";
                     break;
             }
