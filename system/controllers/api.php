@@ -134,8 +134,8 @@ class Api_Controller extends CS_Controller{
             return;
         }
 
-        $cart = $this->tool_database -> moreTableFind(
-            "cs_cart",
+        $cart = $this->tool_database -> find(
+            "cart",
             array(),
             array("memberId=?"),
             array($member["id"])
@@ -146,7 +146,7 @@ class Api_Controller extends CS_Controller{
         $_SESSION["USER_NAME"] = $member["name"];
         $_SESSION["USER"] = $member;
 
-        $_SESSION["USER_CARTNUM"] = count(json_decode($cart["cart"]));
+        $_SESSION["USER_CARTNUM"] = count((array)json_decode($cart->cart));
         @session_write_close();
         echo json_encode(array("status"=>1));
         return ;
