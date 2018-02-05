@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf3c6fb4-f7e9-4ed3-97e3-e35ddffa8136" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/system/configs/Db.php" afterPath="$PROJECT_DIR$/system/configs/Db.php" />
-      <change beforePath="$PROJECT_DIR$/system/controllers/website.php" afterPath="$PROJECT_DIR$/system/controllers/website.php" />
-      <change beforePath="$PROJECT_DIR$/system/logs/2018-01-29-database.log" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/system/tools/database/tool.php" afterPath="$PROJECT_DIR$/system/tools/database/tool.php" />
-      <change beforePath="$PROJECT_DIR$/website/controllers/product.js" afterPath="$PROJECT_DIR$/website/controllers/product.js" />
-      <change beforePath="$PROJECT_DIR$/website/index.html" afterPath="$PROJECT_DIR$/website/index.html" />
+      <change beforePath="$PROJECT_DIR$/website/css/product-items.css" afterPath="$PROJECT_DIR$/website/css/product-items.css" />
+      <change beforePath="$PROJECT_DIR$/website/js/priceSlider.js" afterPath="$PROJECT_DIR$/website/js/priceSlider.js" />
+      <change beforePath="$PROJECT_DIR$/website/ngdialog/css/ngDialog.css" afterPath="$PROJECT_DIR$/website/ngdialog/css/ngDialog.css" />
       <change beforePath="$PROJECT_DIR$/website/view/product.html" afterPath="$PROJECT_DIR$/website/view/product.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="product.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/view/product.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="100" column="58" lean-forward="false" selection-start-line="100" selection-start-column="58" selection-end-line="100" selection-end-column="58" />
+            <state relative-caret-position="456">
+              <caret line="102" column="58" lean-forward="false" selection-start-line="102" selection-start-column="58" selection-end-line="102" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -78,7 +74,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Db.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Db.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/system/configs/Db.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
@@ -220,7 +216,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" port="83" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="539" />
     <option name="y" value="41" />
     <option name="width" value="1136" />
@@ -341,7 +337,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207636000" />
+    <option name="totallyTimeSpent" value="208221000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -353,7 +349,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.122068234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -804,14 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/system/configs/Db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system/tools/database/tool.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="415">
@@ -854,8 +842,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/website/view/product.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="100" column="58" lean-forward="false" selection-start-line="100" selection-start-column="58" selection-end-line="100" selection-end-column="58" />
+        <state relative-caret-position="456">
+          <caret line="102" column="58" lean-forward="false" selection-start-line="102" selection-start-column="58" selection-end-line="102" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/configs/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
           <folding />
         </state>
       </provider>

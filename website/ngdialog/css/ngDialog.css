@@ -115,7 +115,7 @@ body.ngdialog-open {
 }
 
 
-
+/*Alex20180202*/
 @media screen and (min-width: 376px){
   .ngdialog-content {
     width: 500px !important;
