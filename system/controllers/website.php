@@ -38,14 +38,151 @@ class Website_Controller extends WebsiteController{
 		$this -> tool_go -> page("/index.php/");
 	}
 
+
+    private  function collectparm($mod,$brandIds,$totalparm,$table,$condition){
+        if(!empty($brandIds)){
+            if($mod==1){
+                $totalparm["moreTabel"].=" ".$table." ";
+                $totalparm["condititon"][]="$condition";
+                $totalparm["condititonValue"][]=$brandIds;
+            }else{
+                $brandArr = explode(",",$brandIds);
+                $brandIds="";
+                foreach($brandArr as $key => $brandId){
+                    if($key == count($brandArr)-1){
+                        $brandIds.= " ".$condition." ";
+                    }
+                    else{
+                        $brandIds.= " ".$condition." or ";
+                    }
+                    if($mod==2){
+                        $totalparm["condititonValue"][]=$brandId;
+                    }else{
+                        $totalparm["condititonValue"][]=array('%',$brandId,'%');
+                    }
+
+                }
+                $totalparm["condititon"][]="(".$brandIds.")";
+            }
+        }
+        return $totalparm;
+    }
+//1.类别（包，鞋，服饰，时尚配饰）2.男/女//3.品牌//4.尺寸//5.颜色//6.价格//7关键字//上架时间（大小）//价钱（大小）
+//SELECT * from cs_product p
+//INNER JOIN v_category vc on p.id=vc.id //关联类别视图
+//INNER JOIN cs_brand b on p.brand=b.id //品牌
+//INNER JOIN cs_size_class s on CONCAT(':',p.size,':') like CONCAT('\'',s.id,'\'') //尺寸
+//INNER JOIN cs_sex se on se.id=p.sex //性别
+//INNER JOIN cs_color co on on CONCAT(':',p.size,':') like CONCAT('\'',co.id,'\'')//颜色
+//where vc.categoryid=?
+//and (p.brand = ? or )
+//and (CONCAT(':',p.size,':') like ? or )
+//and p.sex = ?
+//and (CONCAT(':',p.color,':') like ? or )
+//and p.price >= ?
+//and p.price <= ?
+//and (p.description like ? or p.name like ? or  b.title like ? or s.title like ? or se.title like ? or co.title like ? )//关键字
+//and p.publish='Y'
+// group by id
+//order by p.createTime ?,
+//order by p.price ?
 	public function  product(){
+        $perPageItems=empty($this->tool_io->get("count"))? 2:$this->tool_io->get("count");
+        $currentPage=empty($this->tool_io->get("page"))? 1:$this->tool_io->get("page");
+	    $totalparm=array();
+        $totalparm["moreTabel"]="cs_product p";
+        $totalparm["condititon"]=array("publish='Y'");
+        $totalparm["condititonValue"]=array();
+        $totalparm["sort"]=array();
+        $totalparm["group"]=array();
+
+	    $categoryId = $this->tool_io->get("c");//类别
+        $totalparm = $this->collectparm(1,$categoryId,$totalparm,"INNER JOIN v_category vc on p.id=vc.id","vc.categoryid=?");//$mod,$brandIds,$totalparm,$table,$condition
+        $brandIds = $this->tool_io->get("b");//品牌
+        $totalparm = $this->collectparm(2,$brandIds,$totalparm,"","p.brand = ?");
+        $sizeIds = $this->tool_io->get("s");//尺寸
+        $totalparm = $this->collectparm(3,$sizeIds,$totalparm,"","CONCAT(':',p.size,':') like ?");
+        $sexId = $this->tool_io->get("se");
+        $totalparm = $this->collectparm(1,$sexId,$totalparm,"","p.sex = ?");
+        $colorIds = $this->tool_io->get("co");
+        $totalparm = $this->collectparm(3,$colorIds,$totalparm,"","CONCAT(':',p.color,':') like ?");
+        $mixPrice = $this->tool_io->get("p1");
+        $totalparm = $this->collectparm(1,$mixPrice,$totalparm,"","p.price >=");
+        $maxPrice = $this->tool_io->get("p2");
+        $totalparm = $this->collectparm(1,$maxPrice,$totalparm,"","p.price <=");
+
+        $keyword=$this->tool_io->get("k");//关键字
+        if(!empty($keyword)){
+            $totalparm["moreTabel"].=" INNER JOIN cs_brand b on p.brand=b.id INNER JOIN cs_size_class s on CONCAT(':',p.size,':') like CONCAT('%',s.id,'%') ";
+            $totalparm["moreTabel"].=" INNER JOIN cs_sex se on se.id=p.sex INNER JOIN cs_color co on CONCAT(':',p.color,':') like CONCAT('%',co.id,'%') ";
+            $totalparm["condititon"][]="(p.description like ? or p.name like ? or  b.title like ? or s.title like ? or se.title like ? or co.title like ?)";
+            $totalparm["condititonValue"][]=array('%',$keyword,'%');
+            $totalparm["condititonValue"][]=array('%',$keyword,'%');
+            $totalparm["condititonValue"][]=array('%',$keyword,'%');
+            $totalparm["condititonValue"][]=array('%',$keyword,'%');
+            $totalparm["condititonValue"][]=array('%',$keyword,'%');
+            $totalparm["condititonValue"][]=array('%',$keyword,'%');
+            $totalparm["group"][]="p.id";
+        }
+
+        $sort=$this->tool_io->get("cs");
+        if(isset($sort)){
+            switch ($sort){
+                case "1":
+                    $totalparm["sort"][]="p.createTime";
+                    break;
+                case "2":
+                    $totalparm["sort"][]="p.createTime desc";
+                    break;
+                case "3":
+                    $totalparm["sort"][]="p.price";
+                    break;
+                case "4":
+                    $totalparm["sort"][]="p.price desc";
+                    break;
+            }
+        }
+
         $productlist = $this -> tool_database -> moreTableFindAll(
-            "cs_product",
-            array("id","name","cheapest","img","price"),
-            array("publish='Y'")
+            $totalparm["moreTabel"],
+            array("p.id","p.name","p.img","p.price"),
+            $totalparm["condititon"],
+            $totalparm["condititonValue"],
+            $totalparm["sort"],
+            $totalparm["group"],
+            $perPageItems,
+            true
+        );//参数里的true代表会返回总数，默认不返回
+
+        if(isset($_POST["rq"])){//ajax请求数据
+            echo json_encode(array("data"=>$productlist[0]));
+            return;
+        }
+
+        $colors = $this->tool_database->findAll("color");
+        $brands = $this->tool_database->findAll("brand");
+
+        $sizeCondition=array("parentID!=''");
+        $sizeConditionValue = array();
+        if(isset($_GET["c"])){
+            $sizeCondition[]="parentID=?";
+            $sizeConditionValue = array($this->tool_io->get("c"));
+        }
+
+        $sizes = $this->tool_database->findAll(
+            "size_class",
+             array("id","title"),
+            $sizeCondition,
+            $sizeConditionValue
         );
 
-        $datas=array("productlist"=>$productlist);
+        $datas = array("productlist"=>$productlist[0],
+                        "totalItems"=>$productlist[1],
+                        "perPageItems"=>$perPageItems ,
+                        "colors"=>$colors ,
+                        "brands"=>$brands ,
+                        "sizes"=>$sizes ,
+                        "currentPage"=>$currentPage);
         $this ->display("product",$datas);
     }
 

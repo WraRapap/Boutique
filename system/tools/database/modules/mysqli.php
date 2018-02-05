@@ -57,13 +57,12 @@ class CS_MySQLi extends Chihsin{
 	 * @param string $sql SQL語法
 	 * @return item[] $results
 	 */
-	public function execute_query($count = -1) {
+	public function execute_query($count = -1,$returnTotal=false) {
 
 		$total = 0;
 
 		if($count > 0){
 			$total = $this -> execute_query_num();
-			
 		}
 		
 
@@ -75,7 +74,6 @@ class CS_MySQLi extends Chihsin{
 
 			$per_page = $this -> tool_pagination -> get_count_per_page();
 			$start_index = $this -> tool_pagination -> get_start_index();
-
 			if ($per_page > -1) {
 				// 計算分頁數量取得SQL的 LIMIT參數值
 				$sql = preg_replace("/;|limit .*?$/i", "", $sql) . (" LIMIT " . $start_index . "," . $per_page) . ";";
@@ -91,7 +89,7 @@ class CS_MySQLi extends Chihsin{
 		}
 		unset($row);
 		unset($res);
-		return $results;
+		return  $returnTotal==true ? array($results,$total) : $results;
 	}
 
 	/**
@@ -121,11 +119,9 @@ class CS_MySQLi extends Chihsin{
 
 		$sql = $this -> into_command(false);
 
-
 		// 取得此查詢總筆數
-		$count_sql = preg_replace(array('/SELECT.*?FROM /Asi', '/SELECT \*,/Asi', '/ORDER BY .*/'), array('SELECT COUNT(*) AS counter FROM ', 'SELECT COUNT(*) AS counter,', ''), $sql);
-
-
+//        $count_sql = preg_replace(array('/SELECT.*?FROM /Asi', '/SELECT \*,/Asi', '/ORDER BY .*/'), array('SELECT COUNT(*) AS counter FROM ', 'SELECT COUNT(*) AS counter,', ''), $sql);
+        $count_sql = "select count(*) counter from ( ". preg_replace("/;/i", "", $sql)." ) a";
 		if($sql == $count_sql){
 			return 0;
 		}

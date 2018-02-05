@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="ngdialog/css/ngDialog-theme-default.css">
   <link rel="stylesheet" href="ngdialog/css/ngDialog-theme-plain.css">
   <link rel="stylesheet" href="ngdialog/css/ngDialog-custom-width.css">
-  <link rel="stylesheet" href="directive/css/pagination.css">
+  <!--<link rel="stylesheet" href="directive/css/pagination.css">-->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/master.css">
   <link rel="stylesheet" href="css/font.css">
@@ -69,19 +69,19 @@
                 <li><a href="#">Prada</a></li>
               </ul>
             </li>
-            <li><a href="product.html?s=15a6ae4005c0a8">WOMEN</a></li>
-            <li><a href="product.html?s=15a6ae3eabb030">MEN</a></li>
+            <li><a href="product.html?se=15a6ae4005c0a8">WOMEN</a></li>
+            <li><a href="product.html?se=15a6ae3eabb030">MEN</a></li>
             <li><a href="product.html?c=15a73df26ca348">包款</a></li>
             <li><a href="product.html?c=15a6af733a4100">鞋款</a></li>
-            <li><a href="product.html?c=15a6ae3eabb030">服飾</a></li>
-            <li><a href="#">時尚配件</a></li>
+            <li><a href="product.html?c=15a6af74c72420">服飾</a></li>
+            <li><a href="product.html?c=15a6ae3eabb030">時尚配件</a></li>
           </ul>
         </nav>
         <aside id="header-aside">
           <div class="search-wrap">
-            <form class="search">
+            <form class="search" action="product.html" method="get">
               <button><i class="fa fa-search" aria-hidden="true"></i></button>
-              <input type="text" placeholder="關鍵字">
+              <input type="text" name="k" placeholder="關鍵字">
             </form>
           </div>
           <div class="cart-wrap"> <a href="cart.html">
@@ -182,6 +182,8 @@
     function regis(){
         if(location.search.indexOf("desti")>-1){
            location.href="signin.html"+location.search;
+        }else{
+            location.href="signin.html";
         }
     }
     $(function() {

@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 <link rel="stylesheet" href="./css/product-items.css">
 <script src="../js/priceSlider.js"></script>
+=======
+<link rel="stylesheet" href="css/product-items.css">
+<link rel="stylesheet" href="directive/css/pagination.css">
+<script src="directive/pagination/tm.pagination.js"></script>
+<script src="js/priceSlider.js"></script>
+>>>>>>> d285e09527a4f423f5680a039b5cee15ad0544a0
 <section class="container-narrow clearfix" id="product-items" ng-controller="productCtrl">
     <!--filter-->
     <aside class="filter-wrap">
@@ -16,33 +23,20 @@
         </div>
         <div class="filter-box">
             <div class="filter-title">排序方式</div>
-            <a class="reset-btn">全部清除</a></div>
+            <a class="reset-btn" href="javascript:void(0)" ng-click="clearGo()">全部清除</a></div>
 
         <!--品牌-->
-        <div class="filter-box" id="filter-brand">
+        <div class="filter-box" id="filter-brand" >
             <div class="filter-title has-arrow"><a href="#">品牌</a>
-                <div class="filter-submenu">
+                <div class="filter-submenu" remark="b">
                     <form>
+                        <?php foreach((array)$this->brands as $brand):?>
                         <div>
-                            <input type="checkbox"/>
-                            <label><span>PRADA</span></label>
+                            <input type="checkbox" value="<?php echo $brand->id;?>" <?php echo strpos($this->tool_io->get('b'),$brand->id);?> <?php echo ($brand->id===$this->tool_io->get('b')||strpos($this->tool_io->get('b'),$brand->id)>-1)?'checked':'';?>/>
+                            <label><span><?php echo $brand->title;?></span></label>
                         </div>
-                        <div>
-                            <input type="checkbox"/>
-                            <label><span>moschino</span></label>
-                        </div>
-                        <div>
-                            <input type="checkbox"/>
-                            <label><span>burberry</span></label>
-                        </div>
-                        <div>
-                            <input type="checkbox"/>
-                            <label><span>gucci</span></label>
-                        </div>
-                        <div>
-                            <input type="checkbox"/>
-                            <label><span>miu miu</span></label>
-                        </div>
+                        <?php endforeach;?>
+
                     </form>
                 </div>
             </div>
@@ -51,48 +45,15 @@
         <!--尺寸-->
         <div class="filter-box" id="filter-size">
             <div class="filter-title has-arrow"><a href="#">尺寸</a>
-                <div class="filter-submenu">
+                <div class="filter-submenu" remark="s">
                     <form>
+                        <?php foreach((array)$this->sizes as $size):?>
                         <div>
                             <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt">one size</span> </label>
+                                <input type="checkbox" value="<?php echo $size->id;?>">
+                                <span class="checkbox-txt"><?php echo $size->title;?></span> </label>
                         </div>
-                        <div>
-                            <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt">XXS</span> </label>
-                        </div>
-                        <div>
-                            <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt">xs</span> </label>
-                        </div>
-                        <div>
-                            <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt">S</span> </label>
-                        </div>
-                        <div>
-                            <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt">m</span> </label>
-                        </div>
-                        <div>
-                            <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt">l</span> </label>
-                        </div>
-                        <div>
-                            <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt">xl</span> </label>
-                        </div>
-                        <div>
-                            <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt">XXl</span> </label>
-                        </div>
+                        <?php endforeach;?>
                     </form>
                 </div>
             </div>
@@ -120,33 +81,15 @@
         <!--顏色-->
         <div class="filter-box" id="filter-color">
             <div class="filter-title has-arrow"><a href="#">顏色</a>
-                <div class="filter-submenu">
+                <div class="filter-submenu" remark="co">
                     <form>
+                        <?php foreach((array)$this->colors as $color):?>
                         <div>
                             <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt check-white"></span> </label>
+                                <input type="checkbox" value="<?php echo $color->id;?>">
+                                <span class="checkbox-txt" style="background:<?php echo $color->code;?>"></span> </label>
                         </div>
-                        <div>
-                            <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt check-red"></span> </label>
-                        </div>
-                        <div>
-                            <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt check-yellow"></span> </label>
-                        </div>
-                        <div>
-                            <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt check-green"></span> </label>
-                        </div>
-                        <div>
-                            <label class="checkbox-wrap">
-                                <input type="checkbox">
-                                <span class="checkbox-txt check-blue"></span> </label>
-                        </div>
+                        <?php endforeach;?>
                     </form>
                 </div>
             </div>
@@ -192,16 +135,19 @@
                 </a></article>
             <?php endforeach;?>
         </div>
-
+        <input type="hidden" value="<?php echo $this->totalItems ;?>" id="totalItems"/>
+        <input type="hidden" value="<?php echo $this->perPageItems ;?>" id="perPageItems"/>
+        <input type="hidden" value="<?php echo $this->currentPage ;?>" id="currentPage"/>
         <!--pagigation-->
         <div class="items-bottom">
-            <div class="items-pagination"><a href="#" class="pagination-pre"><span>上一頁</span></a><a
-                    href="#"><span>1</span></a><a href="#"><span>2</span></a><a href="#"><span>3</span></a><a
-                    href="#"><span>4</span></a><a href="#" class="pagination-next"><span>下一頁</span></a></div>
-            <div class="items-sum">
-                <div>共計<span>90</span>個商品</div>
-                <div>頁數<span>1</span>/<span>4</span></div>
-            </div>
+            <tm-pagination conf="paginationConf"></tm-pagination>
+            <!--<div class="items-pagination"><a href="#" class="pagination-pre"><span>上一頁</span></a><a-->
+                    <!--href="#"><span>1</span></a><a href="#"><span>2</span></a><a href="#"><span>3</span></a><a-->
+                    <!--href="#"><span>4</span></a><a href="#" class="pagination-next"><span>下一頁</span></a></div>-->
+            <!--<div class="items-sum">-->
+                <!--<div>共計<span>90</span>個商品</div>-->
+                <!--<div>頁數<span>1</span>/<span>4</span></div>-->
+            <!--</div>-->
         </div>
     </div>
 

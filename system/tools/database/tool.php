@@ -64,7 +64,7 @@ class Database_Tool extends CS_Tool{
 		return $res;
 	}
 
-    public function moreTableFindAll($tableName, $fields = array(), $where = array(), $values = array(), $sort = array(), $count = -1){
+    public function moreTableFindAll($tableName, $fields = array(), $where = array(), $values = array(), $sort = array(),$group=array(), $count = -1,$returnTotal=false){
         $instance = $this -> getInstance();
 
 
@@ -92,6 +92,11 @@ class Database_Tool extends CS_Tool{
 
         }
 
+        //分组
+        $group_string = "";
+        if (count($group) > 0) {
+            $group_string = "Group BY " . implode(", ", $group);
+        }
 
         // 排序條件
         $sort_string = "";
@@ -99,10 +104,10 @@ class Database_Tool extends CS_Tool{
             $sort_string = "ORDER BY " . implode(", ", $sort);
         }
 
-        $sql = "SELECT {$field_string} FROM {$tableName} {$where_string} {$sort_string};";
+        $sql = "SELECT {$field_string} FROM {$tableName} {$where_string} {$group_string}{$sort_string};";
 
         $instance -> embedCommand($sql);
-        return $instance -> execute_query($count);
+        return $instance -> execute_query($count,$returnTotal);
     }
 
 	public function find($tableName, $fields = array(), $where = array(), $values = array(), $sort = array()){
@@ -118,11 +123,11 @@ class Database_Tool extends CS_Tool{
 		}
 	}
 
-    public function moreTableFind($tableName, $fields = array(), $where = array(), $values = array(), $sort = array()){
+    public function moreTableFind($tableName, $fields = array(), $where = array(), $values = array(), $sort = array(),$group=array()){
 
         $instance = $this -> getInstance();
 
-        $res = $this -> moreTableFindAll($tableName, $fields, $where, $values, $sort, 1);
+        $res = $this -> moreTableFindAll($tableName, $fields, $where, $values, $sort, $group,1);
 
         if (count($res) > 0) {
             return $res[0];
