@@ -95,13 +95,13 @@ class Database_Tool extends CS_Tool{
         //分组
         $group_string = "";
         if (count($group) > 0) {
-            $group_string = "Group BY " . implode(", ", $group);
+            $group_string = " Group BY " . implode(", ", $group);
         }
 
         // 排序條件
         $sort_string = "";
         if (count($sort) > 0) {
-            $sort_string = "ORDER BY " . implode(", ", $sort);
+            $sort_string = " ORDER BY " . implode(", ", $sort);
         }
 
         $sql = "SELECT {$field_string} FROM {$tableName} {$where_string} {$group_string}{$sort_string};";
