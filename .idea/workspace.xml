@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf3c6fb4-f7e9-4ed3-97e3-e35ddffa8136" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/system/components/cart.php" afterPath="$PROJECT_DIR$/system/components/cart.php" />
       <change beforePath="$PROJECT_DIR$/system/controllers/api.php" afterPath="$PROJECT_DIR$/system/controllers/api.php" />
       <change beforePath="$PROJECT_DIR$/system/controllers/website.php" afterPath="$PROJECT_DIR$/system/controllers/website.php" />
       <change beforePath="$PROJECT_DIR$/system/logs/2018-01-30-database.log" afterPath="" />
       <change beforePath="$PROJECT_DIR$/system/logs/2018-01-31-database.log" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/system/tools/database/modules/mysqli.php" afterPath="$PROJECT_DIR$/system/tools/database/modules/mysqli.php" />
-      <change beforePath="$PROJECT_DIR$/system/tools/database/record.php" afterPath="$PROJECT_DIR$/system/tools/database/record.php" />
-      <change beforePath="$PROJECT_DIR$/system/tools/database/tool.php" afterPath="$PROJECT_DIR$/system/tools/database/tool.php" />
-      <change beforePath="$PROJECT_DIR$/website/controllers/cart.js" afterPath="$PROJECT_DIR$/website/controllers/cart.js" />
-      <change beforePath="$PROJECT_DIR$/website/css/cart.css" afterPath="$PROJECT_DIR$/website/css/cart.css" />
-      <change beforePath="$PROJECT_DIR$/website/index.html" afterPath="$PROJECT_DIR$/website/index.html" />
-      <change beforePath="$PROJECT_DIR$/website/view/cart.html" afterPath="$PROJECT_DIR$/website/view/cart.html" />
+      <change beforePath="$PROJECT_DIR$/website/controllers/member.js" afterPath="$PROJECT_DIR$/website/controllers/member.js" />
+      <change beforePath="$PROJECT_DIR$/website/view/member.html" afterPath="$PROJECT_DIR$/website/view/member.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="website.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="website.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/system/controllers/website.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="315" column="49" lean-forward="false" selection-start-line="315" selection-start-column="49" selection-end-line="315" selection-end-column="49" />
+            <state relative-caret-position="505">
+              <caret line="322" column="91" lean-forward="false" selection-start-line="322" selection-start-column="91" selection-end-line="322" selection-end-column="91" />
               <folding>
                 <element signature="n#main#0;n#Website_Controller#0;n#!!top" expanded="false" />
                 <element signature="n#index#0;n#Website_Controller#0;n#!!top" expanded="false" />
@@ -46,76 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/system/controllers/api.php">
+      <file leaf-file-name="product.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/website/controllers/product.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="210" column="20" lean-forward="false" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="20" />
-              <folding>
-                <element signature="n#main#0;n#Api_Controller#0;n#!!top" expanded="false" />
-                <element signature="n#fileupload#0;n#Api_Controller#0;n#!!top" expanded="false" />
-                <element signature="n#fileDelete#0;n#Api_Controller#0;n#!!top" expanded="false" />
-                <element signature="n#signin#0;n#Api_Controller#0;n#!!top" expanded="false" />
-                <element signature="n#delCartProduct#0;n#Api_Controller#0;n#!!top" expanded="false" />
-                <marker date="1517981843152" expanded="true" signature="7968:8004" ph="delete from cs_cart... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/system/components/cart.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-              <folding>
-                <marker date="1517982258239" expanded="true" signature="1023:1580" ph="..." />
-                <marker date="1517982258239" expanded="true" signature="1023:1635" ph="..." />
-                <marker date="1517982258239" expanded="true" signature="1043:1083" ph="..." />
-                <marker date="1517982258239" expanded="false" signature="1176:1215" ph="..." />
-                <marker date="1517982258239" expanded="false" signature="1268:1307" ph="..." />
-                <marker date="1517982258239" expanded="false" signature="1358:1397" ph="..." />
-                <marker date="1517982258239" expanded="false" signature="1446:1485" ph="..." />
-                <marker date="1517982258239" expanded="false" signature="1538:1577" ph="..." />
-                <marker date="1517982258239" expanded="true" signature="1693:1726" ph="..." />
-                <marker date="1517982258239" expanded="true" signature="1728:2419" ph="..." />
-                <marker date="1517982258239" expanded="true" signature="1750:2363" ph="..." />
-                <marker date="1517982258239" expanded="false" signature="1782:1839" ph="..." />
-                <marker date="1517982258239" expanded="false" signature="1882:1939" ph="..." />
-                <marker date="1517982258239" expanded="false" signature="1980:2037" ph="..." />
-                <marker date="1517982258239" expanded="false" signature="2078:2135" ph="..." />
-                <marker date="1517982258239" expanded="false" signature="2176:2233" ph="..." />
-                <marker date="1517982258239" expanded="false" signature="2274:2331" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/website/controllers/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" column="43" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="29" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/website/controllers/signin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="809">
-              <caret line="50" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="member-manage.html" pinned="false" current-in-tab="false">
-        <entry file="file://E:/design/85go-20180118/85go-20180118/boutiquefrontend/member-manage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="167" column="14" lean-forward="false" selection-start-line="96" selection-start-column="4" selection-end-line="167" selection-end-column="14" />
+            <state relative-caret-position="2489">
+              <caret line="131" column="42" lean-forward="false" selection-start-line="131" selection-start-column="42" selection-end-line="131" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -124,8 +53,8 @@
       <file leaf-file-name="member.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/view/member.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -134,8 +63,66 @@
       <file leaf-file-name="member.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/controllers/member.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+            <state relative-caret-position="152">
+              <caret line="26" column="48" lean-forward="false" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cmd.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system/controllers/cmd.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system/controllers/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-654">
+              <caret line="277" column="0" lean-forward="false" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
+              <folding>
+                <element signature="n#main#0;n#Api_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#fileupload#0;n#Api_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#fileDelete#0;n#Api_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#signin#0;n#Api_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#login#0;n#Api_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#delCartProduct#0;n#Api_Controller#0;n#!!top" expanded="false" />
+                <marker date="1517992017872" expanded="true" signature="7969:8005" ph="delete from cs_cart... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/website/view/order.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="30" column="81" lean-forward="false" selection-start-line="30" selection-start-column="81" selection-end-line="30" selection-end-column="81" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="member-order.html" pinned="false" current-in-tab="false">
+        <entry file="file://E:/design/85go-20180118/85go-20180118/boutiquefrontend/member-order.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3154">
+              <caret line="166" column="14" lean-forward="false" selection-start-line="95" selection-start-column="4" selection-end-line="166" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/website/controllers/signin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -144,18 +131,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="36" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/website/controllers/cart.js">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
-              <caret line="28" column="75" lean-forward="true" selection-start-line="28" selection-start-column="75" selection-end-line="28" selection-end-column="75" />
+              <caret line="94" column="43" lean-forward="false" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -165,7 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>disabled</find>
       <find>filter-box</find>
       <find>filter-submenu</find>
       <find>prevPage</find>
@@ -186,7 +162,6 @@
       <find>customizeSql</find>
       <find>placeholder</find>
       <find>placeholde</find>
-      <find>P</find>
       <find>msg</find>
       <find>products</find>
       <find>$tableName</find>
@@ -195,10 +170,13 @@
       <find>transaction</find>
       <find>getSqlAndClearParams</find>
       <find>checked</find>
+      <find>P</find>
+      <find>$_SESSION['USER']</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>payment</replace>
+      <replace>id=</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -207,7 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/system/configs/Env.php" />
         <option value="$PROJECT_DIR$/system/models/admin.php" />
         <option value="$PROJECT_DIR$/system/controllers/admin.php" />
         <option value="$PROJECT_DIR$/system/configs/Component.php" />
@@ -251,13 +228,14 @@
         <option value="$PROJECT_DIR$/system/tools/database/tool.php" />
         <option value="$PROJECT_DIR$/website/view/cart.html" />
         <option value="$PROJECT_DIR$/system/tools/database/modules/mysqli.php" />
-        <option value="$PROJECT_DIR$/system/controllers/api.php" />
         <option value="$PROJECT_DIR$/website/controllers/cart.js" />
         <option value="$PROJECT_DIR$/system/components/cart.php" />
         <option value="$PROJECT_DIR$/website/index.html" />
-        <option value="$PROJECT_DIR$/system/controllers/website.php" />
-        <option value="$PROJECT_DIR$/website/view/member.html" />
         <option value="$PROJECT_DIR$/website/controllers/member.js" />
+        <option value="$PROJECT_DIR$/website/view/member.html" />
+        <option value="$PROJECT_DIR$/system/controllers/api.php" />
+        <option value="$PROJECT_DIR$/website/view/order.html" />
+        <option value="$PROJECT_DIR$/system/controllers/website.php" />
       </list>
     </option>
   </component>
@@ -282,7 +260,8 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" port="83" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1" />
+    <option name="x" value="593" />
+    <option name="y" value="41" />
     <option name="width" value="1136" />
     <option name="height" value="1005" />
   </component>
@@ -320,7 +299,19 @@
             <path>
               <item name="Boutique" type="b2602c69:ProjectViewProjectNode" />
               <item name="Boutique" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="system" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Boutique" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Boutique" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="website" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Boutique" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Boutique" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="website" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Boutique" type="b2602c69:ProjectViewProjectNode" />
@@ -398,7 +389,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="259429000" />
+    <option name="totallyTimeSpent" value="266118000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -478,7 +469,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="171" />
+      <option name="time" value="173" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PhpWebAppRunConfigurationType">
@@ -571,28 +562,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/block.rnc" />
-    <entry file="file://$PROJECT_DIR$/website/services/DialogService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/tools/io/tool.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/logs/2018-02-02-database.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="291" column="513" lean-forward="false" selection-start-line="291" selection-start-column="513" selection-end-line="291" selection-end-column="513" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/website/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -672,14 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="306" column="18" lean-forward="false" selection-start-line="306" selection-start-column="18" selection-end-line="306" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/controllers/DialogController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -878,14 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/controllers/product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1987">
-          <caret line="131" column="42" lean-forward="false" selection-start-line="131" selection-start-column="42" selection-end-line="131" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system/logs/2018-02-07-database.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
@@ -918,14 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/design/85go-20180118/85go-20180118/boutiquefrontend/member-manage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="167" column="14" lean-forward="false" selection-start-line="96" selection-start-column="4" selection-end-line="167" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system/components/cart.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -952,10 +897,130 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://E:/design/85go-20180118/85go-20180118/boutiquefrontend/member-manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="167" column="14" lean-forward="false" selection-start-line="96" selection-start-column="4" selection-end-line="167" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/controllers/item.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/controllers/DialogController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/controllers/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342">
+          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/controllers/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="36" column="17" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="36" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/controllers/product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2489">
+          <caret line="131" column="42" lean-forward="false" selection-start-line="131" selection-start-column="42" selection-end-line="131" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/controllers/signin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/controllers/cmd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="94" column="43" lean-forward="false" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/controllers/member.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="26" column="48" lean-forward="false" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/controllers/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-654">
+          <caret line="277" column="0" lean-forward="false" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
+          <folding>
+            <element signature="n#main#0;n#Api_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#fileupload#0;n#Api_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#fileDelete#0;n#Api_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#signin#0;n#Api_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#login#0;n#Api_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#delCartProduct#0;n#Api_Controller#0;n#!!top" expanded="false" />
+            <marker date="1517992017872" expanded="true" signature="7969:8005" ph="delete from cs_cart... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/design/85go-20180118/85go-20180118/boutiquefrontend/member-order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3154">
+          <caret line="166" column="14" lean-forward="false" selection-start-line="95" selection-start-column="4" selection-end-line="166" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/view/member.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/view/order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="81" lean-forward="false" selection-start-line="30" selection-start-column="81" selection-end-line="30" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/system/controllers/website.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="315" column="49" lean-forward="false" selection-start-line="315" selection-start-column="49" selection-end-line="315" selection-end-column="49" />
+        <state relative-caret-position="505">
+          <caret line="322" column="91" lean-forward="false" selection-start-line="322" selection-start-column="91" selection-end-line="322" selection-end-column="91" />
           <folding>
             <element signature="n#main#0;n#Website_Controller#0;n#!!top" expanded="false" />
             <element signature="n#index#0;n#Website_Controller#0;n#!!top" expanded="false" />
@@ -969,69 +1034,6 @@
             <element signature="n#cart#0;n#Website_Controller#0;n#!!top" expanded="false" />
             <element signature="n#script#0;n#Website_Controller#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/controllers/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="210" column="20" lean-forward="false" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="20" />
-          <folding>
-            <element signature="n#main#0;n#Api_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#fileupload#0;n#Api_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#fileDelete#0;n#Api_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#signin#0;n#Api_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#delCartProduct#0;n#Api_Controller#0;n#!!top" expanded="false" />
-            <marker date="1517981843152" expanded="true" signature="7968:8004" ph="delete from cs_cart... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/controllers/signin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/controllers/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="43" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="29" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/view/member.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/controllers/member.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="36" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/controllers/cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="28" column="75" lean-forward="true" selection-start-line="28" selection-start-column="75" selection-end-line="28" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>

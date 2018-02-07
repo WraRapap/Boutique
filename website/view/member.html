@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/member.css">
-<section class="container-narrow" id="member-manage-page">
+<section class="container-narrow" id="member-manage-page" ng-controller="memberCtrl">
     <div class="content clearfix">
         <!--sideMenu-->
         <aside class="sideMenu-wrap">
@@ -23,7 +23,7 @@
                             <li>會員資料管理</li>
                             <li>電子郵件：<span><?php echo $_SESSION['USER']['email'];?></span></li>
                             <li>姓名：<span>
-                    <input type="text" value="<?php echo $_SESSION['USER']['name'];?>" placeholder="姓名" class="input-t2">
+                    <input type="text" id="name" value="<?php echo $_SESSION['USER']['name'];?>" placeholder="姓名" class="input-t2">
                     </span></li>
                             <li>MT4帳號：<span><?php echo $_SESSION['USER']['mt4'];?></span></li>
                             <li>信用額度：<span><?php echo $_SESSION['USER']['credits'];?> 點</span></li>
@@ -39,7 +39,7 @@
                    <p class="inner-select-wrap">
                      <select id="country">
                          <?php foreach((array)$this->countrys as $country):?>
-                            <option <?php echo isset($_SESSION['USER'])&&$_SESSION['USER']['country']==$country->id?'selected':'';?>><?php echo $country->title;?></option>
+                            <option value="<?php echo $country->id;?>" <?php echo isset($_SESSION['USER'])&&$_SESSION['USER']['country']==$country->id?'selected':'';?>><?php echo $country->title;?></option>
                          <?php endforeach;?>
                     </select></p>
                     </span><br>
@@ -64,7 +64,7 @@
                         </ul>
                     </div>
                     <div class="btn-area">
-                        <button type="editMember">修改資料</button>
+                        <button type="button" id="editMember">修改資料</button>
                     </div>
                 </div>
             </div>

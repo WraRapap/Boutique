@@ -317,6 +317,17 @@ class Website_Controller extends WebsiteController{
 	    $this->display("member",array("countrys"=>$countrys));
     }
 
+    public  function  order(){
+        $orders = $this->tool_database->moreTableFindAll(
+            "cs_order o inner join cs_orderstatus os on o.orderstatus=os.id inner join cs_payment p on p.id=o.payment",
+            array("o.createTime,o.totalfee,os.title orderstatus,p.title payment,o.item,o.id"),
+            array("memberId=?"),
+            array($_SESSION['USER_ID'])
+        );
+
+        $this->display("order",array("orders"=>$orders));
+    }
+
 	public function script(){
 
 		header("Content-type: application/x-javascript");

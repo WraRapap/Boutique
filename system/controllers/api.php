@@ -257,6 +257,7 @@ class Api_Controller extends CS_Controller{
             if(empty($_SESSION["USER"]["address"])){
                 $member->address=$order->address;
             }
+
             $actions[]=array("2", $member);
         }
 
@@ -281,6 +282,70 @@ class Api_Controller extends CS_Controller{
         else{
             echo json_encode(array("msg"=>"訂單送出失敗"));
         }
+    }
+
+    public  function member(){
+	    $parms=array("name,姓名","country,國家","address,地址","phone,手機");
+	    $requireFiled="";
+	    foreach ($parms as $parm){
+            $arr = explode(",",$parm);
+	        if(empty($this->tool_io->post($arr[0]))){
+                $requireFiled=$arr[1];
+                break;
+            }
+        }
+        if(!empty($requireFiled)){
+	        echo json_encode(array("msg"=>$requireFiled."必填"));
+	        return ;
+        }
+
+        $condition=array("id=?");
+	    $conditionValue=array($_SESSION['USER_ID']);
+        $hasPwd=false;
+	    if(!empty($this->tool_io->post("oldPwd")) || !empty($this->tool_io->post("newPwd")) || !empty($this->tool_io->post("reNewPwd"))){
+
+	        if(empty($this->tool_io->post("oldPwd")) || empty($this->tool_io->post("newPwd")) || empty($this->tool_io->post("reNewPwd"))){
+                echo json_encode(array("msg"=>"密碼必填"));
+                return ;
+            }
+
+            if($this->tool_io->post("newPwd") != $this->tool_io->post("reNewPwd")){
+                echo json_encode(array("msg"=>"新密碼兩次不一致"));
+                return ;
+            }
+            $hasPwd=true;
+            $condition[]="password=?";
+            $conditionValue[]=$this->tool_io->post("oldPwd");
+        }
+
+
+
+        $member =  $this->tool_database->find("member",array(),$condition,$conditionValue);
+	    if($member->id ==""){
+	        if($hasPwd){
+                echo json_encode(array("msg"=>"舊密碼錯誤"));
+                return ;
+            }else{
+                echo json_encode(array("msg"=>"请重新登录"));
+                return ;
+            }
+
+        }
+
+        $member->phone=$this->tool_io->post("phone");
+        $member->country=$this->tool_io->post("country");
+        $member->address=$this->tool_io->post("address");
+        $member->name=$this->tool_io->post("name");
+
+        if($hasPwd){
+            $member->password=$this->tool_io->post("newPwd");
+        }
+
+        $member->update();
+
+        $_SESSION['USER_NAME']=$this->tool_io->post("name");
+        $_SESSION['USER']=$this->tool_database->moreTableFind("cs_member",array(),array("id=?"),array($_SESSION['USER_ID']));
+        echo json_encode(array("status"=>1));
     }
 }
 ?>

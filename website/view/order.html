@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="css/member.css">
+<section class="container-narrow" id="member-order-page">
+    <div class="content clearfix">
+        <!--sideMenu-->
+        <aside class="sideMenu-wrap">
+            <div class="sideMenu">
+                <ul>
+                    <li><a href="membe.html">個人資料管理</a></li>
+                    <li><a href="order.html" class="active">訂單查詢</a></li>
+                    <li><a href="likelist.html">追蹤清單</a></li>
+                </ul>
+            </div>
+        </aside>
+        <!--inner-cnt-->
+        <div class="inner-cnt-wrap">
+            <div class="inner-title">
+                <h1>訂單查詢</h1>
+            </div>
+            <div class="inner-cnt">
+                <div>
+                    <?php foreach((array)$this->orders as $order):?>
+                    <article class="member-list-wrap">
+                        <ul class="member-list-cnt order-title">
+                            <li>訂單編號<span>:</span></li>
+                            <li>訂購時間<span>:</span></li>
+                            <li>付款方式<span>:</span></li>
+                            <li>訂單金額<span>:</span></li>
+                            <li>處理狀態<span>:</span></li>
+                        </ul>
+                        <ul class="member-list-cnt">
+                            <li><a href="orderdetail.html?i=<?php echo $order['id'];?>" class="order-num underline"><?php echo $order['item'];?></a></li>
+                            <li><?php echo $order['createTime'];?></li>
+                            <li><?php echo $order['payment'];?></li>
+                            <li><?php echo $order['totalfee'];?></li>
+                            <li><?php echo $order['orderstatus'];?></li>
+
+                        </ul>
+                    </article>
+                    <?php endforeach;?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
