@@ -26,9 +26,8 @@
 
             if($("#oldPwd").val()!="" || $("#newPwd").val()!="" || $("#reNewPwd").val()!=""){
                 if($("#newPwd").val()!=$("#reNewPwd").val()){
-                    DialogService.OpenMessage(1,
-                        "會員",
-                        "新密碼兩次輸入不一致", null);
+
+                    showPrompt('會員', "新密碼兩次輸入不一致");
                     $(this).removeAttr("disabled");
                     return false;
 
@@ -36,9 +35,8 @@
 
                 $(".pwd-block :text").each(function(){
                     if($(this).val()==""){
-                        DialogService.OpenMessage(1,
-                            "會員",
-                            "密码必填", null);
+
+                        showPrompt('會員', "密码必填");
                         flag=false;
                         return false;
                     }
@@ -61,16 +59,13 @@
                     if(data.status==1){
                             location.href="member.html";
                     }else{
-                        DialogService.OpenMessage(1,
-                            "會員",
-                            data.msg, null);
+                        showPrompt('會員',data.msg);
 
                     }
                 },
                 error:function(){
-                    DialogService.OpenMessage(1,
-                        "會員",
-                        "服務繁忙，請稍後重試", null);
+
+                    showPrompt('會員',"服務繁忙，請稍後重試");
                 }
             });
 
