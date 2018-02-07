@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="css/member.css">
+<section class="container-narrow" id="member-manage-page">
+    <div class="content clearfix">
+        <!--sideMenu-->
+        <aside class="sideMenu-wrap">
+            <div class="sideMenu">
+                <ul>
+                    <li><a href="member.html" class="active">個人資料管理</a></li>
+                    <li><a href="order.html">訂單查詢</a></li>
+                    <li><a href="likelist.html">追蹤清單</a></li>
+                </ul>
+            </div>
+        </aside>
+        <!--inner-cnt-->
+        <div class="inner-cnt-wrap">
+            <div class="inner-title">
+                <h1>寄送資料填寫</h1>
+            </div>
+            <div class="inner-cnt">
+                <div class="inner-info-top clearfix">
+                    <div>
+                        <ul>
+                            <li>會員資料管理</li>
+                            <li>電子郵件：<span><?php echo $_SESSION['USER']['email'];?></span></li>
+                            <li>姓名：<span>
+                    <input type="text" value="<?php echo $_SESSION['USER']['name'];?>" placeholder="姓名" class="input-t2">
+                    </span></li>
+                            <li>MT4帳號：<span><?php echo $_SESSION['USER']['mt4'];?></span></li>
+                            <li>信用額度：<span><?php echo $_SESSION['USER']['credits'];?> 點</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>購物資訊</li>
+                            <li>手機<span>
+                    <input type="text" value="<?php echo $_SESSION['USER']['phone'];?>" placeholder="手機" id="phone" class="input-t1">
+                    </span></li>
+                            <li>地址<span>
+                   <p class="inner-select-wrap">
+                     <select id="country">
+                         <?php foreach((array)$this->countrys as $country):?>
+                            <option <?php echo isset($_SESSION['USER'])&&$_SESSION['USER']['country']==$country->id?'selected':'';?>><?php echo $country->title;?></option>
+                         <?php endforeach;?>
+                    </select></p>
+                    </span><br>
+                                <input type="text" placeholder="地址" id="address" value="<?php echo $_SESSION['USER']['address'];?>" class="manage-add input-t1">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="inner-info-bottom pwd-block">
+                    <div>
+                        <ul>
+                            <li>更換密碼</li>
+                            <li>輸入密碼<span>
+                    <input type="text" id="oldPwd" placeholder="請輸入密碼" class="input-t3">
+                    </span></li>
+                            <li>請輸入密碼<span>
+                    <input type="text" id="newPwd" placeholder="請輸入密碼" class="input-t4">
+                    </span></li>
+                            <li>確認新密碼<span>
+                    <input type="text" id="reNewPwd" placeholder="請輸入密碼" class="input-t4">
+                    </span></li>
+                        </ul>
+                    </div>
+                    <div class="btn-area">
+                        <button type="editMember">修改資料</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

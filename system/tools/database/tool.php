@@ -143,6 +143,8 @@ class Database_Tool extends CS_Tool{
 		//$this -> getFields();
 	}
 
+
+
 	public function insert($tableName, $data) {
 
 		$instance = $this -> getInstance();
@@ -165,6 +167,7 @@ class Database_Tool extends CS_Tool{
 		
 		return $data["id"];
 	}
+
 
 	/**
 	 * 更新資料
@@ -213,6 +216,79 @@ class Database_Tool extends CS_Tool{
 
 		return true;
 	}
+
+    public function transaction($actions = array()){
+        $instance = $this -> getInstance();
+        $excuteSql = array();
+        foreach ($actions as $action){
+            switch ($action[0]){
+                case "1":
+                    $excuteSql[]= $this->insertSql($instance,$action[1]->getTableName(),$action[1]->toArray());
+                    break;
+                case "2":
+                    $excuteSql[]= $this->updateSql($instance,$action[1]->getTableName(),$action[1]->toArray());
+                    break;
+                case "3":
+                    $excuteSql[]= $this->deleteSql($instance,$action[1]->getTableName(),$action[1]->toArray());
+                    break;
+                case "4":
+                    $excuteSql[]= $this->customizeSql($instance,$action[1],$action[2]);//$action：1=>sql;2=>datas
+                    break;
+            }
+        }
+        return $instance->executeTransaction($excuteSql);
+    }
+    public function insertSql($instance,$tableName, $data) {
+        $fields = array();
+        $params = array();
+        foreach ($data as $fieldName => $value) {
+            $fields[] = $fieldName;
+            $params[] = "?";
+            $instance -> embedData($value);
+        }
+
+        $sql = "INSERT INTO <prefix>{$tableName} (" . implode(",", $fields) . ") VALUES (" . implode(",", $params) . ");";
+        $instance -> embedCommand($sql);
+       return  $instance -> getSqlAndClearParams($sql);
+    }
+    public function updateSql($instance,$tableName, $data) {
+
+        if (!isset($data["id"])) {
+            throw new Exception("Id is undefined when Update!");
+        }
+
+        $pairs = array();
+        foreach ($data as $fieldName => $value) {
+            $pairs[] = $fieldName . "=?";
+            $instance -> embedData($value);
+        }
+
+        $instance -> embedData($data["id"]);
+
+        $sql = "UPDATE <prefix>{$tableName} SET " . implode(",", $pairs) . " WHERE id=?;";
+        $instance -> embedCommand($sql);
+        return $instance -> getSqlAndClearParams($sql);
+    }
+    public function deleteSql($instance,$tableName, $data) {
+
+
+        if (!isset($data["id"])) {
+            throw new Exception("Id is undefined when Delete!");
+        }
+
+        $instance -> embedData($data["id"]);
+
+        $sql = "DELETE FROM <prefix>{$tableName} WHERE id=?;";
+        $instance -> embedCommand($sql);
+        return $instance -> getSqlAndClearParams($sql);
+    }
+    public function customizeSql($instance,$sql, $datas) {
+       foreach ($datas as $data){
+           $instance -> embedData($data);
+       }
+        $instance -> embedCommand($sql);
+        return $instance -> getSqlAndClearParams($sql);
+    }
 
 	/**
 	 * 執行SQL語法

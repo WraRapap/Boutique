@@ -153,6 +153,8 @@ class CS_MySQLi extends Chihsin{
 		mysqli_query($this -> link, $sql);
 	}
 
+
+
 	public function __destruct() {
 		@mysqli_close($this -> link);
 		unset($this -> link);
@@ -232,6 +234,27 @@ class CS_MySQLi extends Chihsin{
 		$this -> sql = &$sql;
 	}
 
+	public function getSqlAndClearParams(){
+        return $this->into_command();
+    }
+    public function executeTransaction($sqlarr) {
+        mysqli_autocommit($this->link,false);
+        $res=true;
+	    foreach ($sqlarr as $sql){
+            if(mysqli_query($this -> link, $sql)===false){
+                $res=false;
+                mysqli_rollback($this->link);
+                break;
+            }
+        }
+        if($res) {
+            mysqli_commit($this->link);
+        }
+
+        mysqli_autocommit($this->link,true);
+        mysqli_close($this -> link);
+	    return $res;
+    }
 	/**
 	 * 帶入參數至原始語法
 	 * @return string $sql

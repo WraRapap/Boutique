@@ -9,6 +9,9 @@
 .S-float-left{
 
 }
+.cart-hidden{
+    display: none;
+}
 /*Before confirming the order*/
 .content{
     /*width: 80%;*/
