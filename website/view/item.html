@@ -68,7 +68,7 @@
                             <button class="col-md-12" type="button" ng-click="cart()">加入購物車</button>
                         </div>
                         <div class="add-to-collect">
-                            <img src="./img/like.png" alt="" class="cursorP"><span>加入收藏清單</span>
+                            <img src="./img/like-o.png" alt="" class="items-like cursorP"><span>加入收藏清單</span>
                         </div>
                     </div>
 
@@ -142,5 +142,13 @@
             $(this).find('div').addClass('visible-panel');
             $(this).siblings().find('div').removeClass('visible-panel');
         });
+
+
+
+            // like
+        $(".items-like").click(function () {
+            $(this).toggleClass("activ");
+        })
+
     })
 </script>
