@@ -192,5 +192,95 @@ class Api_Controller extends CS_Controller{
 
         echo json_encode(array("status"=>1));
     }
+
+    public  function confirmOrder(){
+	    $products = (array)json_decode($_POST["products"]);
+	    if(count($products)<1){
+	        echo json_encode(array("msg"=>"購物車是空的哦"));
+	        return ;
+        }
+
+        $flag="";
+	    $totalFee=0;
+        foreach ($products as $product){
+	        $p = $this->tool_database->find("product",array(),array("publish='Y'","id=?"),array($product->id));
+	        if($p->id==""){
+               $flag=$product->id;
+               break;
+            }
+            $product->price=$p->price;
+            $product->count="1";
+            $totalFee = $totalFee + $p->price;
+	    }
+	    if(!empty($flag)){
+            echo json_encode(array("status"=>0,"msg"=>"購物車里有商品已經下架了哦，麻烦重新确认","id"=>$flag));
+            return ;
+        }
+
+        $actions = array();
+        //订单模块
+        $order = $this -> tool_database -> emptyRecord("order");
+        $verifyParm=array("name","email","phone","recName","recPhone","areacode","city","address","country","delivery","payment");
+        $emptyParm="";
+        foreach ($verifyParm as $parm){
+            $lparm=strtolower($parm);
+            if(empty($this->tool_io->post($parm))){
+                $emptyParm=$parm;
+                break;
+            }
+            $order->$lparm= $this -> tool_io -> post($parm);
+        }
+        if(!empty($emptyParm)){
+            echo json_encode(array("status"=>2,"id"=>$emptyParm));
+            return ;
+        }
+
+        $order -> id = uniqid();
+        $order -> item = "PH".date("YmdHis",time()).uniqid();
+        $order -> createTime = date("Y-m-d H:i:s",time());
+        $order -> cart = json_encode($products,JSON_UNESCAPED_UNICODE);
+        $order-> orderstatus= "15a5714ace2518";
+        $order-> remark = $this->tool_io->post("remark");
+        $order-> totalfee = $totalFee;
+        $order-> memberId = $_SESSION['USER_ID'];
+        $actions[]=array("1", $order);
+
+        //会员模块，补全会员信息
+        if(empty($_SESSION["USER"]["phone"]) ||empty($_SESSION["USER"]["country"]) ||empty($_SESSION["USER"]["address"])){
+            $member = $this -> tool_database -> find("member",array(),array("id=?"),array($_SESSION["USER_ID"]));
+            if(empty($_SESSION["USER"]["phone"])){
+                $member->phone=$order->phone;
+            }
+            if(empty($_SESSION["USER"]["country"])){
+                $member->country=$order->country;
+            }
+            if(empty($_SESSION["USER"]["address"])){
+                $member->address=$order->address;
+            }
+            $actions[]=array("2", $member);
+        }
+
+        //清空购物车
+        $actions[]=array("4","delete from cs_cart where memberId=?",array($_SESSION['USER_ID']));
+
+        //提交事务
+        if($this->tool_database->transaction($actions)){
+            if(empty($_SESSION["USER"]["phone"])){
+                $_SESSION["USER"]["phone"]=$order->phone;
+            }
+            if(empty($_SESSION["USER"]["country"])){
+                $_SESSION["USER"]["country"]=$order->country;
+            }
+            if(empty($_SESSION["USER"]["address"])){
+                $_SESSION["USER"]["address"]=$order->address;
+            }
+
+            $_SESSION["USER_CARTNUM"]=0;
+            echo json_encode(array("status"=>1));
+        }
+        else{
+            echo json_encode(array("msg"=>"訂單送出失敗"));
+        }
+    }
 }
 ?>

@@ -279,7 +279,7 @@ class Website_Controller extends WebsiteController{
         foreach ($products as $p){
             $pr = $this->tool_database->moreTableFind(
                 "cs_product p inner join cs_brand b on p.brand=b.id inner join cs_color c on c.id=? inner join cs_size_class s on s.id=?",
-                array("p.id,p.item,b.title brandname","c.title color","s.title size","p.img","p.price","p.name"),
+                array("p.id,p.item,b.title brandname","c.title color","c.id colorId","s.id sizeId","s.title size","p.img","p.price","p.name"),
                 array("p.id=?","p.publish='Y'"),
                 array($p->color,$p->size,$p->id)
             );
@@ -309,6 +309,12 @@ class Website_Controller extends WebsiteController{
         $_SESSION["USER_CARTNUM"] =count($lstProducts) ;
         $datas=array("cart"=>$lstProducts,"totalfee"=>$totalfee,"totalcount"=>$totalcount,"countrys"=>$countrys,"deliverys"=>$deliverys,"payments"=>$payments);
         $this ->display("cart",$datas);
+    }
+
+    public  function member(){
+        $this->checkLogin("member");
+	    $countrys = $this->tool_database->findAll("country");
+	    $this->display("member",array("countrys"=>$countrys));
     }
 
 	public function script(){

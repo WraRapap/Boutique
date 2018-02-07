@@ -111,6 +111,10 @@ class CS_Record extends CS_Tool implements IteratorAggregate{
 		return $this -> data;
 	}
 
+    public function getTableName() {
+        return $this-> tableName;
+    }
+
 	/**
 	 * 取得 JSON格式
 	 * @return string

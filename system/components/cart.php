@@ -22,19 +22,19 @@ class Cart_Component extends CS_Component{
 		if(is_array($items)){
             foreach($items as $item){
                 $product = $this->tool_database->moreTableFind(
-                    "cs_product p inner join cs_color c on c.id='".$item -> color."'' inner join cs_size_class s on s.id='".$item -> size."'",
+                    "cs_product p inner join cs_color c on c.id='".$item -> color."' inner join cs_size_class s on s.id='".$item -> size."'",
                     array("p.name","c.title color","s.title size","p.price"),
-                    array("id=?"),
+                    array("p.id=?"),
                     array($item->id)
                 );
 
                 $rows .= "<tr>
-						<td style=\"border:1px #ccc solid;padding:10px 10px;\"><a href='../item.html?i=".$item->id."'>" . $product -> name ."</a></td>
-							<td style=\"border:1px #ccc solid;padding:0px 10px;\">" . $item -> color . "</td>
-								<td style=\"border:1px #ccc solid;padding:0px 10px;\">" . $item -> size . "</td>
+						<td style=\"border:1px #ccc solid;padding:10px 10px;\"><a href='../item.html?i=".$item->id."'>" . $product['name']."</a></td>
+							<td style=\"border:1px #ccc solid;padding:0px 10px;\">" .$product['color'] . "</td>
+								<td style=\"border:1px #ccc solid;padding:0px 10px;\">" . $product['size'] . "</td>
 						<td style=\"border:1px #ccc solid;padding:0px 10px;\">" . $item -> count . "</td>
-						<td style=\"border:1px #ccc solid;padding:0px 10px;\">" . $product -> price . "</td>
-							<td style=\"border:1px #ccc solid;padding:0px 10px;\">" . $product -> price*$item -> count . "</td>
+						<td style=\"border:1px #ccc solid;padding:0px 10px;\">" . $product['price'] . "</td>
+							<td style=\"border:1px #ccc solid;padding:0px 10px;\">" . $product['price']*$item -> count . "</td>
 					</tr>";
             }
         }

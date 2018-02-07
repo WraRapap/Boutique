@@ -17,7 +17,7 @@
                 </ul>
                 <ul class="check-list">
                     <?php foreach((array)$this->cart as $cart):?>
-                    <li id="<?php echo $cart['uid'];?>">
+                    <li id="<?php echo $cart['uid'];?>" pid="<?php echo $cart['id']; ?>">
                         <div class="check-list-detail">
                             <div class="list-img">
                                 <a href="item.html?i=<?php echo $cart['id']; ?>"><img src="../system/files/<?php echo $cart['img']; ?>" alt=""></a>
@@ -25,12 +25,12 @@
                             <div class="list-detail">
                                 <div class="list-detail-top">
                                     <div class="list-detail-item">
-                                        <p><span><?php echo $cart['brandname']; ?></span></br><span><?php echo $cart['name']; ?></span></p>
+                                        <p><span><?php echo $cart['brandname']; ?></span></br><span class="pname"><?php echo $cart['name']; ?></span></p>
                                         <!--desktop show-->
                                         <p><span><?php echo $cart['item']; ?></span></p>
                                         <!--mobile show-->
                                         <p><span><?php echo $cart['item']; ?></span></p>
-                                        <p><span>顏色:</span><span><?php echo $cart['color']; ?></span></br><span>尺寸:</span><span><?php echo $cart['size']; ?></span>
+                                        <p><span>顏色:</span><span class="color" c="<?php echo $cart['colorId']; ?>"><?php echo $cart['color']; ?></span></br><span class="size" s="<?php echo $cart['sizeId']; ?>">尺寸:</span><span><?php echo $cart['size']; ?></span>
                                         </P>
                                     </div>
                                     <!--mobile show list-count-->
@@ -59,7 +59,7 @@
                     <li><span>TWD </span><input type="hidden" id="totalfee" value="<?php echo  $this-> totalfee;?> "/><span  ng-bind="totalfee| currency"><?php echo  $this-> totalfee;?></span></li>
                 </ul>
             </div>
-            <form name="cform">
+            <div class="cart-before">
             <div class="address-wrap">
                 <div class="choose-delivery-address flex-column">
                     <div class="address-title">
@@ -67,19 +67,19 @@
                     </div>
                     <div class="address-input">
                         <p>國家</p>
-                        <select  name="country" id="country">
+                        <select  name="country" placeholder="國家" id="country">
                             <?php foreach((array)$this->countrys as $country):?>
-                            <option value="<?php echo $country->id;?>"><?php echo $country->title;?></option>
+                            <option value="<?php echo $country->id;?>" <?php echo $_SESSION['USER']['country']==$country->id?'selected':'';?>><?php echo $country->title;?></option>
                             <?php endforeach;?>
                         </select>
                         <p>配送方式</p>
-                        <select name="shipping-method"  id="shipping">
+                        <select name="shipping-method" placeholder="配送方式"  id="delivery">
                             <?php foreach((array)$this->deliverys as $delivery):?>
                             <option value="<?php echo $delivery->id;?>"><?php echo $delivery->title;?></option>
                             <?php endforeach;?>
                         </select>
                         <p>付款方式</p>
-                        <select name="payment"  id="payment">
+                        <select name="payment" placeholder="付款方式"  id="payment">
                             <?php foreach((array)$this->payments as $payment):?>
                             <option value="<?php echo $payment->id;?>"><?php echo $payment->title;?></option>
                             <?php endforeach;?>
@@ -98,32 +98,32 @@
                     <div class="information-input flex-row">
                         <div class="customer-information">
                             <p>顧客資料</p>
-                            <input type="text" id="name" placeholder="顧客名稱">
+                            <input type="text" id="name" value="<?php echo $_SESSION['USER']['name'];?>" placeholder="顧客名稱">
 
-                            <input type="text" id="email" name="email" ng-model="email" placeholder="電子信箱">
+                            <input type="text" id="email" name="email" value="<?php echo $_SESSION['USER']['email'];?>" placeholder="電子信箱">
 
-                            <input type="text" placeholder="電話號碼" id="phone">
+                            <input type="text" placeholder="電話號碼" value="<?php echo $_SESSION['USER']['phone'];?>" id="phone">
 
                             <p>地址</p>
-                            <p>國家：<span id="countrySpan"></span></p>
+                            <p>國家：<span class="country"></span></p>
                             <input type="text" id="city" placeholder="城市/市鎮">
 
                             <input type="text" id="areacode" placeholder="郵遞區號">
 
-                            <input type="text" id="address" placeholder="地址">
+                            <input type="text" id="address" placeholder="地址" value="<?php echo $_SESSION['USER']['address'];?>">
 
                         </div>
                         <div class="delivery-information">
                             <p>送貨資料</p>
-                            <p>收貨方式：<span id="deliverySpan"></span></p>
+                            <p>收貨方式：<span class="delivery"></span></p>
                             <div class="checkbox-input-wrap" id="same">
                                 <input type="checkbox" >
                                 <span class="checked"></span>
                                 <lable>郵件人與顧客資料相同</lable>
                             </div>
 
-                            <input type="text" id="recname" placeholder="收件人名稱">
-                            <input type="text" id="recphone" placeholder="收件人電話號碼">
+                            <input type="text" id="recName" placeholder="收件人名稱">
+                            <input type="text" id="recPhone" placeholder="收件人電話號碼">
                             <p>訂單備註</p>
                             <textarea name="order-comment" id="remark" id="order_comment" cols="30" rows="10"></textarea>
                         </div>
@@ -135,7 +135,7 @@
                     付款資料
                 </div>
                 <div class="payment-information-content flex-column">
-                    <div>已選擇的付款方式：<span id="paymentSpan"></span></div>
+                    <div>已選擇的付款方式：<span class="payment"></span></div>
                     <div class="payment-checkbox-wrap">
                         <input type="checkbox" id="agree">
                         <span class="pay-checked"></span>
@@ -144,7 +144,39 @@
                     <button type="button" id="confirmOrder">訂單確認</button>
                 </div>
             </div>
-            </form>
+            </div>
+            <!--订单确认后-->
+            <div class="cart-after cart-hidden" >
+                <div class="confirming-information-wrap">
+                    <div class="delivery-detail">
+                        <div class="detail-title">送貨資料</div>
+                        <div class="detail-content">
+                            <p>送貨國家：<span class="country"></span></p>
+                            <p>送貨方式：<span class="delivery"></span></p>
+                        </div>
+                    </div>
+                    <div class="addressee-detail">
+                        <div class="detail-title">收件人資料</div>
+                        <div class="detail-content">
+                            <p>顧客名稱：<span class="recName"></span></p>
+                            <p>電話號碼：<span class="recPhone"></span></p>
+                            <p>地址：<span class="address"></span></p>
+                        </div>
+                    </div>
+                    <div class="payment-detail">
+                        <div class="detail-title">付款資料</div>
+                        <div class="detail-content">
+                            <p>付款方式：<span class="payment"></span></p>
+                            <p>姓名：<span>官韋岑</span></p>
+                            <p>卡號：<span>2885 4024 7543</span></p>
+                            <p>銀行：<span>中國信託</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-submit">
+                    <button type="button" id="sendOrder">訂單送出</button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
