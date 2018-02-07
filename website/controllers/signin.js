@@ -13,9 +13,7 @@
             }
 
             if($scope.password!=$scope.confirmpwd){
-                DialogService.OpenMessage(1,
-                    "註冊",
-                    "密碼 與 確認密碼不符", null);
+                showPrompt('註冊', "密碼 與 確認密碼不符");
                 return false;
             }
 
@@ -32,15 +30,11 @@
                            location.href="login.html";
                        }
                    }else{
-                       DialogService.OpenMessage(1,
-                           "註冊",
-                           data.msg, null);
+                       showPrompt('註冊', data.msg);
                    }
                 },
                 error:function(){
-                    DialogService.OpenMessage(1,
-                        "註冊",
-                        "服務繁忙，請稍後重試", null);
+                    showPrompt('註冊', "服務繁忙，請稍後重試");
                 }
             })
 

@@ -8,16 +8,12 @@
         $scope.productId=GetQueryString("i");
         $scope.cart=function(){
             if($scope.color== ""){
-                DialogService.OpenMessage(1,
-                    "商品選擇",
-                    "顏色必填", null);
+                showPrompt('商品選擇', "顏色必填");
                 return false;
             }
 
             if($scope.size== ""){
-                DialogService.OpenMessage(1,
-                    "商品選擇",
-                    "尺寸必填", null);
+                showPrompt('商品選擇', "尺寸必填");
                 return false;
             }
 

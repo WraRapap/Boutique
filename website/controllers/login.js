@@ -25,15 +25,11 @@
                            location.href="index.html";
                        }
                    }else{
-                       DialogService.OpenMessage(1,
-                           "登錄",
-                           data.msg, null);
+                       showPrompt('登錄', data.msg);
                    }
                 },
                 error:function(){
-                    DialogService.OpenMessage(1,
-                        "登錄",
-                        "服務繁忙，請稍後重試", null);
+                    showPrompt('登錄', "服務繁忙，請稍後重試");
                 }
             })
 

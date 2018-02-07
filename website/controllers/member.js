@@ -9,9 +9,7 @@
             var flag= true;
             $("inner-info-top :text").each(function(){
                 if($(this).val()==""){
-                    DialogService.OpenMessage(1,
-                        "會員",
-                        $(this).attr("placeholder")+"必填", null);
+                    showPrompt('會員', $(this).attr("placeholder")+"必填");
                     flag=false;
                     return;
                 }
