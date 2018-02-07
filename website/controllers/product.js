@@ -55,9 +55,9 @@
                     }
                 },
                 error:function(){
-                    DialogService.OpenMessage(1,
-                        "商品列表",
-                        "服務繁忙，請稍後重試", null);
+                    showPrompt('商品列表', "服務繁忙，請稍後重試");
+
+
                 }
             })
         };

@@ -118,8 +118,7 @@
         <div class="items-cnt clearfix">
             <?php foreach((array)$this ->productlist as $product):?>
             <article class="items-box">
-                <div class="items-box-side"><a href="#" class="items-cart"></a> <a href="#"
-                                                                                   class="items-like"></a></div>
+                <div class="items-box-side"><a href="#" class="items-cart"></a> <a href="#" class="items-like"></a></div>
                 <a href="item.html?i=<?php echo $product['id'];?>">
                     <div class="items-box-main">
                         <div class="items-img reveal"><img src="../system/files/<?php echo json_decode($product['img'])[0]->path;?>"/> <img

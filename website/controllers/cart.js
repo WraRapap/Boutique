@@ -37,14 +37,11 @@
                     }else{
                         showmsg = data.msg;
                     }
-                    DialogService.OpenMessage(1,
-                        "購物車",
-                        showmsg, null);
+                    showPrompt('購物車', showmsg);
                 },
                 error:function(){
-                    DialogService.OpenMessage(1,
-                        "購物車",
-                        "服務繁忙，請稍後重試", null);
+                    showPrompt('購物車', "服務繁忙，請稍後重試");
+
                 }
             });
             $scope.banClick=false;
@@ -52,16 +49,13 @@
 
         $("#confirmOrder").click(function(){
             if($("ul.check-list li").length<1){
-                DialogService.OpenMessage(1,
-                    "確認訂單",
-                    "购物车是空的哦", null);
+                showPrompt('確認訂單', "购物车是空的哦");
+
                 return false;
             }
 
             if(!$("#agree").prop("checked")){
-                DialogService.OpenMessage(1,
-                    "確認訂單",
-                    "請先同意服務條款和退換貨政策", null);
+                showPrompt('確認訂單', "請先同意服務條款和退換貨政策");
                 return false;
             }
 
@@ -69,9 +63,7 @@
             $(".cart-before :text").each(function(){
                 if($(this).val()==''){
                     go=false;
-                    DialogService.OpenMessage(1,
-                        "確認訂單",
-                        $(this).attr("placeholder")+"必填", null);
+                    showPrompt('確認訂單', $(this).attr("placeholder")+"必填");
                     return false;
                 }
             });
@@ -117,27 +109,19 @@
                         location.href="order.html";
                     }else if(data.status==0){
                         $("#"+data.id).remove();
-                        DialogService.OpenMessage(1,
-                            "訂單送出",
-                            data.msg, null);
+                        showPrompt('訂單送出', data.msg);
 
                     }
                     else if(data.status==2){
-                        DialogService.OpenMessage(1,
-                            "訂單送出",
-                            $("#"+data.id).attr("placeholder")+"必填", null);
+                        showPrompt('訂單送出', $("#"+data.id).attr("placeholder")+"必填");
 
                     }
                     else{
-                        DialogService.OpenMessage(1,
-                            "訂單送出",
-                            data.msg, null);
+                        showPrompt('訂單送出', data.msg);
                     }
                 },
                 error:function(){
-                    DialogService.OpenMessage(1,
-                        "訂單送出",
-                        "系統繁忙，請稍後重試", null);
+                    showPrompt('訂單送出', "系統繁忙，請稍後重試");
                 }
             });
         });
