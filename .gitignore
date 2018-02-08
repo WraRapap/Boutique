@@ -18,3 +18,4 @@ system/configs/Db.php
 *.log
 *.xml___jb_tmp___
 .idea/workspace.xml
+.idea/workspace.xml

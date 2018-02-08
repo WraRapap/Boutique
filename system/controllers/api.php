@@ -393,16 +393,16 @@ class Api_Controller extends CS_Controller{
         }
 
         $like  = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION['USER_ID']));
-        $products =  (array)json_decode($like->cart,true);
-        foreach ($products as $key =>$product){
-            if($product['id'] == $this->tool_io->post("i")){
-                unset($products[$key]);
-                break;
+        $products =  (array)json_decode($like->cart);
+        $lstProducts=array();
+        foreach ($products as $product){
+            if($product->id != $this->tool_io->post("i")){
+                $lstProducts[]=$product;
             }
         }
 
         if($like->id!=""){
-            $like->cart=json_encode($products);
+            $like->cart=json_encode($lstProducts);
             $like->update();
         }
         echo json_encode(array("status"=>1));
