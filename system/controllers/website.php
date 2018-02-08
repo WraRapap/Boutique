@@ -237,11 +237,11 @@ class Website_Controller extends WebsiteController{
             }
 
             $products[]=$addHistoryProduct;
-            setcookie($product["category"], json_encode($products), time()+ 1*365*24*3600);
+            setcookie($product["category"], json_encode($products), time()+ 3650*24*3600);
         }else{//不存在历史记录插入
 
             $products=array($addHistoryProduct);
-            setcookie($product["category"], json_encode($products), time()+ 1*365*24*3600);
+            setcookie($product["category"], json_encode($products), time()+ 3650*24*3600);
         }
 
         $datas=array("product"=>$product,
@@ -390,6 +390,38 @@ class Website_Controller extends WebsiteController{
         }
 
         $this->display("orderdetail",array("products"=>$carts));
+    }
+
+    public  function likelist(){
+        $cart = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION['USER_ID']));
+        $products = (array)json_decode($cart->cart);
+        $productsToSave = (array)json_decode($cart->cart);
+        $del=false;
+        foreach ($products as $key => $product){
+            $p=$this->tool_database->moreTableFind(
+                                    "cs_product p inner join cs_brand b on p.brand=b.id",
+                                    array("p.name","p.id","p.price","b.title brand","p.img"),
+                                    array("p.publish='Y'","p.id=?"),
+                                    array($product->id));
+
+            if($p["id"]==""){
+                unset($products[$key]);
+                unset($productsToSave[$key]);
+                $del=true;
+            }else{
+                $product->price=$p['price'];
+                $product->name=$p['name'];
+                $product->brand=$p['brand'];
+                $product->img= json_decode($p['img'])[0]->path ;
+            }
+        }
+
+        if($cart->id!="" && $del){
+            $cart->cart=json_encode($productsToSave,JSON_UNESCAPED_UNICODE);
+            $cart->update();
+        }
+
+        $this->display("likelist",array("products"=>$products));
     }
 
 	public function script(){
