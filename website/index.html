@@ -23,6 +23,7 @@
   <script src="services/DialogService.js"></script>
   <script src="controllers/DialogController.js"></script>
   <script src="js/prompt.js"></script>
+  <!--<script src="js/jquery.fly.min.js"></script>-->
   <style type="text/css"></style>
 </head>
 <body>
@@ -96,7 +97,7 @@
               if(isset($_SESSION["USER_NAME"])){
                 echo "<a href='member.html'><span>".$_SESSION["USER_NAME"]."</span></a>．<a href='logout.html'>登出</a>";
                 }else{
-                   echo "<a href=\"javascript:void(0);\" onclick=\"regis();\">註冊</a>．<a href=\"login.html\">登入</a>";
+                   echo "<a href=\"javascript:void(0);\" onclick=\"regis();\" id=\"end\">註冊</a>．<a href=\"login.html\">登入</a>";
                 }
             ?>
             </div>
@@ -239,8 +240,9 @@
     $(document).ready(function () {
         console.log("$(document).height():"+ $(document).height());
         console.log("$(window).height():"+ $(window).height());
+        console.log("$(html).height():"+ $('html').height());
         // 固定footer
-        if ($(document).height() <= $(window).height()){
+        if ($(document).height() < $(window).height()){
             var footerW = $('footer').width();
             $('.main-content').height($(window).height()-$('header').height()+5);
             $('.footer-cnt').css({position:'fixed',bottom:0,left:'50%',marginLeft:-footerW/2});
@@ -251,5 +253,6 @@
 
 
 </script>
+
 </body>
 </html>
