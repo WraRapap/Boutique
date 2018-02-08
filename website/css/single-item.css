@@ -233,6 +233,7 @@
     margin-top: 20px;
 }
 .viewed>ul>li{
+    width: 20%;
     padding-left: 0px;
     padding-right: 0px;
     position: relative;
