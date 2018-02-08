@@ -188,8 +188,9 @@ class Api_Controller extends CS_Controller{
             $cart->delete();
         }
 
+        @session_start();
         $_SESSION["USER_CARTNUM"]-=1;
-
+        @session_write_close();
         echo json_encode(array("status"=>1));
     }
 
@@ -266,6 +267,7 @@ class Api_Controller extends CS_Controller{
 
         //提交事务
         if($this->tool_database->transaction($actions)){
+            @session_start();
             if(empty($_SESSION["USER"]["phone"])){
                 $_SESSION["USER"]["phone"]=$order->phone;
             }
@@ -277,6 +279,7 @@ class Api_Controller extends CS_Controller{
             }
 
             $_SESSION["USER_CARTNUM"]=0;
+            @session_write_close();
             echo json_encode(array("status"=>1));
         }
         else{
@@ -343,8 +346,10 @@ class Api_Controller extends CS_Controller{
 
         $member->update();
 
+        @session_start();
         $_SESSION['USER_NAME']=$this->tool_io->post("name");
         $_SESSION['USER']=$this->tool_database->moreTableFind("cs_member",array(),array("id=?"),array($_SESSION['USER_ID']));
+        @session_write_close();
         echo json_encode(array("status"=>1));
     }
 }

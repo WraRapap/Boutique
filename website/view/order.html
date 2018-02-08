@@ -5,7 +5,7 @@
         <aside class="sideMenu-wrap">
             <div class="sideMenu">
                 <ul>
-                    <li><a href="membe.html">個人資料管理</a></li>
+                    <li><a href="member.html">個人資料管理</a></li>
                     <li><a href="order.html" class="active">訂單查詢</a></li>
                     <li><a href="likelist.html">追蹤清單</a></li>
                 </ul>
@@ -31,7 +31,7 @@
                             <li><a href="orderdetail.html?i=<?php echo $order['id'];?>" class="order-num underline"><?php echo $order['item'];?></a></li>
                             <li><?php echo $order['createTime'];?></li>
                             <li><?php echo $order['payment'];?></li>
-                            <li><?php echo $order['totalfee'];?></li>
+                            <li>{{<?php echo $order['totalfee'];?>|currency}}</li>
                             <li><?php echo $order['orderstatus'];?></li>
 
                         </ul>

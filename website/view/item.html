@@ -79,41 +79,20 @@
                     最近瀏覽
                 </div>
                 <ul>
+                    <?php foreach($this->products as $product):?>
+                    <?php if($product['id'] != $this->product['id']):?>
                     <li>
-                        <img src="./img/items/1_747487-013613730304_1.jpg" alt="" class="img-responsive">
+                        <a href="item.html?i=<?php echo $product['id'];?>">
+                        <img src="../system/files/<?php echo $product['img'];?>" alt="" class="img-responsive">
                         <div class="items-title">
-                            <p>2017秋冬新款氣質黑色大衣</p>
-                            <p>TWD $30,500</p>
+                            <p><?php echo $product['name']?></p>
+                            <p>TWD {{<?php echo $product['price'];?>|currency}}</p>
                         </div>
+                        </a>
                     </li>
-                    <li>
-                        <img src="./img/items/1_712417-PRADA-Black-virgin-wool-blend-coat.jpg" alt="" class="img-responsive">
-                        <div class="items-title">
-                            <p>2017秋冬新款氣質黑色大衣</p>
-                            <p>TWD $30,500</p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="./img/items/1_747487-013613730304_1.jpg" alt="" class="img-responsive">
-                        <div class="items-title">
-                            <p>2017秋冬新款氣質黑色大衣</p>
-                            <p>TWD $30,500</p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="./img/items/1_712417-PRADA-Black-virgin-wool-blend-coat.jpg" alt="" class="img-responsive">
-                        <div class="items-title">
-                            <p>2017秋冬新款氣質黑色大衣</p>
-                            <p>TWD $30,500</p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="./img/items/1_747487-013613730304_1.jpg" alt="" class="img-responsive">
-                        <div class="items-title">
-                            <p>2017秋冬新款氣質黑色大衣</p>
-                            <p>TWD $30,500</p>
-                        </div>
-                    </li>
+                    <?php endif;?>
+                    <?php endforeach;?>
+
                 </ul>
             </div>
         </div>

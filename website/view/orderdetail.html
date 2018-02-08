@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="css/member.css">
+<section class="container-narrow" id="member-order-list-page">
+    <div class="content clearfix">
+        <!--sideMenu-->
+        <aside class="sideMenu-wrap">
+            <div class="sideMenu">
+                <ul>
+                    <li><a href="member.html">個人資料管理</a></li>
+                    <li><a href="order.html" class="active">訂單查詢</a></li>
+                    <li><a href="likelist.html">追蹤清單</a></li>
+                </ul>
+            </div>
+        </aside>
+        <!--inner-cnt-->
+        <div class="inner-cnt-wrap">
+            <div class="inner-title">
+                <h1>訂單內容</h1>
+            </div>
+            <div class="inner-cnt">
+                <div class="member-list-wrap">
+                    <ul class="member-list-cnt">
+                        <li class="txt-left">商品名稱</li>
+                        <li class="txt-right">價格</li>
+                    </ul>
+                    <?php foreach((array)$this->products as $product):?>
+                    <ul class="member-list-cnt">
+                        <li class="txt-left"> <a href="item.html?i=<?php echo $product->id;?>">
+                            <div class="member-list-img"><img src="../system/files/<?php echo $product->img;?>"></div>
+                            <div class="member-list-name"><span class="list-brand"><?php echo $product->brand;?></span>
+                                <sapn class="list-dsp"><?php echo $product->name;?></sapn>
+                            </div>
+                        </a> </li>
+                        <li class="txt-right">TWD {{<?php echo $product->price;?>|currency}}</li>
+                    </ul>
+                    <?php endforeach;?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

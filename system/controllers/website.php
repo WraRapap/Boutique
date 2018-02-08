@@ -189,8 +189,8 @@ class Website_Controller extends WebsiteController{
     public  function  item(){
 	    //商品详情
         $product = $this -> tool_database -> moreTableFind(
-            "cs_product c inner join cs_brand b on c.brand=b.id",
-            array("*","b.title brandname"),
+            "cs_product c inner join cs_brand b on c.brand=b.id inner join v_category vc on vc.id=c.id",
+            array("*","b.title brandname","vc.categoryid category"),
             array("c.publish='Y'","c.id=?"),
             array($this->tool_io->get("i"))
         );
@@ -211,14 +211,42 @@ class Website_Controller extends WebsiteController{
         //商品尺寸
         $product["sizes"] = "'".str_replace(":","','",$product["size"])."'";
         $sizes = $this->tool_database->moreTableFindAll(
+
+
             "cs_size_class",
             array(),
             array("id in (".$product["sizes"].")"),
             array()
         );
 
+        //加入最近浏览
+        $addHistoryProduct=array("id"=>$product["id"],"img"=> json_decode($product["img"])[0]->path,"price"=>$product["price"],"name"=>$product["name"]);
+
+        if(isset($_COOKIE[$product["category"]])){//历史记录存在
+            $categoryProduct=$_COOKIE[$product["category"]];
+            $products = json_decode($categoryProduct,true);
+            foreach ($products as $key => $historyProduct){
+                if($historyProduct["id"] == $product["id"]){
+                    unset($products[$key]);
+                    break;
+                }
+            }
+
+            if(count($products)==6){//最多
+                unset($products[0]);
+            }
+
+            $products[]=$addHistoryProduct;
+            setcookie($product["category"], json_encode($products), time()+ 1*365*24*3600);
+        }else{//不存在历史记录插入
+
+            $products=array($addHistoryProduct);
+            setcookie($product["category"], json_encode($products), time()+ 1*365*24*3600);
+        }
+
         $datas=array("product"=>$product,
                       "sizes"=>$sizes,
+                      "products"=>array_reverse($products),
                       "colors"=>$colors);
         $this ->display("item",$datas);
     }
@@ -276,6 +304,7 @@ class Website_Controller extends WebsiteController{
         $lstProducts=array();
         $totalcount=0;
         $totalfee=0;
+
         foreach ($products as $p){
             $pr = $this->tool_database->moreTableFind(
                 "cs_product p inner join cs_brand b on p.brand=b.id inner join cs_color c on c.id=? inner join cs_size_class s on s.id=?",
@@ -299,14 +328,19 @@ class Website_Controller extends WebsiteController{
             }
         }
 
-        $cart->cart=json_encode($lateProducts,JSON_UNESCAPED_UNICODE);
-        $cart->update();
+        if($cart->id!=""){
+            $cart->cart=json_encode($lateProducts,JSON_UNESCAPED_UNICODE);
+            $cart->update();
+        }
 
         $countrys = $this->tool_database->findAll("country");
         $deliverys=$this->tool_database->findAll("delivery");
         $payments=$this->tool_database->findAll("payment");
 
+
+        @session_start();
         $_SESSION["USER_CARTNUM"] =count($lstProducts) ;
+        @session_write_close();
         $datas=array("cart"=>$lstProducts,"totalfee"=>$totalfee,"totalcount"=>$totalcount,"countrys"=>$countrys,"deliverys"=>$deliverys,"payments"=>$payments);
         $this ->display("cart",$datas);
     }
@@ -326,6 +360,36 @@ class Website_Controller extends WebsiteController{
         );
 
         $this->display("order",array("orders"=>$orders));
+    }
+
+    public  function  orderdetail(){
+        $order = $this->tool_database->find(
+            "order",
+            array(),
+            array("id=?"),
+            array($this->tool_io->get("i"))
+        );
+
+        if($order->id==""){
+            echo "訂單不存在";
+            return;
+        }
+
+        $carts = (array)json_decode($order->cart);
+        foreach ($carts as $cart){
+            $product = $this->tool_database->moreTableFind(
+                "cs_product p inner join cs_brand b on b.id = p.brand",
+                array("p.name","p.img","b.title brand"),
+                array("p.id=?"),
+                array($cart->id)
+            );
+
+            $cart->brand=$product['brand'];
+            $cart->name=$product['name'];
+            $cart->img=json_decode($product['img'])[0]->path;
+        }
+
+        $this->display("orderdetail",array("products"=>$carts));
     }
 
 	public function script(){
