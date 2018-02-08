@@ -110,7 +110,7 @@
   <main class="main-content">
     <layout name="content"/>
     <!--footer-->
-    <div class="container-narrow">
+    <div class="container-narrow footer-cnt">
       <footer>
         <div>
           <p>台灣銀行歐元現金匯率：<span>36.04</span></p>
@@ -234,6 +234,22 @@
             $(this).closest('a').addClass('active');
         });
     });
+</script>
+<script>
+    $(document).ready(function () {
+        console.log("$(document).height():"+ $(document).height());
+        console.log("$(window).height():"+ $(window).height());
+        // 固定footer
+        if ($(document).height() <= $(window).height()){
+            var footerW = $('footer').width();
+            $('.main-content').height($(window).height()-$('header').height()+5);
+            $('.footer-cnt').css({position:'fixed',bottom:0,left:'50%',marginLeft:-footerW/2});
+        }else{
+            $('.footer-cnt').css({position:'static'});
+        }
+    })
+
+
 </script>
 </body>
 </html>
