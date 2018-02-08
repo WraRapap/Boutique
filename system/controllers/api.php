@@ -352,5 +352,60 @@ class Api_Controller extends CS_Controller{
         @session_write_close();
         echo json_encode(array("status"=>1));
     }
+
+    public  function addLike(){
+	    if(empty($this->tool_io->post("i"))){
+	        echo json_encode(array("msg"=>"商品不存在"));
+	        return ;
+        }
+
+	    $like  = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION['USER_ID']));
+	    $products =  (array)json_decode($like->cart);
+	    $exist=false;
+	    foreach ($products as $key =>$product){
+	        if($product->id == $this->tool_io->post("i")){
+                $exist=true;
+                break;
+            }
+        }
+
+        if($exist){
+            echo json_encode(array("status"=>1));
+            return ;
+        }
+
+        $products[]=array("id"=>$this->tool_io->post("i"));
+        $like->cart = json_encode($products);
+        if($like->id!=""){
+            $like->update();
+        }else{
+            $like->id=uniqid();
+            $like->memberId=$_SESSION['USER_ID'];
+            $like->insert();
+        }
+        echo json_encode(array("status"=>1));
+    }
+
+    public function delLike(){
+        if(empty($this->tool_io->post("i"))){
+            echo json_encode(array("msg"=>"商品不存在"));
+            return ;
+        }
+
+        $like  = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION['USER_ID']));
+        $products =  (array)json_decode($like->cart,true);
+        foreach ($products as $key =>$product){
+            if($product['id'] == $this->tool_io->post("i")){
+                unset($products[$key]);
+                break;
+            }
+        }
+
+        if($like->id!=""){
+            $like->cart=json_encode($products);
+            $like->update();
+        }
+        echo json_encode(array("status"=>1));
+    }
 }
 ?>

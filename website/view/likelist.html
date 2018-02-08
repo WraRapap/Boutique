@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="css/member.css">
+<section class="container-narrow" id="member-like-page">
+    <div class="content clearfix">
+        <!--sideMenu-->
+        <aside class="sideMenu-wrap">
+            <div class="sideMenu">
+                <ul>
+                    <li><a href="member.html">個人資料管理</a></li>
+                    <li><a href="order.html">訂單查詢</a></li>
+                    <li><a href="likelist.html" class="active">追蹤清單</a></li>
+                </ul>
+            </div>
+        </aside>
+        <!--inner-cnt-->
+        <div class="inner-cnt-wrap">
+            <div class="inner-title">
+                <h1>追蹤清單</h1>
+            </div>
+            <div class="inner-cnt">
+                <div class="member-list-wrap">
+                    <ul class="member-list-cnt like-title">
+                        <li>商品名稱</li>
+                        <li class="txt-center">價格</li>
+                        <li></li>
+                    </ul>
+                    <?php foreach((array)$this->products as $product):?>
+                    <ul class="member-list-cnt" i="<?php echo $product->id;?>">
+                        <li>
+                            <a href="item.html?i=<?php echo $product->id;?>">
+                                <div class="member-list-img"><img src="../system/files/<?php echo $product->img;?>"></div>
+                                <div class="member-list-name"><span class="list-brand"><?php echo $product->brand;?></span><sapn class="list-dsp"><?php echo $product->name;?></sapn><span class="list-price-m">TWD {{<?php echo $product->price;?>|currency}}</span></div>
+                            </a>
+                        </li>
+                        <li class="list-price">TWD {{<?php echo $product->price;?>|currency}}</li>
+                        <li>
+                            <button class="member-btn-buy" type="button" onclick="buy('<?php echo $product->id;?>')">我想購買</button>
+                            <button class="member-btn-delete" type="button" i="<?php echo $product->id;?>">刪除</button>
+                        </li>
+                    </ul>
+                    <?php endforeach;?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

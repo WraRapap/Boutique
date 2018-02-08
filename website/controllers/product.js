@@ -37,7 +37,7 @@
 
                             var str ="<article class='items-box'>\n" +
                                 "                        <div class='items-box-side'><a href='#' class='items-cart'></a> <a href='#'\n" +
-                                "                                                                                           class='items-like'></a></div>\n" +
+                                "                                                                                           class='items-like' i='"+products[i].id+"'></a></div>\n" +
                                 "                        <a href='item.html?i="+products[i].id+"'>\n" +
                                 "                            <div class='items-box-main'>\n" +
                                 "                                <div class='items-img reveal'><img\n" +
@@ -103,6 +103,25 @@
         confirmHref(type,typeValue,1);//把旧参数替换新收集的参数
     });
 
+    $(".items-cnt").on("click",".items-like",function(){
+        $.ajax({
+            url:"/index.php/api/addLike",
+            type:"post",
+            data:{"i":$(this).attr("i")},
+            dataType:"json",
+            success:function(data){
+                if(data.status==1){
+                    showPrompt('商品', "商品收藏成功");
+                }else{
+                    showPrompt('商品', data.msg);
+                }
+            },
+            error:function(){
+                showPrompt('商品', "服務繁忙，請稍後重試");
+            }
+        })
+    });
+
     function confirmHref(type,typeValue,num){
         var url=location.href;
         console.log(url);
@@ -157,5 +176,6 @@
             }
         }
     }
+
 
 })()
