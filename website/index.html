@@ -23,7 +23,8 @@
   <script src="services/DialogService.js"></script>
   <script src="controllers/DialogController.js"></script>
   <script src="js/prompt.js"></script>
-  <!--<script src="js/jquery.fly.min.js"></script>-->
+  <script src="js/jquery.fly.min.js"></script>
+  <script src="js/collectFly.js"></script>
   <style type="text/css"></style>
 </head>
 <body>
@@ -95,9 +96,9 @@
             <div class="active">
               <?php
               if(isset($_SESSION["USER_NAME"])){
-                echo "<a href='member.html'><span>".$_SESSION["USER_NAME"]."</span></a>．<a href='logout.html'>登出</a>";
+                echo "<a href='member.html' id='end'><span>".$_SESSION["USER_NAME"]."</span></a>．<a href='logout.html'>登出</a>";
                 }else{
-                   echo "<a href=\"javascript:void(0);\" onclick=\"regis();\" id=\"end\">註冊</a>．<a href=\"login.html\">登入</a>";
+                   echo "<a href=\"javascript:void(0);\" onclick=\"regis();\" >註冊</a>．<a href=\"login.html\">登入</a>";
                 }
             ?>
             </div>
