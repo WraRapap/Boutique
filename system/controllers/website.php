@@ -225,28 +225,28 @@ class Website_Controller extends WebsiteController{
         if(isset($_COOKIE[$product["category"]])){//历史记录存在
             $categoryProduct=$_COOKIE[$product["category"]];
             $products = json_decode($categoryProduct,true);
+            $lstProducts=array();
             foreach ($products as $key => $historyProduct){
-                if($historyProduct["id"] == $product["id"]){
-                    unset($products[$key]);
-                    break;
+                if($historyProduct["id"] != $product["id"]){
+                    $lstProducts[]=$historyProduct;
                 }
             }
 
-            if(count($products)==6){//最多
-                unset($products[0]);
+            if(count($lstProducts)==6){//最多
+               array_splice($lstProducts,0,1);
             }
 
-            $products[]=$addHistoryProduct;
-            setcookie($product["category"], json_encode($products), time()+ 3650*24*3600);
+            $lstProducts[]=$addHistoryProduct;
+            setcookie($product["category"], json_encode($lstProducts), time()+ 3650*24*3600);
         }else{//不存在历史记录插入
 
-            $products=array($addHistoryProduct);
-            setcookie($product["category"], json_encode($products), time()+ 3650*24*3600);
+            $lstProducts=array($addHistoryProduct);
+            setcookie($product["category"], json_encode($lstProducts), time()+ 3650*24*3600);
         }
 
         $datas=array("product"=>$product,
                       "sizes"=>$sizes,
-                      "products"=>array_reverse($products),
+                      "products"=>array_reverse($lstProducts),
                       "colors"=>$colors);
         $this ->display("item",$datas);
     }
