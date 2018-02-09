@@ -43,7 +43,7 @@
         <div class="m-header-like"> <a href="likelist.html"><i class="fa fa-heart" aria-hidden="true"></i></a> </div>
         <div class="m-header-cart"> <a href="cart.html">
           <div class="bubble-wrap">
-            <p class="bubble-txt"><span></span></p>
+            <p class="bubble-txt"><span class="cartNum"><?php echo isset($_SESSION['USER_CARTNUM'])?$_SESSION['USER_CARTNUM']:0;?></span></p>
           </div>
           <img src="img/icon-cart-m.png"></a> </div>
       </div>
@@ -88,7 +88,7 @@
           </div>
           <div class="cart-wrap"> <a href="cart.html">
             <div class="cart-icon"><img src="img/icon-cart.png"></div>
-            <div class="cart-txt">購物車 (<span id="cartNum"><?php echo isset($_SESSION['USER_CARTNUM'])?$_SESSION['USER_CARTNUM']:0;?></span>)</div>
+            <div class="cart-txt">購物車 (<span class="cartNum"><?php echo isset($_SESSION['USER_CARTNUM'])?$_SESSION['USER_CARTNUM']:0;?></span>)</div>
           </a> </div>
           <!--div加.acitve 轉換狀態-->
           <div class="member-wrap">
@@ -166,18 +166,18 @@
                 <li><a href="#0">Product 5</a></li>
               </ul>
             </li>
-            <li> <a href="#">WOMEN</a></li>
-            <li> <a href="#">MAN</a></li>
-            <li><a href="#">包款</a></li>
-            <li><a href="#">鞋款</a></li>
-            <li><a href="#">服飾</a></li>
-            <li><a href="#">時尚配件</a></li>
+            <li><a href="product.html?se=15a6ae4005c0a8&f=WOMEN">WOMEN</a></li>
+            <li><a href="product.html?se=15a6ae3eabb030&f=MEN">MEN</a></li>
+            <li><a href="product.html?c=15a73df26ca348&f=包款">包款</a></li>
+            <li><a href="product.html?c=15a6af733a4100&f=鞋款">鞋款</a></li>
+            <li><a href="product.html?c=15a6af74c72420&f=服飾">服飾</a></li>
+            <li><a href="product.html?c=15a6ae3eabb030&f=時尚配件">時尚配件</a></li>
           </ul>
           <hr class="m-nav-hr">
           <ul class="nav-cnt">
-            <li> <a href="member-manage.html">個人資料管理</a></li>
-            <li> <a href="member-order.html">訂單查詢</a></li>
-            <li><a href="member-likelist.html">追蹤清單</a></li>
+            <li><a href="member.html" class="active">個人資料管理</a></li>
+            <li><a href="order.html">訂單查詢</a></li>
+            <li><a href="likelist.html">追蹤清單</a></li>
           </ul>
         </div>
       </div>

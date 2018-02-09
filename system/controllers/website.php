@@ -87,7 +87,7 @@ class Website_Controller extends WebsiteController{
 //order by p.createTime ?,
 //order by p.price ?
 	public function  product(){
-        $perPageItems=empty($this->tool_io->get("count"))? 2:$this->tool_io->get("count");
+        $perPageItems=empty($this->tool_io->get("count"))? 12:$this->tool_io->get("count");
         $currentPage=empty($this->tool_io->get("page"))? 1:$this->tool_io->get("page");
 	    $totalparm=array();
         $totalparm["moreTabel"]="cs_product p";

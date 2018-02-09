@@ -32,7 +32,7 @@
                         $scope.totalfee-=fee;
                         $("#"+uid).remove();
 
-                        $("#cartNum").html( parseInt($("#cartNum").html()) - 1);
+                        $(".cartNum").html( parseInt($(".cartNum:lt(1)").html()) - 1);
 
                     }else if(data.status==-1){
                         showmsg = "請先登錄";
