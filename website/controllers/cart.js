@@ -49,6 +49,44 @@
             $scope.banClick=false;
         };
 
+        //移到收藏夹
+        $scope.moveLike=function(uid){
+            $scope.banClick=true;
+            $.ajax({
+                url:"/index.php/api/moveLike",
+                type:"post",
+                data:{"uid":uid},
+                dataType:"json",
+                success:function(data){
+                    var showmsg="";
+                    if(data.status==1){
+                        showmsg="幫你移過去了";
+
+                        var count = parseInt($("#"+uid+"count").html());
+                        var fee = parseFloat($("#"+uid+"fee").val());
+                        var totalcount = parseInt($("#totalcount").html());
+
+                        $("#totalcount").html(totalcount-count);
+                        $scope.totalfee-=fee;
+                        $("#"+uid).remove();
+
+                        $(".cartNum").html( parseInt($(".cartNum:lt(1)").html()) - 1);
+
+                    }else if(data.status==-1){
+                        showmsg = "請先登錄";
+                    }else{
+                        showmsg = data.msg;
+                    }
+                    showPrompt('購物車', showmsg);
+                },
+                error:function(){
+                    showPrompt('購物車', "服務繁忙，請稍後重試");
+
+                }
+            });
+            $scope.banClick=false;
+        };
+
         $("#confirmOrder").click(function(){
             if($("ul.check-list li").length<1){
                 showPrompt('確認訂單', "购物车是空的哦");

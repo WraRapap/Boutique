@@ -397,7 +397,7 @@ class Website_Controller extends WebsiteController{
 	    $this->checkLogin("likelist");
         $cart = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION["USER_ID"]));
         $products = (array)json_decode($cart->cart);
-        $productsToSave = (array)json_decode($cart->cart);
+        $productsToSave =array();
         $del=false;
         foreach ($products as $key => $product){
             $p=$this->tool_database->moreTableFind(
@@ -406,16 +406,18 @@ class Website_Controller extends WebsiteController{
                                     array("p.publish='Y'","p.id=?"),
                                     array($product->id));
 
-            if($p["id"]==""){
+            if(count($p)===0){
                 unset($products[$key]);
-                unset($productsToSave[$key]);
                 $del=true;
             }else{
                 $product->price=$p['price'];
                 $product->name=$p['name'];
                 $product->brand=$p['brand'];
                 $product->img= json_decode($p['img'])[0]->path ;
+
+                $productsToSave[]=array("id"=>$product->id);
             }
+
         }
 
         if($cart->id!="" && $del){
