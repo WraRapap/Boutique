@@ -103,7 +103,7 @@
         confirmHref(type,typeValue,1);//把旧参数替换新收集的参数
     });
 
-    $(".items-cnt").on("click",".items-like",function(){
+    $(".items-cnt").on("click",".items-like",function(event){
         $.ajax({
             url:"/index.php/api/addLike",
             type:"post",
@@ -111,7 +111,8 @@
             dataType:"json",
             success:function(data){
                 if(data.status==1){
-                    showPrompt('商品', "商品收藏成功");
+                    // showPrompt('商品', "商品收藏成功");
+                    collectFly($(this),event);
                 }else{
                     showPrompt('商品', data.msg);
                 }
@@ -121,6 +122,35 @@
             }
         })
     });
+
+    function collectFly(addcar,event) {
+        var offset = $("#end").offset().top != 0 ? $("#end").offset():$(".fa-heart").offset();
+        console.log(offset);
+            console.log(addcar);
+            var flyer = $('<img class="u-flyer" src="../website/img/like.png">').clone().css({
+                'z-index': '999',
+                'height': '3rem',
+                'width': '3rem'
+            });
+            console.log(flyer);
+            flyer.fly({
+                start: {
+                    left: event.pageX,
+                    top: event.pageY
+                },
+                end: {
+                    left: offset.left+10,
+                    top: offset.top+10,
+                    width: 0,
+                    height: 0
+                },
+                onEnd: function(){
+                    $("#msg").show().animate({width: '250px'}, 200).fadeOut(1000);
+                    addcar.css("cursor","default").removeClass('orange').unbind('click');
+                    this.destory();
+                }
+            });
+    };
 
     function confirmHref(type,typeValue,num){
         var url=location.href;
