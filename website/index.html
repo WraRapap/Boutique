@@ -24,7 +24,6 @@
   <script src="controllers/DialogController.js"></script>
   <script src="js/prompt.js"></script>
   <script src="js/jquery.fly.min.js"></script>
-
   <style type="text/css"></style>
 </head>
 <body>
@@ -41,10 +40,10 @@
           </form>
         </div>
         <div class="m-header-logo"><a href="index.html"><img src="img/85go-logo-m.png"></a></div>
-        <div class="m-header-like"> <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a> </div>
-        <div class="m-header-cart"> <a href="#">
+        <div class="m-header-like"> <a href="likelist.html"><i class="fa fa-heart" aria-hidden="true"></i></a> </div>
+        <div class="m-header-cart"> <a href="cart.html">
           <div class="bubble-wrap">
-            <p class="bubble-txt"><span>99+</span></p>
+            <p class="bubble-txt"><span></span></p>
           </div>
           <img src="img/icon-cart-m.png"></a> </div>
       </div>
@@ -135,8 +134,15 @@
           <ul class="nav-cnt m-nav-info">
             <li>
               <div class="member-wrap">
-                <div class=""><a href="#"><span>name</span></a>．<a href="#">登出</a> </div>
-                <div class="active"> <a href="javascript:void(0);" onclick="regis();">註冊</a>．<a href="login.html">登入</a> </div>
+                <div class="active">
+                <?php
+              if(isset($_SESSION["USER_NAME"])){
+                echo "<a href='member.html' id='end'><span>".$_SESSION["USER_NAME"]."</span></a>．<a href='logout.html'>登出</a>";
+                }else{
+                echo "<a href=\"javascript:void(0);\" onclick=\"regis();\" >註冊</a>．<a href=\"login.html\">登入</a>";
+                }
+                ?>
+                </div>
               </div>
             </li>
             <li>

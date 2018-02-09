@@ -352,11 +352,12 @@ class Website_Controller extends WebsiteController{
     }
 
     public  function  order(){
+        $this->checkLogin("likelist");
         $orders = $this->tool_database->moreTableFindAll(
             "cs_order o inner join cs_orderstatus os on o.orderstatus=os.id inner join cs_payment p on p.id=o.payment",
             array("o.createTime,o.totalfee,os.title orderstatus,p.title payment,o.item,o.id"),
             array("memberId=?"),
-            array($_SESSION['USER_ID'])
+            array($_SESSION["USER_ID"])
         );
 
         $this->display("order",array("orders"=>$orders));
@@ -393,7 +394,8 @@ class Website_Controller extends WebsiteController{
     }
 
     public  function likelist(){
-        $cart = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION['USER_ID']));
+	    $this->checkLogin("likelist");
+        $cart = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION["USER_ID"]));
         $products = (array)json_decode($cart->cart);
         $productsToSave = (array)json_decode($cart->cart);
         $del=false;

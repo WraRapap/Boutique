@@ -58,7 +58,11 @@
                 success:function(data){
                     if(data.status==1){
                             location.href="member.html";
-                    }else{
+                    }
+                    else if(data.status==-1){
+                        showPrompt('會員',"請先登錄");
+                    }
+                    else{
                         showPrompt('會員',data.msg);
 
                     }

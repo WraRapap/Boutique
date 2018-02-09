@@ -1,6 +1,8 @@
 <?php
 class Api_Controller extends CS_Controller{
 
+
+
 	public function main(){
 
 	}
@@ -153,6 +155,11 @@ class Api_Controller extends CS_Controller{
     }
 
     public  function  delCartProduct(){
+        if(!isset($_SESSION["USER_ID"])){
+             echo json_encode(array("status"=>-1));
+             return;
+        }
+
 	    $cart = $this->tool_database->find(
 	        "cart",
             array(),
@@ -195,6 +202,11 @@ class Api_Controller extends CS_Controller{
     }
 
     public  function confirmOrder(){
+        if(!isset($_SESSION["USER_ID"])){
+            echo json_encode(array("status"=>-1));
+            return;
+        }
+
 	    $products = (array)json_decode($_POST["products"]);
 	    if(count($products)<1){
 	        echo json_encode(array("msg"=>"購物車是空的哦"));
@@ -243,7 +255,7 @@ class Api_Controller extends CS_Controller{
         $order-> orderstatus= "15a5714ace2518";
         $order-> remark = $this->tool_io->post("remark");
         $order-> totalfee = $totalFee;
-        $order-> memberId = $_SESSION['USER_ID'];
+        $order-> memberId = $_SESSION["USER_ID"];
         $actions[]=array("1", $order);
 
         //会员模块，补全会员信息
@@ -263,7 +275,7 @@ class Api_Controller extends CS_Controller{
         }
 
         //清空购物车
-        $actions[]=array("4","delete from cs_cart where memberId=?",array($_SESSION['USER_ID']));
+        $actions[]=array("4","delete from cs_cart where memberId=?",array($_SESSION["USER_ID"]));
 
         //提交事务
         if($this->tool_database->transaction($actions)){
@@ -288,6 +300,11 @@ class Api_Controller extends CS_Controller{
     }
 
     public  function member(){
+        if(!isset($_SESSION["USER_ID"])){
+            echo json_encode(array("status"=>-1));
+            return;
+        }
+
 	    $parms=array("name,姓名","country,國家","address,地址","phone,手機");
 	    $requireFiled="";
 	    foreach ($parms as $parm){
@@ -303,7 +320,7 @@ class Api_Controller extends CS_Controller{
         }
 
         $condition=array("id=?");
-	    $conditionValue=array($_SESSION['USER_ID']);
+	    $conditionValue=array($_SESSION["USER_ID"]);
         $hasPwd=false;
 	    if(!empty($this->tool_io->post("oldPwd")) || !empty($this->tool_io->post("newPwd")) || !empty($this->tool_io->post("reNewPwd"))){
 
@@ -348,18 +365,22 @@ class Api_Controller extends CS_Controller{
 
         @session_start();
         $_SESSION['USER_NAME']=$this->tool_io->post("name");
-        $_SESSION['USER']=$this->tool_database->moreTableFind("cs_member",array(),array("id=?"),array($_SESSION['USER_ID']));
+        $_SESSION['USER']=$this->tool_database->moreTableFind("cs_member",array(),array("id=?"),array($_SESSION["USER_ID"]));
         @session_write_close();
         echo json_encode(array("status"=>1));
     }
 
     public  function addLike(){
+        if(!isset($_SESSION["USER_ID"])){
+            echo json_encode(array("status"=>-1));
+            return;
+        }
 	    if(empty($this->tool_io->post("i"))){
 	        echo json_encode(array("msg"=>"商品不存在"));
 	        return ;
         }
 
-	    $like  = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION['USER_ID']));
+	    $like  = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION["USER_ID"]));
 	    $products =  (array)json_decode($like->cart);
 	    $exist=false;
 	    foreach ($products as $key =>$product){
@@ -380,19 +401,23 @@ class Api_Controller extends CS_Controller{
             $like->update();
         }else{
             $like->id=uniqid();
-            $like->memberId=$_SESSION['USER_ID'];
+            $like->memberId=$_SESSION["USER_ID"];
             $like->insert();
         }
         echo json_encode(array("status"=>1));
     }
 
     public function delLike(){
+        if(!isset($_SESSION["USER_ID"])){
+            echo json_encode(array("status"=>-1));
+            return;
+        }
         if(empty($this->tool_io->post("i"))){
             echo json_encode(array("msg"=>"商品不存在"));
             return ;
         }
 
-        $like  = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION['USER_ID']));
+        $like  = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION["USER_ID"]));
         $products =  (array)json_decode($like->cart);
         $lstProducts=array();
         foreach ($products as $product){
