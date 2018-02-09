@@ -860,10 +860,11 @@ class Data_Model extends WidgetModel{
 		$hasUpdateTime = false;
 
 		foreach($components as $variable => $component){
+            if($variable==="cart"){//购物车清单先不考虑
+                continue;
+            }
 
 			$input_value = $component -> getValue();
-
-
 			if(isset($input_value)){
 				// echo gettype($data -> $variable) . "===" . empty($data -> $variable) . "<br />";
 				if($data -> isKeyExists($variable)){
