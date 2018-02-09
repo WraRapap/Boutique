@@ -249,7 +249,7 @@ class Api_Controller extends CS_Controller{
         }
 
         $order -> id = uniqid();
-        $order -> item = "PH".date("YmdHis",time()).uniqid();
+        $order -> item = "PH".date("YmdHis",time());
         $order -> createTime = date("Y-m-d H:i:s",time());
         $order -> cart = json_encode($products,JSON_UNESCAPED_UNICODE);
         $order-> orderstatus= "15a5714ace2518";
