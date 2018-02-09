@@ -113,7 +113,11 @@
                 if(data.status==1){
                     // showPrompt('商品', "商品收藏成功");
                     collectFly($(this),event);
-                }else{
+                }
+                else if(data.status==-1){
+                    showPrompt('商品', "請先登錄");
+                }
+                else{
                     showPrompt('商品', data.msg);
                 }
             },

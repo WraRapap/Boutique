@@ -34,6 +34,8 @@
 
                         $("#cartNum").html( parseInt($("#cartNum").html()) - 1);
 
+                    }else if(data.status==-1){
+                        showmsg = "請先登錄";
                     }else{
                         showmsg = data.msg;
                     }
@@ -115,6 +117,9 @@
                     else if(data.status==2){
                         showPrompt('訂單送出', $("#"+data.id).attr("placeholder")+"必填");
 
+                    }
+                    else if(data.status==-1){
+                        showPrompt('訂單送出', "請先登錄");
                     }
                     else{
                         showPrompt('訂單送出', data.msg);

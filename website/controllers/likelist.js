@@ -9,7 +9,11 @@ $(function(){
            success:function(data){
                if(data.status==1){
                    $("ul[i="+i+"]").remove();
-               }else{
+               }
+               else if(data.status==-1){
+                   showPrompt('追蹤清單', "請先登錄");
+               }
+               else{
                    showPrompt('追蹤清單', data.msg);
                }
            },
