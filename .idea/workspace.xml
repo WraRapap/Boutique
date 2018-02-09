@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf3c6fb4-f7e9-4ed3-97e3-e35ddffa8136" name="Default" comment="" />
+    <list default="true" id="cf3c6fb4-f7e9-4ed3-97e3-e35ddffa8136" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/system/controllers/website.php" afterPath="$PROJECT_DIR$/system/controllers/website.php" />
+      <change beforePath="$PROJECT_DIR$/system/logs/2018-02-02-database.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/website/view/product.html" afterPath="$PROJECT_DIR$/website/view/product.html" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,11 +15,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="website.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/system/controllers/website.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="234" column="37" lean-forward="false" selection-start-line="234" selection-start-column="37" selection-end-line="234" selection-end-column="37" />
+              <folding>
+                <element signature="n#main#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#index#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#signin#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#login#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#logout#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#collectparm#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="e#1883#1955#0#PHP" expanded="false" />
+                <element signature="n#product#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#cart#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#member#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#order#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#orderdetail#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#likelist#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#script#0;n#Website_Controller#0;n#!!top" expanded="false" />
+                <element signature="n#checkLogin#0;n#Website_Controller#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="product.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/controllers/product.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="109" column="41" lean-forward="true" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
+            <state relative-caret-position="809">
+              <caret line="119" column="47" lean-forward="false" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -35,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/website/view/likelist.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
-              <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+              <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -61,11 +91,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="product.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/view/product.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="120" column="71" lean-forward="false" selection-start-line="120" selection-start-column="71" selection-end-line="120" selection-end-column="71" />
+            <state relative-caret-position="296">
+              <caret line="80" column="66" lean-forward="true" selection-start-line="80" selection-start-column="66" selection-end-line="80" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="item.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/website/view/item.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="82" column="47" lean-forward="true" selection-start-line="82" selection-start-column="47" selection-end-line="82" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -192,12 +232,12 @@
         <option value="$PROJECT_DIR$/website/view/orderdetail.html" />
         <option value="$PROJECT_DIR$/website/view/order.html" />
         <option value="$PROJECT_DIR$/website/view/item.html" />
-        <option value="$PROJECT_DIR$/system/controllers/website.php" />
         <option value="$PROJECT_DIR$/website/view/likelist.html" />
         <option value="$PROJECT_DIR$/website/controllers/product.js" />
         <option value="$PROJECT_DIR$/website/controllers/likelist.js" />
         <option value="$PROJECT_DIR$/system/controllers/api.php" />
         <option value="$PROJECT_DIR$/website/view/product.html" />
+        <option value="$PROJECT_DIR$/system/controllers/website.php" />
       </list>
     </option>
   </component>
@@ -351,7 +391,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298753000" />
+    <option name="totallyTimeSpent" value="301089000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -377,7 +417,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2588889" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2588889" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -431,7 +471,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="215" />
+      <option name="time" value="219" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PhpWebAppRunConfigurationType">
@@ -518,14 +558,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://E:/design/85go-20180118/85go-20180118/boutiquefrontend/cart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="306" column="18" lean-forward="false" selection-start-line="306" selection-start-column="18" selection-end-line="306" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/website/ngdialog/js/ngDialog.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -904,14 +936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/view/item.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="88" column="63" lean-forward="false" selection-start-line="88" selection-start-column="63" selection-end-line="88" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/design/85go-20180118/85go-20180118/boutiquefrontend/member-likelist.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-19">
@@ -928,40 +952,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/system/controllers/website.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="331" column="49" lean-forward="false" selection-start-line="331" selection-start-column="36" selection-end-line="331" selection-end-column="49" />
-          <folding>
-            <element signature="n#main#0;n#Website_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#index#0;n#Website_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#signin#0;n#Website_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#login#0;n#Website_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#logout#0;n#Website_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#collectparm#0;n#Website_Controller#0;n#!!top" expanded="false" />
-            <element signature="e#1883#1955#0#PHP" expanded="false" />
-            <element signature="n#product#0;n#Website_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#item#0;n#Website_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#member#0;n#Website_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#order#0;n#Website_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#script#0;n#Website_Controller#0;n#!!top" expanded="false" />
-            <element signature="n#checkLogin#0;n#Website_Controller#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-168">
           <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/controllers/product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="109" column="41" lean-forward="true" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1002,16 +996,64 @@
     <entry file="file://$PROJECT_DIR$/website/view/likelist.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
-          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/controllers/product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="809">
+          <caret line="119" column="47" lean-forward="false" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_8.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="1138" column="9" lean-forward="false" selection-start-line="1138" selection-start-column="9" selection-end-line="1138" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/view/product.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="120" column="71" lean-forward="false" selection-start-line="120" selection-start-column="71" selection-end-line="120" selection-end-column="71" />
+        <state relative-caret-position="296">
+          <caret line="80" column="66" lean-forward="true" selection-start-line="80" selection-start-column="66" selection-end-line="80" selection-end-column="66" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/view/item.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="82" column="47" lean-forward="true" selection-start-line="82" selection-start-column="47" selection-end-line="82" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/controllers/website.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="234" column="37" lean-forward="false" selection-start-line="234" selection-start-column="37" selection-end-line="234" selection-end-column="37" />
+          <folding>
+            <element signature="n#main#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#index#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#signin#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#login#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#logout#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#collectparm#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="e#1883#1955#0#PHP" expanded="false" />
+            <element signature="n#product#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#cart#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#member#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#order#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#orderdetail#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#likelist#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#script#0;n#Website_Controller#0;n#!!top" expanded="false" />
+            <element signature="n#checkLogin#0;n#Website_Controller#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

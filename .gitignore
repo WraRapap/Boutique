@@ -17,3 +17,5 @@ system/configs/Db.php
 system/configs/Db.php
 *.log
 .idea/workspace.xml
+.idea/workspace.xml
+*.log
