@@ -411,7 +411,7 @@
 @media screen and (max-width:375px) {
     .single-item-banner{
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
 
     }
     .nav-top,.nav-top>a{

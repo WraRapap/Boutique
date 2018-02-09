@@ -143,8 +143,9 @@
 
             // like
         $(".items-like").click(function () {
-            // $(this).toggleClass("activ");
-            console.log('dianji l ');
+            collectFly($(this),event);
+        })
+        function collectFly(addcar,event) {
             var offset = $("#end").offset().top != 0 ? $("#end").offset():$(".fa-heart").offset();
             console.log(offset);
             console.log(addcar);
@@ -171,7 +172,7 @@
                     this.destory();
                 }
             });
-        })
+        };
 
     })
 </script>
