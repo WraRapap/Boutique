@@ -214,6 +214,21 @@
     position: relative;
     top: 2px;
 }
+
+
+
+.items-like {
+    display:inline-block;
+    width: 21px;
+    height: 18px;
+    margin-top: 12px;
+    background: url(../img/like-o.png) no-repeat;
+    transition: all .4s;
+}
+.items-like:hover, .items-like.activ {
+    background: url(../img/like.png) no-repeat;
+    transition: all .4s;
+}
 /*最近瀏覽*/
 .viewed{
     width: 100%;
