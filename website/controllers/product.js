@@ -129,6 +129,7 @@
 
     function collectFly(addcar,event) {
         var offset = $("#end").offset().top != 0 ? $("#end").offset():$(".fa-heart").offset();
+        console.log($(".fa-heart"));
         console.log(offset);
             console.log(addcar);
             var flyer = $('<img class="u-flyer" src="../website/img/like.png">').clone().css({
@@ -140,11 +141,11 @@
             flyer.fly({
                 start: {
                     left: event.pageX,
-                    top: event.pageY
+                    top: event.pageY - $(document).scrollTop()
                 },
                 end: {
-                    left: offset.left+10,
-                    top: offset.top+10,
+                    left: offset.left + 10,
+                    top: offset.top - $(document).scrollTop() + 10,
                     width: 0,
                     height: 0
                 },

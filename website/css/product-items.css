@@ -382,16 +382,16 @@
 	margin: 0;
 	color: #000;
 	border: 1px solid #d2d2d2;
-	border-right: none;
+	/*border-right: none;*/
 	transition: all .4s;
 }
 .items-pagination a:first-of-type {
 	/*border-right: 1px solid #d2d2d2;*/
-	margin-right: -3px;
+	/*margin-right: -3px;*/
 }
 .items-pagination a:last-of-type {
 	border-right: 1px solid #d2d2d2;
-	margin-left: -4px;
+	/*margin-left: -4px;*/
 }
 .items-pagination a:hover, .items-pagination a.active {
 	background: #d7d7d7;
