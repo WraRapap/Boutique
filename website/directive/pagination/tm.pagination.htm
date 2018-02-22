@@ -36,5 +36,5 @@
 </div>
 <div class="items-sum">
 <div>共計<span>{{ conf.totalItems }}</span>個商品</div>
-<div>頁數<span>{{ conf.currentPage }}</span>/<span>{{ conf.totalItems / conf.itemsPerPage | number:0 }}</span></div>
+<div>頁數<span>{{ conf.currentPage }}</span>/<span>{{(conf.totalItems / conf.itemsPerPage)+1 | number:0 }}</span></div>
 </div>
