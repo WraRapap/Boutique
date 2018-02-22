@@ -250,7 +250,7 @@
         console.log("$(html).height():"+ $('html').height());
         // 固定footer
             // console.log('开启定时器')
-        function footerFixed() {
+        // function footerFixed() {
             if ($('html').height() < $(window).height()) {
                 var footerW = $('footer').width();
                 $('.main-content').height($(window).height() - $('header').height() + 5);
@@ -259,7 +259,7 @@
                 $('.footer-cnt').css({position: ''});
             }
 
-        }
+        // }
 
 
 
@@ -271,7 +271,18 @@
         //     $('.footer-cnt').css({position:'static'});
         // }
         // }
-        setInterval(footerFixed);
+        // setInterval(footerFixed);
+        $('.filter-btn').on("click",function(){
+            // console.log("You swiped left!");
+            $('.mobile-filter-wrap').removeClass('menu-is-open2');
+            $('#filter-toggle').removeClass('is-clicked');
+        });
+
+        // $('document').on("swiper",function(){
+        //     console.log("You swiped left!");
+        //     $('.mobile-filter-wrap').removeClass('menu-is-open2');
+        //     $('#filter-toggle').removeClass('is-clicked');
+        // });
     })
 
 

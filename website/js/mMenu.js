@@ -75,7 +75,10 @@ jQuery(document).ready(function($){
 		if($('html').hasClass('no-csstransitions')) {
 			$('body').toggleClass('overflow-hidden');
 		}
+
+
 	});
+
 
 	//close lateral menu clicking outside the menu itself
 	$content_wrapper.on('click', function(event){
