@@ -160,6 +160,11 @@ class Api_Controller extends CS_Controller{
              return;
         }
 
+        if(empty($this->tool_io-post("uid"))){
+            echo json_encode(array("msg"=>"找不到指定商品"));
+            return;
+        }
+
 	    $cart = $this->tool_database->find(
 	        "cart",
             array(),
@@ -191,13 +196,106 @@ class Api_Controller extends CS_Controller{
 	    if(count($carts)>0){
             $cart->cart = json_encode($lstcarts,JSON_UNESCAPED_UNICODE);
             $cart->update();
-        }else{
-            $cart->delete();
         }
 
-        @session_start();
-        $_SESSION["USER_CARTNUM"]-=1;
-        @session_write_close();
+        if($_SESSION["USER_CARTNUM"]>0){
+            @session_start();
+            $_SESSION["USER_CARTNUM"]-=1;
+            @session_write_close();
+        }
+        echo json_encode(array("status"=>1));
+    }
+
+    public  function  moveLike(){
+        if(!isset($_SESSION["USER_ID"])){
+            echo json_encode(array("status"=>-1));
+            return;
+        }
+
+        if(empty($this->tool_io->post("uid"))){
+            echo json_encode(array("msg"=>"找不到指定商品"));
+            return;
+        }
+
+        $cart = $this->tool_database->find(
+            "cart",
+            array(),
+            array("memberId=?"),
+            array($_SESSION["USER_ID"])
+        );
+
+        if(!$cart->isExists()){
+            echo json_encode(array("msg"=>"找不到指定商品"));
+            return;
+        }
+
+        $flag=false;
+        $carts=json_decode($cart->cart);
+        $lstcarts=array();
+        $removeProductId="";
+        foreach ($carts as $pro) {
+            if($pro->uid==$this->tool_io->post("uid")){
+                $removeProductId=$pro->id;
+                $flag=true;
+                continue;
+            }
+            $lstcarts[]=$pro;
+        }
+
+        if(!$flag){
+            echo json_encode(array("msg"=>"找不到指定商品"));
+            return;
+        }
+
+        if(count($carts)>0){//先从购物车移除再添加到收藏
+            $actions=array();
+            $cart->cart = json_encode($lstcarts,JSON_UNESCAPED_UNICODE);
+            $actions[]=array("2",$cart);
+
+            $like  = $this->tool_database->find("likeorder",array(),array("memberId=?"),array($_SESSION["USER_ID"]));
+            $products =  (array)json_decode($like->cart);
+            $exist=false;
+            foreach ($products as $key =>$product){
+                if($product->id == $removeProductId){
+                    $exist=true;
+                    break;
+                }
+            }
+
+            if($exist){//已经存在收藏里了
+                $cart->update();
+                if($_SESSION["USER_CARTNUM"]>0){
+                    @session_start();
+                    $_SESSION["USER_CARTNUM"]-=1;
+                    @session_write_close();
+                }
+                echo json_encode(array("status"=>1));
+                return ;
+            }
+
+            $products[]=array("id"=>$removeProductId);
+            $like->cart = json_encode($products);
+            if($like->id!=""){
+                $actions[]=array("2",$like);
+            }else{
+                $like->id=uniqid();
+                $like->memberId=$_SESSION["USER_ID"];
+                $actions[]=array("1",$like);
+            }
+
+            if($this->tool_database->transaction($actions)){
+                echo json_encode(array("status"=>1));
+                if($_SESSION["USER_CARTNUM"]>0){
+                    @session_start();
+                    $_SESSION["USER_CARTNUM"]-=1;
+                    @session_write_close();
+                }
+            }else{
+                echo json_encode(array("msg"=>"操作失敗"));
+            }
+            return;
+        }
+
         echo json_encode(array("status"=>1));
     }
 
