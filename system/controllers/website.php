@@ -22,6 +22,31 @@ class Website_Controller extends WebsiteController{
         $this ->display("signin");
     }
 
+    public function policy()
+    {
+        $this ->display("policy");
+    }
+
+    public function privacy()
+    {
+        $this ->display("privacy");
+    }
+
+    public function paradise()
+    {
+        $this ->display("paradise");
+    }
+
+    public function question()
+    {
+        $this ->display("question");
+    }
+
+    public function size()
+    {
+        $this ->display("size");
+    }
+
     public function login()
     {
         $this ->display("login");
