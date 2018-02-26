@@ -123,6 +123,12 @@ class Api_Controller extends CS_Controller{
     public  function login(){
         $email = $this -> tool_io -> post("email");
         $password = $this -> tool_io -> post("password");
+        $code = $this -> tool_io -> post("code");
+
+        if(strtolower($code)!==$_SESSION['code']){
+            echo json_encode(array("msg"=>"驗證碼不對"));
+            return;
+        }
 
         $member = $this -> tool_database -> moreTableFind(
             "cs_member",
@@ -149,6 +155,7 @@ class Api_Controller extends CS_Controller{
         $_SESSION["USER"] = $member;
 
         $_SESSION["USER_CARTNUM"] = count((array)json_decode($cart->cart));
+        unset($_SESSION["code"]);
         @session_write_close();
         echo json_encode(array("status"=>1));
         return ;
@@ -529,6 +536,34 @@ class Api_Controller extends CS_Controller{
             $like->update();
         }
         echo json_encode(array("status"=>1));
+    }
+
+    public  function getcode(){
+	    $randStr= $this->GetRandStr(4);
+        @session_start();
+	    $_SESSION['code']=strtolower($randStr);
+	    @session_write_close();
+        echo $randStr;
+    }
+
+    private function GetRandStr($len)
+    {
+        $chars = array(
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
+            "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
+            "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G",
+            "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+            "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2",
+            "3", "4", "5", "6", "7", "8", "9"
+        );
+        $charsLen = count($chars) - 1;
+        shuffle($chars);
+        $output = "";
+        for ($i=0; $i<$len; $i++)
+        {
+            $output .= $chars[mt_rand(0, $charsLen)];
+        }
+        return $output;
     }
 }
 ?>

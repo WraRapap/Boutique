@@ -30,8 +30,8 @@
                 <div class="captcha-area">
                   <label>驗證碼</label>
                   <div>
-                    <div><input type="text" placeholder="AAAA"></div>
-                    <div class="captcha-cnt"><img src="http://fakeimg.pl/110x40/fff/000/?text=1234"></div>
+                    <div><input type="text" id="inputcode" placeholder="AAAA"></div>
+                    <div class="captcha-cnt"><img id="code" src="http://fakeimg.pl/300x250/fff/000/?text=<?php echo $_SESSION['code'];?>"></div>
                   </div>
                 </div>
                 <div class="txt-area"> <a href="javascript:void(0);">忘記密碼?</a> <a href="javascript:void(0);" onclick="regis();">我要註冊</a> </div>
