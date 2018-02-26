@@ -90,7 +90,10 @@
 }
 .captcha-cnt img {
 	width: 100%;
-	height: 100%;
+	/*height: 100%;*/
+	position: relative;
+	top: -28px;
+	z-index: -1;
 }
 .txt-area {
 	display: flex;
@@ -471,6 +474,15 @@ inner-cnt-area
 	font-size: 1.163rem;
 	margin: 0 0 10px 0;
 }
+	.captcha-cnt img {
+		width: calc(100% - 100px);
+		/*height: 100%;*/
+
+		position: relative;
+		top: -44px;
+		left: 50px;
+		z-index: -1;
+	}
 }
 
 @media screen and (max-width:600px) {
@@ -517,4 +529,12 @@ inner-cnt-area
 #member-like-page .member-list-cnt li:last-child {
 	width: 80px;
 }
+	.captcha-cnt img {
+		width: 100%;
+		/*height: 100%;*/
+		position: relative;
+		top: -24px;
+		left: 0px;
+		z-index: -1;
+	}
 }
