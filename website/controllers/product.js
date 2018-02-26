@@ -1,8 +1,40 @@
 (function(){
     var PH = angular.module('PH');
+    PH.filter('parseint',function(){
+        return function(input){        //input是我们传入的字符串
+            if (input) {
+                return parseInt(input);
+            }
+        }
+    });
+
     PH.controller('productCtrl',productCtrl);
-    productCtrl.$inject = ['$scope','$filter', 'DialogService'];
-    function productCtrl($scope,$filter,DialogService) {
+    productCtrl.$inject = ['$scope','$filter'];
+    function productCtrl($scope,$filter) {
+        $scope.next=true;
+        $scope.show=true;
+        if(window.matchMedia('screen and (max-width: 1170px)').matches){//移动端使用
+            $scope.show=false;
+
+            $(window).scroll(function(){
+                $(".js").remove();
+                $(".guang").remove();
+                if(!$scope.next){
+                    $(".items-bottom").after("<div class='js' style=\"text-align: center;\">努力捞宝中....</div>");
+                    return;
+                }
+                if (($(window).height() + $(window).scrollTop() + 60) >= $(document).height()) {
+                    var totalPage= $filter('parseint')($scope.paginationConf.totalItems / $scope.paginationConf.itemsPerPage +1);
+                    if($scope.paginationConf.currentPage<totalPage){
+                        $scope.paginationConf.nextPage();
+                    }else{
+                        $(".items-bottom").after("<div class='guang' style=\"text-align: center;\">宝贝被捞光了....</div>");
+                    }
+
+                }
+            });
+        }
+
         $scope.sort=GetQueryString("so")==null?"":GetQueryString("so");
         $scope.clearGo=function () {
             var index =location.href.indexOf("&");
@@ -15,6 +47,7 @@
 
         $scope.pageChange = function ()
         {
+            $scope.next=false;
             var search="";
             if(location.search.indexOf("?")>-1){
                 search=location.search+"&page=" + $scope.paginationConf.currentPage+"&count="+$scope.paginationConf.itemsPerPage;
@@ -29,7 +62,9 @@
                 success:function(data){
                     var products=data.data;
                     if(products.length>0){
-                        $(".items-cnt").html("");
+                        if(window.matchMedia('screen and (min-width: 1170px)').matches){
+                            $(".items-cnt").html("");
+                        }
                         for(var i=0;i<products.length;i++){
                             var price= $filter('currency')(products[i].price);
                             var showImg=JSON.parse(products[i].img)[0].path;
@@ -51,7 +86,10 @@
                                 "                        </a></article>";
 
                             $(".items-cnt").append(str);
+                            $scope.next=true;
                         }
+
+
                     }
                 },
                 error:function(){
@@ -61,6 +99,8 @@
                 }
             })
         };
+
+
 
         $scope.paginationConf =
         {
@@ -74,6 +114,8 @@
 
 
     };
+
+
 
     $("select[name=sort]").change(function(){
         var type=$(this).attr("remark");

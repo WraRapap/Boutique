@@ -1,8 +1,8 @@
 (function(){
     var PH = angular.module('PH');
     PH.controller('cartCtrl',cartCtrl);
-    cartCtrl.$inject = ['$scope', 'DialogService'];
-    function cartCtrl($scope,DialogService) {
+    cartCtrl.$inject = ['$scope'];
+    function cartCtrl($scope) {
         $(".country").html($("#country").find(":selected").html());
         $(".delivery").html($("#delivery").find(":selected").html());
         $(".payment").html($("#payment").find(":selected").html());

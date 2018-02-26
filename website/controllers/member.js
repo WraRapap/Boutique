@@ -2,8 +2,8 @@
 (function(){
     var PH = angular.module('PH');
     PH.controller('memberCtrl',memberCtrl);
-    memberCtrl.$inject = ['$scope', 'DialogService'];
-    function memberCtrl($scope,DialogService) {
+    memberCtrl.$inject = ['$scope'];
+    function memberCtrl($scope) {
 
         $("#editMember").click(function(){
             $(this).attr("disabled","disabled");

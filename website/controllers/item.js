@@ -1,8 +1,8 @@
 (function(){
     var PH = angular.module('PH');
     PH.controller('itemCtrl',itemCtrl);
-    itemCtrl.$inject = ['$scope', 'DialogService'];
-    function itemCtrl($scope,DialogService) {
+    itemCtrl.$inject = ['$scope'];
+    function itemCtrl($scope) {
         $scope.color="";
         $scope.size="";
         $scope.productId=GetQueryString("i");
