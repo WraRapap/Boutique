@@ -1,199 +1,216 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <link rel="icon" href="img/85go-logo-m.png">
-  <title>85go</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="icon" href="img/85go-logo-m.png">
+    <title>85go</title>
 
-  <!--<link rel="stylesheet" href="directive/css/pagination.css">-->
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/master.css">
-  <link rel="stylesheet" href="css/font.css">
-  <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/slick.css">
-  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
-  <script src="mainApp.js"></script>
-  <script src="directive/pagination/tm.pagination.js"></script>
-  <script src="js/prompt.js"></script>
-  <script src="js/jquery.fly.min.js"></script>
-  <style type="text/css"></style>
+    <!--<link rel="stylesheet" href="directive/css/pagination.css">-->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <script src="mainApp.js"></script>
+    <script src="directive/pagination/tm.pagination.js"></script>
+    <script src="js/prompt.js"></script>
+    <script src="js/jquery.fly.min.js"></script>
+    <style type="text/css"></style>
 </head>
 <body>
 <div class="wrapper">
-  <!--header-->
-  <header>
-    <!--mobile-->
-    <div id="mobile-header">
-      <div class="m-header-group">
-        <div class="m-header-menu"><a id="menu-trigger" href="#0"><span class="menu-icon"></span></a></div>
-        <div class="m-header-search">
-          <form>
-            <button><i class="fa fa-search" aria-hidden="true"></i></button>
-          </form>
-        </div>
-        <div class="m-header-logo"><a href="index.html"><img src="img/85go-logo-m.png"></a></div>
-        <div class="m-header-like"> <a href="likelist.html"><i class="fa fa-heart" aria-hidden="true"></i></a> </div>
-        <div class="m-header-cart"> <a href="cart.html">
-          <div class="bubble-wrap">
-            <p class="bubble-txt"><span class="cartNum"><?php echo isset($_SESSION['USER_CARTNUM'])?$_SESSION['USER_CARTNUM']:0;?></span></p>
-          </div>
-          <img src="img/icon-cart-m.png"></a> </div>
-      </div>
-    </div>
-
-    <!--desktop-->
-    <div id="desktop-header"  class="container-narrow">
-      <div class="header-up">
-        <!--a加上.active 轉換語系-->
-        <p class="header-langEx"><a href="#">简体</a>/<a href="#" class="active">繁體</a>/<a href="#">EN</a></p>
-        <p class="header-logo"><a href="index.html"><img src="img/85go-logo.png"></a></p>
-      </div>
-      <div class="header-bottom">
-        <nav id="main-nav">
-          <ul class="nav-menu menu">
-            <li class="has-dropdown"> <a>關於我們</a>
-              <ul class="nav-dropdown menu">
-                <li><a href="#">選項1</a></li>
-                <li><a href="#">選項1</a></li>
-                <li><a href="#">選項1</a></li>
-              </ul>
-            </li>
-            <li class="has-dropdown"><a>Designer</a>
-              <ul class="nav-dropdown menu">
-                <li><a href="#">Prada</a></li>
-              </ul>
-            </li>
-            <li><a href="product.html?se=15a6ae4005c0a8&f=WOMEN">WOMEN</a></li>
-            <li><a href="product.html?se=15a6ae3eabb030&f=MEN">MEN</a></li>
-            <li><a href="product.html?c=15a73df26ca348&f=包款">包款</a></li>
-            <li><a href="product.html?c=15a6af733a4100&f=鞋款">鞋款</a></li>
-            <li><a href="product.html?c=15a6af74c72420&f=服飾">服飾</a></li>
-            <li><a href="product.html?c=15a6ae3eabb030&f=時尚配件">時尚配件</a></li>
-          </ul>
-        </nav>
-        <aside id="header-aside">
-          <div class="search-wrap">
-            <form class="search" action="product.html" method="get">
-              <button><i class="fa fa-search" aria-hidden="true"></i></button>
-              <input type="text" name="k" placeholder="關鍵字">
-            </form>
-          </div>
-          <div class="cart-wrap"> <a href="cart.html">
-            <div class="cart-icon"><img src="img/icon-cart.png"></div>
-            <div class="cart-txt">購物車 (<span class="cartNum"><?php echo isset($_SESSION['USER_CARTNUM'])?$_SESSION['USER_CARTNUM']:0;?></span>)</div>
-          </a> </div>
-          <!--div加.acitve 轉換狀態-->
-          <div class="member-wrap">
-            <div class="active">
-              <?php
-              if(isset($_SESSION["USER_NAME"])){
-                echo "<a href='member.html' id='end'><span>".$_SESSION["USER_NAME"]."</span></a>．<a href='logout.html'>登出</a>";
-                }else{
-                   echo "<a href=\"javascript:void(0);\" onclick=\"regis();\" >註冊</a>．<a href=\"login.html\">登入</a>";
-                }
-            ?>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </header>
-  <!-- -->
-  <!--main-->
-  <main class="main-content">
-    <layout name="content"/>
-    <!--footer-->
-    <div class="container-narrow footer-cnt">
-      <footer>
-        <div>
-          <p>台灣銀行歐元現金匯率：<span>36.04</span></p>
-          <p>美元現金匯率：<span>30.457</span></p>
-        </div>
-        <div>
-          <p><a href="#" class="underline">隱私條款</a>普惠世紀文化傳媒版權所有，未經書面授權禁止使用</p>
-          <p>Copyright@2008-2017 by puhuei-culture.com all rights reserved</p>
-        </div>
-        <div> <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-weixin" aria-hidden="true"></i></a> </div>
-      </footer>
-    </div>
-  </main>
-  <!-- -->
-  <!--mobile navigation-->
-  <nav id="mobile-nav">
-    <div class="m-nav-wrap">
-      <div class="m-nav-out">
-        <div class="m-nav-inner">
-          <ul class="nav-cnt m-nav-info">
-            <li>
-              <div class="member-wrap">
-                <div class="active">
-                <?php
-              if(isset($_SESSION["USER_NAME"])){
-                echo "<a href='member.html' id='end'><span>".$_SESSION["USER_NAME"]."</span></a>．<a href='logout.html'>登出</a>";
-                }else{
-                echo "<a href=\"javascript:void(0);\" onclick=\"regis();\" >註冊</a>．<a href=\"login.html\">登入</a>";
-                }
-                ?>
+    <!--header-->
+    <header>
+        <!--mobile-->
+        <div id="mobile-header">
+            <div class="m-header-group">
+                <div class="m-header-menu"><a id="menu-trigger" href="#0"><span class="menu-icon"></span></a></div>
+                <div class="m-header-search">
+                    <form>
+                        <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
                 </div>
-              </div>
-            </li>
-            <li>
-              <p class="header-langEx"><a href="#">简</a>/<a href="#" class="active">繁</a>/<a href="#">EN</a></p>
-            </li>
-          </ul>
-          <ul class="nav-cnt">
-            <li class="item-has-children"> <a href="#">關於我們</a>
-              <ul class="sub-menu">
-                <li><a href="#">Brand</a></li>
-                <li><a href="#0">Web Apps</a></li>
-                <li><a href="#0">Mobile Apps</a></li>
-              </ul>
-            </li>
-            <li class="item-has-children"> <a href="#">Designer</a>
-              <ul class="sub-menu">
-                <li><a href="#0">Product 1</a></li>
-                <li><a href="#0">Product 2</a></li>
-                <li><a href="#0">Product 3</a></li>
-                <li><a href="#0">Product 4</a></li>
-                <li><a href="#0">Product 5</a></li>
-              </ul>
-            </li>
-            <li><a href="product.html?se=15a6ae4005c0a8&f=WOMEN">WOMEN</a></li>
-            <li><a href="product.html?se=15a6ae3eabb030&f=MEN">MEN</a></li>
-            <li><a href="product.html?c=15a73df26ca348&f=包款">包款</a></li>
-            <li><a href="product.html?c=15a6af733a4100&f=鞋款">鞋款</a></li>
-            <li><a href="product.html?c=15a6af74c72420&f=服飾">服飾</a></li>
-            <li><a href="product.html?c=15a6ae3eabb030&f=時尚配件">時尚配件</a></li>
-          </ul>
-          <hr class="m-nav-hr">
-          <ul class="nav-cnt">
-            <li><a href="member.html" class="active">個人資料管理</a></li>
-            <li><a href="order.html">訂單查詢</a></li>
-            <li><a href="likelist.html">追蹤清單</a></li>
-          </ul>
+                <div class="m-header-logo"><a href="index.html"><img src="img/85go-logo-m.png"></a></div>
+                <div class="m-header-like"><a href="likelist.html"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                </div>
+                <div class="m-header-cart"><a href="cart.html">
+                    <div class="bubble-wrap">
+                        <p class="bubble-txt"><span
+                                class="cartNum"><?php echo isset($_SESSION['USER_CARTNUM'])?$_SESSION['USER_CARTNUM']:0;?></span>
+                        </p>
+                    </div>
+                    <img src="img/icon-cart-m.png"></a></div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
-  <!-- -->
+
+        <!--desktop-->
+        <div id="desktop-header" class="container-narrow">
+            <div class="header-up">
+                <!--a加上.active 轉換語系-->
+                <p class="header-langEx"><a href="#">简体</a>/<a href="#" class="active">繁體</a>/<a href="#">EN</a></p>
+                <p class="header-logo"><a href="index.html"><img src="img/85go-logo.png"></a></p>
+            </div>
+            <div class="header-bottom">
+                <nav id="main-nav">
+                    <ul class="nav-menu menu">
+                        <li class="has-dropdown"><a>關於我們</a>
+                            <ul class="nav-dropdown menu">
+                                <li><a href="#">選項1</a></li>
+                                <li><a href="#">選項1</a></li>
+                                <li><a href="#">選項1</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown"><a>Designer</a>
+                            <ul class="nav-dropdown menu">
+                                <li><a href="#">Prada</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="product.html?se=15a6ae4005c0a8&f=WOMEN">WOMEN</a></li>
+                        <li><a href="product.html?se=15a6ae3eabb030&f=MEN">MEN</a></li>
+                        <li><a href="product.html?c=15a73df26ca348&f=包款">包款</a></li>
+                        <li><a href="product.html?c=15a6af733a4100&f=鞋款">鞋款</a></li>
+                        <li><a href="product.html?c=15a6af74c72420&f=服飾">服飾</a></li>
+                        <li><a href="product.html?c=15a6ae3eabb030&f=時尚配件">時尚配件</a></li>
+                    </ul>
+                </nav>
+                <aside id="header-aside">
+                    <div class="search-wrap">
+                        <form class="search" action="product.html" method="get">
+                            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <input type="text" name="k" placeholder="關鍵字">
+                        </form>
+                    </div>
+                    <div class="cart-wrap"><a href="cart.html">
+                        <div class="cart-icon"><img src="img/icon-cart.png"></div>
+                        <div class="cart-txt">購物車 (<span
+                                class="cartNum"><?php echo isset($_SESSION['USER_CARTNUM'])?$_SESSION['USER_CARTNUM']:0;?></span>)
+                        </div>
+                    </a></div>
+                    <!--div加.acitve 轉換狀態-->
+                    <div class="member-wrap">
+                        <div class="active">
+                            <?php
+              if(isset($_SESSION["USER_NAME"])){
+                echo "<a href='member.html' id='end'><span>".$_SESSION["USER_NAME"]."</span></a>．<a href='logout.html'>登出</a>";
+                            }else{
+                            echo "<a href=\"javascript:void(0);\" onclick=\"regis();\">註冊</a>．<a
+                                href=\"login.html\">登入</a>";
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </header>
+    <!-- -->
+    <!--main-->
+    <main class="main-content">
+        <layout name="content"/>
+        <!--footer-->
+        <div class="container-narrow footer-cnt">
+            <footer>
+                <div>
+                    <p>台灣銀行歐元現金匯率：<span>36.04</span></p>
+                    <p>美元現金匯率：<span>30.457</span></p>
+                </div>
+                <div>
+                    <p><a href="#" class="underline">隱私條款</a>普惠世紀文化傳媒版權所有，未經書面授權禁止使用</p>
+                    <p>Copyright@2008-2017 by puhuei-culture.com all rights reserved</p>
+                </div>
+                <div><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> <a href="#"><i
+                        class="fa fa-envelope" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-weixin"
+                                                                                          aria-hidden="true"></i></a>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- -->
+    <!--mobile navigation-->
+    <nav id="mobile-nav">
+        <div class="m-nav-wrap">
+            <div class="m-nav-out">
+                <div class="m-nav-inner">
+                    <ul class="nav-cnt m-nav-info">
+                        <li>
+                            <div class="member-wrap">
+                                <div class="active">
+                                    <?php
+              if(isset($_SESSION["USER_NAME"])){
+                echo "<a href='member.html' id='end'><span>".$_SESSION["USER_NAME"]."</span></a>．<a href='logout.html'>登出</a>";
+                                    }else{
+                                    echo "<a href=\"javascript:void(0);\" onclick=\"regis();\">註冊</a>．<a
+                                        href=\"login.html\">登入</a>";
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="header-langEx"><a href="#">简</a>/<a href="#" class="active">繁</a>/<a
+                                    href="#">EN</a></p>
+                        </li>
+                    </ul>
+                    <ul class="nav-cnt">
+                        <li class="item-has-children"><a href="#">關於我們</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Brand</a></li>
+                                <li><a href="#0">Web Apps</a></li>
+                                <li><a href="#0">Mobile Apps</a></li>
+                            </ul>
+                        </li>
+                        <li class="item-has-children"><a href="#">Designer</a>
+                            <ul class="sub-menu">
+                                <li><a href="#0">Product 1</a></li>
+                                <li><a href="#0">Product 2</a></li>
+                                <li><a href="#0">Product 3</a></li>
+                                <li><a href="#0">Product 4</a></li>
+                                <li><a href="#0">Product 5</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="product.html?se=15a6ae4005c0a8&f=WOMEN">WOMEN</a></li>
+                        <li><a href="product.html?se=15a6ae3eabb030&f=MEN">MEN</a></li>
+                        <li><a href="product.html?c=15a73df26ca348&f=包款">包款</a></li>
+                        <li><a href="product.html?c=15a6af733a4100&f=鞋款">鞋款</a></li>
+                        <li><a href="product.html?c=15a6af74c72420&f=服飾">服飾</a></li>
+                        <li><a href="product.html?c=15a6ae3eabb030&f=時尚配件">時尚配件</a></li>
+                    </ul>
+                    <hr class="m-nav-hr">
+                    <ul class="nav-cnt">
+                        <li><a href="member.html" class="active">個人資料管理</a></li>
+                        <li><a href="order.html">訂單查詢</a></li>
+                        <li><a href="likelist.html">追蹤清單</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- -->
+
+
+
 </div>
+
 <script src="js/mMenu.js"></script> <!--For naigantion-->
 
 <script>
-    function regis(){
-        if(location.search.indexOf("desti")>-1){
-           location.href="signin.html"+location.search;
-        }else{
-            location.href="signin.html";
+    function regis() {
+        if (location.search.indexOf("desti") > -1) {
+            location.href = "signin.html" + location.search;
+        } else {
+            location.href = "signin.html";
         }
     }
-    $(function() {
-        $(window).scroll(function() {
+
+    $(function () {
+        $(window).scroll(function () {
 
             //固定menu
-            if ($(this).scrollTop() > 129)  {
+            if ($(this).scrollTop() > 129) {
                 $('header').addClass('fixed');
             } else {
                 $('header').removeClass('fixed');
@@ -205,7 +222,7 @@
 <script src="js/slick.min.js"></script>
 
 <script type="text/javascript">
-    $(document).on('ready', function() {
+    $(document).on('ready', function () {
 
         $(".indexslick").slick({
             //dots: true, //顯示輪播圖片會顯示圓圈
@@ -222,7 +239,7 @@
                     breakpoint: 480,
                     settings: {
                         slidesToShow: 3.3,
-                        arrows:false
+                        arrows: false
                     }
                 }]
         });
@@ -230,8 +247,8 @@
     });
 </script>
 <script>
-    $(document).ready(function() {
-        $('.header-langEx a').click(function() {
+    $(document).ready(function () {
+        $('.header-langEx a').click(function () {
             $('a.active').removeClass('active');
             $(this).closest('a').addClass('active');
         });
@@ -243,18 +260,17 @@
         // console.log("$(window).height():"+ $(window).height());
         // console.log("$(html).height():"+ $('html').height());
         // 固定footer
-            // console.log('开启定时器')
+        // console.log('开启定时器')
         // function footerFixed() {
-            if ($('html').height() < $(window).height()) {
-                var footerW = $('footer').width();
-                $('.main-content').height($(window).height() - $('header').height() + 5);
-                $('.footer-cnt').css({position: 'fixed', bottom: 0, left: '50%', marginLeft: -footerW / 2});
-            } else {
-                $('.footer-cnt').css({position: ''});
-            }
+        if ($('html').height() < $(window).height()) {
+            var footerW = $('footer').width();
+            $('.main-content').height($(window).height() - $('header').height() + 5);
+            $('.footer-cnt').css({position: 'fixed', bottom: 0, left: '50%', marginLeft: -footerW / 2});
+        } else {
+            $('.footer-cnt').css({position: ''});
+        }
 
         // }
-
 
 
         // if ($(document).height() == $(window).height()){
@@ -266,17 +282,7 @@
         // }
         // }
         // setInterval(footerFixed);
-        $('.filter-btn').on("click",function(){
-            // console.log("You swiped left!");
-            $('.mobile-filter-wrap').removeClass('menu-is-open2');
-            $('#filter-toggle').removeClass('is-clicked');
-        });
-
-        // $('document').on("swiper",function(){
-        //     console.log("You swiped left!");
-        //     $('.mobile-filter-wrap').removeClass('menu-is-open2');
-        //     $('#filter-toggle').removeClass('is-clicked');
-        // });
+        
     })
 
 
