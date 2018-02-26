@@ -511,6 +511,20 @@
 	transition: opacity 0.4s;
 }
 
+/*封层*/
+.panel_upside {
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 500;
+	opacity: 0.6;
+}
+.panel_hide{
+	display: none;
+}
 /*** ***/
 
 /*RWD*/

@@ -76,8 +76,15 @@ jQuery(document).ready(function($){
 			$('body').toggleClass('overflow-hidden');
 		}
 
+		$('.panel_upside').removeClass('panel_hide');
 
 	});
+    $('.panel_upside').click(function () {
+    	console.log('点击了panel')
+        $('.panel_upside').addClass('panel_hide');
+        $('.mobile-filter-wrap').removeClass('menu-is-open2');
+        $('#filter-toggle').removeClass('is-clicked');
+    })
 
 
 	//close lateral menu clicking outside the menu itself
