@@ -1,8 +1,8 @@
 (function(){
     var PH = angular.module('PH');
     PH.controller('loginCtrl',loginCtrl);
-    loginCtrl.$inject = ['$scope', 'DialogService'];
-    function loginCtrl($scope,DialogService) {
+    loginCtrl.$inject = ['$scope'];
+    function loginCtrl($scope) {
         $scope.clickFlag=false;
 
         $scope.login=function () {

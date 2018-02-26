@@ -32,9 +32,9 @@
       <a href="javascript:void(0);" ng-repeat="item in pageList track by $index" ng-class="{active: item == conf.currentPage, separate: item == '..'}" ng-click="changeCurrentPage(item)">
             <span>{{ item }}</span>
       </a>
-      <a href="javascript:void(0);" class="pagination-next" ng-class="{disable: conf.currentPage == conf.numberOfPages}" ng-click="nextPage()"><span>下一頁</span></a>
+      <a href="javascript:void(0);" class="pagination-next" ng-class="{disable: conf.currentPage == conf.numberOfPages}" ng-click="conf.nextPage()"><span>下一頁</span></a>
 </div>
 <div class="items-sum">
 <div>共計<span>{{ conf.totalItems }}</span>個商品</div>
-<div>頁數<span>{{ conf.currentPage }}</span>/<span>{{(conf.totalItems / conf.itemsPerPage)+1 | number:0 }}</span></div>
+<div>頁數<span>{{ conf.currentPage }}</span>/<span>{{conf.totalItems / conf.itemsPerPage +1| parseint }}</span></div>
 </div>

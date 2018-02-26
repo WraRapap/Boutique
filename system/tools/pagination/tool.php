@@ -97,9 +97,9 @@ class Pagination_Tool extends CS_Tool{
 			
                 $start_index = (($this -> get_page() - 1) * $this -> count_per_page);
                 // 頁面起始筆數 如 超過總資料筆數
-                while($start_index >= $this -> total_count && $this -> total_count > 0){
-					$start_index -= $this -> count_per_page;
-                }
+//                while($start_index >= $this -> total_count && $this -> total_count > 0){
+//					$start_index -= $this -> count_per_page;
+//                }
                
                 return $start_index;
         }

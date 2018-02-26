@@ -11,7 +11,6 @@ angular.module('tm.pagination',[]).directive('tmPagination',[function(){
         },
         link: function(scope, element, attrs) {
             var conf = scope.conf;
-
             // 默认分页长度
             var defaultPagesLength = 9;
 
@@ -158,7 +157,7 @@ angular.module('tm.pagination',[]).directive('tmPagination',[function(){
             };
 
             // nextPage
-            scope.nextPage = function() {
+            scope.conf.nextPage = function() {
                 if(conf.currentPage < conf.numberOfPages){
                     conf.currentPage += 1;
                 }
@@ -167,7 +166,6 @@ angular.module('tm.pagination',[]).directive('tmPagination',[function(){
                     conf.onChange();
                 }
             };
-
             // 变更当前页
             scope.changeCurrentPage = function(item) {
                 
