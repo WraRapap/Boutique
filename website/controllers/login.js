@@ -15,7 +15,7 @@
             $.ajax({
                 url:"/index.php/api/login",
                 type:"post",
-                data:{"email":$scope.email,"password":$scope.password},
+                data:{"email":$scope.email,"password":$scope.password,"code":$("#inputcode").val()},
                 dataType:"json",
                 success:function(data){
                    if(data.status==1){
@@ -31,9 +31,21 @@
                 error:function(){
                     showPrompt('登錄', "服務繁忙，請稍後重試");
                 }
-            })
+            });
 
-       }
+
+       };
+
+        $("#code").click(function(){
+            $.ajax({
+                url:"/index.php/api/getcode",
+                type:"post",
+                success:function(data){
+                    data =$.trim( data);
+                    $("#code").attr("src","http://fakeimg.pl/200x50/fff/000/?text="+data);
+                }
+            });
+        });
     }
 
 })()
