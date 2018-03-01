@@ -167,7 +167,7 @@ class Api_Controller extends CS_Controller{
              return;
         }
 
-        if(empty($this->tool_io-post("uid"))){
+        if(empty($this->tool_io->post("uid"))){
             echo json_encode(array("msg"=>"找不到指定商品"));
             return;
         }
