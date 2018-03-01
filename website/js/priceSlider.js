@@ -190,8 +190,8 @@ jQuery(document).ready(function ($) {
             //拖动
             //begin
             begin_box.on('touchmove', function (e) {
-                var e_target = e.targetTouches[0];
-                var e_pageX = e.targetTouches[0].pageX;
+                var e_target = e.originalEvent.targetTouches[0];
+                var e_pageX = e.originalEvent.targetTouches[0].pageX;
                 // console.log(e_target);
                 // console.log(e_pageX);
 
