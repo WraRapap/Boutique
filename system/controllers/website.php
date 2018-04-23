@@ -134,6 +134,13 @@ class Website_Controller extends WebsiteController{
 //order by p.createTime ?,
 //order by p.price ?
 	public function  product(){
+	    if(!isset($_GET['originUrl'])){
+            $originUrl="product.html";
+            if(!empty($_SERVER['QUERY_STRING'])){
+                $originUrl.="?".$_SERVER['QUERY_STRING'];
+            }
+        }
+
         $perPageItems=empty($this->tool_io->get("count"))? 12:$this->tool_io->get("count");
         $currentPage=empty($this->tool_io->get("page"))? 1:$this->tool_io->get("page");
 	    $totalparm=array();
@@ -229,6 +236,7 @@ class Website_Controller extends WebsiteController{
                         "colors"=>$colors ,
                         "brands"=>$brands ,
                         "sizes"=>$sizes ,
+                        "originUrl"=>$originUrl,
                         "currentPage"=>$currentPage);
         $this ->display("product",$datas);
     }

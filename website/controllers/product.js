@@ -37,12 +37,13 @@
 
         $scope.sort=GetQueryString("so")==null?"":GetQueryString("so");
         $scope.clearGo=function () {
-            var index =location.href.indexOf("&");
-            if(index>-1){
-                location.href= location.href.substr(0,index);
-            }else{
-                location.href=location.href;
-            }
+            location.href=$("#originUrl").val();
+            // var index =location.href.indexOf("&");
+            // if(index>-1){
+            //     location.href= location.href.substr(0,index);
+            // }else{
+            //     location.href=location.href;
+            // }
         };
 
         $scope.pageChange = function ()
